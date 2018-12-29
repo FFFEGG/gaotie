@@ -1,0 +1,234 @@
+<style type="less">
+    page {
+        float: left;
+        padding: 2%;
+        width: 96%;
+        .heard {
+            width: 100%;
+            float: left;
+            .search {
+                width: 85%;
+                float: left;
+                background: #eee;
+                border-radius: 5px;
+                height: 30px;
+                line-height: 30px;
+                icon {
+                    float: left;
+                    height:20px;
+                    margin-top:8px;
+                    margin-left:10px;
+                }
+                input {
+                    float: left;
+                    height: 30px;
+                    line-height: 30px;
+                    padding-left: 10px;
+                    width: 85%;
+                }
+            }
+            .search_btn {
+                line-height: 30px;
+                float: right;
+                text-align: right;
+                font-size: 35rpx;
+            }
+        }
+    }
+
+    .search-box {
+        margin-top: 20px;
+        width: 100%;
+        float: left;
+        image {
+            float: left;
+        }
+        .title {
+            float:left;
+            line-height:21px;
+            font-size:15px;
+            color:#999999;
+            text-indent:10px;
+        }
+        .search-list {
+            width: 100%;
+            float: left;
+            padding: 2% 0%;
+            text {
+                float: left;
+                margin-right: 6px;
+                padding: 1% 4%;
+                background: #EEEEEE;
+                border-radius: 13px;
+                font-size:13px;
+                margin-bottom: 3px;
+                margin-top: 3px;
+            }
+        }
+    }
+
+    .list {
+        width: 100%;
+        float: left;
+        position: fixed;
+        top: 40px;
+        height: 100%;
+        background: #FFFFFF;
+        z-index: 999;
+        .item {
+            font-size:15px;
+            line-height:30px;
+            border-bottom:1px solid #eee;
+            margin-top:10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+</style>
+<template>
+    <view class="heard">
+        <view class="search">
+            <icon type="search" size="15"></icon>
+            <input type="text"  bindinput="bindKeyInput"  placeholder="搜索你想要的商品"  confirm-type="search">
+        </view>
+        <view @tap="go_search" class="search_btn">搜索</view>
+    </view>
+
+    <view class="search-box">
+        <image src="/images/time.png" style="width: 20px;height: 20px"></image>
+        <view class="title">最近搜索</view>
+        <image src="/images/del.png" @tap="delsearch" style="width: 20px;height: 20px;float: right"></image>
+        <view class="search-list">
+            <repeat for="{{ serachkeys }}" item="v">
+                <text @tap="goserach({{ v }})">{{ v }}</text>
+            </repeat>
+        </view>
+    </view>
+
+
+    <view class="search-box">
+        <image src="/images/fier.png" style="width: 20px;height: 20px"></image>
+        <view class="title">热门搜索</view>
+        <view class="search-list">
+            <repeat for="{{ hotlist }}" item="v">
+                <text @tap="goserach({{ v.title }})">{{ v.title }}</text>
+            </repeat>
+        </view>
+    </view>
+
+    <view class="list" wx:if="{{ show }}">
+        <repeat for="{{ list }}" item="v">
+            <view class="item" @tap="gotogoods({{ v.id }})">
+                {{ v.title }}
+            </view>
+        </repeat>
+
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+  export default class Yh extends wepy.page {
+    config = {
+      navigationBarTitleText: '产品搜索',
+      disableScroll: true
+    }
+    computed = {
+      serachkeys () {
+        return wepy.getStorageSync('serachkeys')
+      }
+    }
+    data = {
+      list: [],
+      hotlist: [],
+      key: '',
+      show: false
+    }
+    methods = {
+      gotogoods (id) {
+        wepy.navigateTo({
+          url: '/shop/pages/goods/data?id=' + id
+        })
+        this.show = false
+      },
+      goserach (key) {
+        wepy.navigateTo({
+          url: '/shop/pages/cate/search?key=' + key
+        })
+        this.show = false
+      },
+      go_search () {
+        if (this.key.length <= 0) {
+          return false
+        }
+        if (this.show === true) {
+          if (wepy.getStorageSync('serachkeys')) {
+            var list = wepy.getStorageSync('serachkeys')
+            if (list.indexOf(this.key) === -1) {
+              list.unshift(this.key)
+              wepy.setStorageSync('serachkeys', list)
+            }
+          } else {
+            const list = []
+            if (list.indexOf(this.key) === -1) {
+              list.unshift(this.key)
+              wepy.setStorageSync('serachkeys', list)
+            }
+          }
+          if (wepy.getStorageSync('serachkeys').length > 15) {
+            const list = wepy.getStorageSync('serachkeys')
+            list.splice(1, list.length)
+          }
+        }
+        wepy.navigateTo({
+          url: '/shop/pages/cate/search?key=' + this.key
+        })
+        this.show = false
+      },
+      async delsearch () {
+        let res = await wepy.showModal({
+          title: '清空搜索记录',
+          content: '确认清空',
+          confirmText: '确认',
+          cancelText: '取消'
+        })
+        if (res.confirm) {
+          wepy.clearStorageSync('serachkeys')
+          this.serachkeys = []
+          this.$apply()
+        }
+      }
+    }
+    async onLoad () {
+      let rew = await api.request({
+        url: 'search/hotwords',
+        method: 'post'
+      })
+      this.hotlist = rew.data.data
+      this.$apply()
+    }
+    async bindKeyInput (e) {
+      var data = e.detail.value
+      this.key = data
+      if (data.length > 0) {
+        let rew = await api.request({
+          url: 'search/associate',
+          method: 'post',
+          data: {
+            keyword: data
+          }
+        })
+        if (rew.data.code === 200) {
+          this.list = rew.data.data
+          this.show = true
+          this.$apply()
+        }
+      } else {
+        this.show = false
+        this.$apply()
+      }
+    }
+  }
+</script>

@@ -1,0 +1,93 @@
+<style type="less">
+    page {
+        background: #eeeeee;
+    }
+    .swiper-block{
+        height: 480rpx;
+        width: 100%;
+    }
+    .swiper-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        overflow:unset;
+    }
+    .slide-image{
+        height:320rpx;
+        width: 520rpx;
+        border-radius: 9rpx;
+        box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
+        margin: 0rpx 30rpx;
+        z-index: 1;
+    }
+    .active{
+        transform: scale(1.14);
+        transition:all .2s ease-in 0s;
+        z-index: 20;
+    }
+
+    .heard {
+        width: 100%;
+        float: left;
+        padding-bottom: 50px;
+        .quanyi {
+            width: 94%;
+            padding: 0 3%;
+        }
+    }
+
+    button {
+        background: #a76618;
+        color: #FFFFFF;
+        width: 70%;
+        border-radius: 0;
+    }
+</style>
+<template>
+    <view class="heard">
+        <swiper  class="swiper-block"  previous-margin="90rpx" next-margin="90rpx" current="0" bindchange="swiperChange">
+            <block wx:for="{{list}}" wx:index="{{index}}">
+                <swiper-item class="swiper-item">
+                    <image mode="aspectFill" src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kp.png" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <view class="quanyi">
+            <view style="text-align: center;font-size: 14px">银卡</view>
+            <text style="font-size: 13px">
+                1、采用实名制,仅限本人使用。
+                2、可全年无限次使用广西区内高铁商务候车厅标准服务。
+                3、可享全国(广西区外)高铁贵宾厅服务8.8折优惠。
+            </text>
+        </view>
+    </view>
+
+    <button @tap="go_yy">预约服务</button>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Mycard extends wepy.page {
+    config = {
+      navigationBarTitleText: '我的会员卡'
+    }
+    data = {
+      swiperIndex: 0,
+      list: [1, 2, 3],
+      jifen: false,
+      userinfo: ''
+    }
+    methods = {
+      swiperChange(e) {
+        this.swiperIndex = e.detail.current
+        console.log(this.swiperIndex)
+        this.$apply()
+      },
+      go_yy () {
+        this.$navigate('./yyform?id=1')
+      }
+    }
+  }
+</script>

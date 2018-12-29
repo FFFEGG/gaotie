@@ -1,0 +1,21 @@
+<style type="less">
+
+</style>
+<template>
+    <web-view src="https://wx.17u.cn/cooperators/webapp/train/index.html?refid=304917994&token={{ openid }}"></web-view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class train extends wepy.page {
+    config = {
+      navigationBarTitleText: ''
+    }
+    data = {}
+    computed = {
+      openid () {
+        return wepy.getStorageSync('openid')
+      }
+    }
+  }
+</script>

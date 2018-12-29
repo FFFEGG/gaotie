@@ -1,0 +1,435 @@
+<style type="less">
+    .content {
+        text-align: center;
+    }
+
+    .logo {
+        width: 426rpx;
+        height: 166rpx;
+        margin: 20rpx 0;
+    }
+
+    .heard {
+        width: 92%;
+        padding: 4%;
+        height: 270rpx;
+        background: url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/vip_bg.png ') no-repeat 100%/100%;
+        .heard-top {
+            width: 100%;
+            height: 30rpx;
+            .login {
+                float: left;
+                color: #FFFFFF;
+                line-height: 30rpx;
+                view {
+                    font-size: 28rpx;
+                    float: left;
+                    margin-right: 15rpx;
+                }
+            }
+            .own {
+                float: right;
+                color: #FFFFFF;
+                line-height: 30rpx;
+                text-align: right;
+                font-size: 28rpx;
+            }
+        }
+        .content {
+            width: 90%;
+            padding: 1% 5%;
+            height: 150rpx;
+            margin-top: 50rpx;
+            .avatarUrl {
+                width: 150rpx;
+                height: 150rpx;
+                border-radius: 75rpx;
+                float: left;
+                overflow: hidden;
+                border: 1px solid #ffffff;
+            }
+            .msg-user {
+                float: left;
+                height: 150rpx;
+                margin-left: 35rpx;
+                text-align: left;
+                margin-top: 10rpx;
+                .userNickName {
+                    color: #FFFFFF;
+                    font-size: 30rpx;
+                    text-indent: 16rpx;
+                }
+                .user {
+                    font-size: 28rpx;
+                    margin-top: 10rpx;
+                    color: rgb(254, 212, 7);
+                    line-height: 45rpx;
+                    letter-spacing: 3rpx;
+                }
+            }
+        }
+    }
+
+    .myorder {
+        width: 100%;
+        height: 360rpx;
+        border-bottom: 10rpx solid rgb(246, 246, 246);
+        .title {
+            width: 92%;
+            padding: 1% 4%;
+            height: 60rpx;
+            border-bottom: 2rpx solid rgb(246, 246, 246);
+            line-height: 70rpx;
+            font-size: 30rpx;
+            text-align: left;
+            image {
+                width: 30rpx;
+                height: 30rpx;
+                float: left;
+                margin-top: 18rpx;
+                margin-right: 15rpx;
+            }
+            text {
+                float: left;
+            }
+        }
+        .orderlist {
+            height: 80rpx;
+            width: 90%;
+            padding: 2% 5% 5% 5%;
+            border-bottom: 6rpx solid rgb(246, 246, 246);
+            .item {
+                width: 87rpx;
+                height: 90rpx;
+                float: left;
+                margin-right: 60rpx;
+                text-align: center;
+                margin-top: 5rpx;
+                image {
+                    width: 50rpx;
+                    height: 50rpx;
+                }
+                view {
+                    font-size: 28rpx;
+                    color: rgb(57, 57, 57);
+                }
+            }
+            .item:nth-child(5) {
+                margin-right: 0px;
+            }
+        }
+        .my {
+            width: 90%;
+            padding: 3% 5%;
+            .item {
+                width: 145rpx;
+                height: 100rpx;
+                text-align: center;
+                float: left;
+                margin-right: 121rpx;
+                margin-top: 5rpx;
+                image {
+                    width: 55rpx;
+                    height: 55rpx;
+                }
+                view {
+                    font-size: 28rpx;
+                    color: rgb(57, 57, 57);
+                }
+            }
+            .item:nth-child(3) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .mycw {
+        width: 100%;
+        height: 225rpx;
+        border-bottom: 10rpx solid rgb(246, 246, 246);
+        .title {
+            width: 92%;
+            padding: 1% 4%;
+            height: 60rpx;
+            border-bottom: 2rpx solid rgb(246, 246, 246);
+            line-height: 70rpx;
+            font-size: 30rpx;
+            text-align: left;
+            image {
+                width: 30rpx;
+                height: 30rpx;
+                float: left;
+                margin-top: 18rpx;
+                margin-right: 15rpx;
+            }
+            text {
+                float: left;
+            }
+        }
+        .my {
+            width: 90%;
+            padding: 3% 5%;
+            .item {
+                width: 140rpx;
+                height: 100rpx;
+                text-align: center;
+                float: left;
+                margin-right: 127rpx;
+                margin-top: 5rpx;
+                image {
+                    width: 55rpx;
+                    height: 55rpx;
+                }
+                view {
+                    font-size: 28rpx;
+                    color: rgb(57, 57, 57);
+                }
+            }
+            .item:nth-child(3) {
+                margin-right: 0;
+            }
+        }
+    }
+    .zz{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+    }
+</style>
+
+<template>
+    <view class="content">
+        <view class="heard">
+            <view class="heard-top">
+                <view class="login" wx:if="{{ !token }}">
+                    <view @tap="login">登录</view>
+                    <view>|</view>
+                    <view @tap="zhuce">注册</view>
+                </view>
+                <view class="login" wx:else>
+                    <view>
+                        <button  bindgetuserinfo="onGotUserInfo"  open-type="getUserInfo" class="button-share" id="share-button">
+                        </button>
+                        <label for="share-button" >更新头像</label>
+                    </view>
+
+                </view>
+
+                <view class="own" @tap="personal">
+                    个人资料
+                </view>
+            </view>
+            <view class="content" wx:if="{{ user }}">
+                <div class="avatarUrl">
+                    <image src="{{ user.avatar }}" alt="" style="width: 100%;height: 100%"></image>
+                </div>
+                <view class="msg-user">
+                    <view class="userNickName">
+                        {{ user.name }}
+                    </view>
+                    <view class="user">
+                        <view>【{{ user.swh_level }}】</view>
+                        <view>【{{ user.shop_level }}】</view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="content" wx:else>
+                <div class="avatarUrl">
+                    <open-data type="userAvatarUrl"></open-data>
+                </div>
+                <view class="msg-user">
+                    <view class="userNickName">
+                        <open-data type="userNickName"></open-data>
+                    </view>
+                    <view class="user">
+                        <view>【商城会员V2】</view>
+                        <view>【商务会员白金】</view>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+        <view class="myorder">
+            <view class="title">
+                <image src="/images/vip_dd.png"></image>
+                <text>我的订单</text>
+            </view>
+            <view class="orderlist">
+                <view class="item">
+                    <navigator url="/shop/pages/order/list?id=0" hover-class="navigator-hover">
+                        <image src="/images/vip1.png"></image>
+                        <view>未付款</view>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/shop/pages/order/list?id=1" hover-class="navigator-hover">
+                        <image src="/images/vip6.png"></image>
+                        <view>已付款</view>
+                        </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/shop/pages/order/list?id=2" hover-class="navigator-hover">
+                        <image src="/images/vip3.png"></image>
+                        <view>待收货</view>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/shop/pages/order/list?id=3" hover-class="navigator-hover">
+                        <image src="/images/vip4.png"></image>
+                        <view>已完成</view>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <image src="/images/vip5.png"></image>
+                    <view>售后</view>
+                </view>
+            </view>
+            <view class="my">
+                <view class="item">
+                    <image src="/images/vip7.png"></image>
+                    <view>我的收藏</view>
+                </view>
+                <view class="item">
+                    <image src="/images/vip8.png"></image>
+                    <view>我的商务候</view>
+                </view>
+                <view class="item">
+                    <image src="/images/vip9.png"></image>
+                    <view>我的券包</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="mycw">
+            <view class="title">
+                <image src="/images/vip_cw.png"></image>
+                <text>财务管理</text>
+            </view>
+            <view class="my">
+                <view class="item">
+                    <image src="/images/vip10.png"></image>
+                    <view>充值记录</view>
+                </view>
+                <view class="item">
+                    <image src="/images/vip11.png"></image>
+                    <view>消费记录</view>
+                </view>
+                <view class="item">
+                    <image src="/images/vip12.png"></image>
+                    <view>会员积分</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="mycw">
+            <view class="title">
+                <image src="/images/vip_sz.png"></image>
+                <text>设置</text>
+            </view>
+
+            <view class="my">
+                <view class="item">
+                    <navigator url="/pages/password" hover-class="navigator-hover">
+                        <image src="/images/vip13.png"></image>
+                        <view>修改密码</view>
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/pages/address" hover-class="navigator-hover">
+                        <image src="/images/vip14.png"></image>
+                        <view>地址管理</view>
+                    </navigator>
+                </view>
+                <view class="item" @tap="logout">
+                    <image src="/images/vip15.png"></image>
+                    <view>退出系统</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="zz" wx:if="{{ !token }}" @tap="gologin">
+
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+
+  export default class User extends wepy.page {
+    config = {
+      navigationBarTitleText: '会员中心'
+    }
+    computed = {
+      token() {
+        return wepy.getStorageSync('token')
+      }
+    }
+    data = {
+      user: ''
+    }
+    methods = {
+      login() {
+        this.$navigate('./login')
+      },
+      gologin() {
+        this.$navigate('./login')
+      },
+      zhuce() {
+        this.$navigate('./login')
+      },
+      logout() {
+        wepy.clearStorageSync()
+        wepy.switchTab({
+          url: '/pages/index'
+        })
+      },
+      async personal () {
+        this.$navigate('./personal')
+      }
+    }
+    async onLoad() {
+      if (!this.token) {
+        wepy.navigateTo({
+          url: '/pages/login'
+        })
+        return false
+      }
+    }
+    async onGotUserInfo (e) {
+      let res = await api.request({
+        url: 'user/avatar',
+        method: 'post',
+        data: {
+          avatar: e.detail.userInfo.avatarUrl,
+          token: wepy.getStorageSync('token')
+        }
+      })
+      if (res.data.code === 200) {
+        this.user.avatar = e.detail.userInfo.avatarUrl
+        this.$apply()
+      }
+    }
+    async onShow() {
+      wepy.removeStorageSync('returnpage')
+      wepy.removeStorageSync('returnoptions')
+      if (wepy.getStorageSync('token') === '') {
+        return false
+      }
+      let rew = await api.request({
+        url: 'user',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token')
+        }
+      })
+      if (rew.data.code === 200) {
+        this.user = rew.data.user
+        this.$apply()
+      }
+    }
+  }
+</script>

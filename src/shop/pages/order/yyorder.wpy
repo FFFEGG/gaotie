@@ -1,0 +1,143 @@
+<style type="less">
+    page {
+        padding-bottom: 30px;
+        float: left;
+    }
+    .heard {
+        width: 100%;
+        height: 100px;
+        background: #9d6348;
+        text-align: center;
+        line-height: 80px;
+        font-size: 20px;
+        color: #FFFFFF;
+        border-radius: 0 0 5px 5px;
+        view {
+            font-size: 14px;
+            line-height: 0;
+            text-align: left;
+            color: #CCCCCC;
+            text-indent: 5%;
+            text-shadow: 1px 1px 1px #aaa;
+            width: 50%;
+        }
+
+        .td {
+            color: #C8C8CD;
+            text-shadow: none;
+        }
+    }
+    .box {
+        float: left;
+        width: 92%;
+        margin-left: 4%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        box-shadow: 0 1px 1px 1px #eee;
+        border-radius: 0 0 10px 10px;
+    }
+    .order_info {
+        width: 84%;
+        padding: 0 8%;
+        float: left;
+        text-align: left;
+        view {
+            font-size: 14px;
+        }
+        padding-bottom: 5%;
+    }
+
+    .img {
+        width: 100%;
+        text-align: center;
+        image {
+            width: 500rpx;
+            height: 500rpx;
+            padding: 10rpx;
+            border-radius: 3rpx;
+            background: #f8f8f8;
+        }
+        view {
+            font-size: 15px;
+        }
+    }
+    button {
+        width: 30%;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 10%;
+        font-size: 14px;
+    }
+
+    .fuzd {
+        width: 50%;
+        float: left;
+    }
+
+</style>
+<template>
+    <view class="heard">
+        <text>订单详情</text>
+        <view style="clear: both"></view>
+        <view>扫码进入</view>
+        <view class="td" style="float: right;text-align: right;margin-right: 5%">退订</view>
+    </view>
+    <view class="box">
+        <view class="order_info">
+            <view class="fuzd">
+                <view style="font-size: 12px;color: #999999">服务站点</view>
+                <view style="font-size: 15px">南宁站</view>
+            </view>
+
+            <view class="fuzd" style="text-align: right">
+                <view style="font-size: 12px;color: #999999">持卡人</view>
+                <view style="font-size: 15px">张三</view>
+            </view>
+
+            <view style="float: left;width: 100%">
+                <view style="font-size: 12px;color: #999999">预约时间</view>
+                <view style="font-size: 16px">2018-12-12 12：12</view>
+            </view>
+
+            <view style="float: left;width: 100%">
+                <view style="font-size: 12px;color: #999999">手机号码</view>
+                <view style="font-size: 16px">1388888888</view>
+            </view>
+
+
+            <view style="float: left;width: 100%">
+                <view style="font-size: 12px;color: #999999">车次信息</view>
+                <view style="font-size: 16px">TTT2018</view>
+            </view>
+            <view style="float: left;width: 33%">
+                <view style="font-size: 12px;color: #999999">标准服务</view>
+                <view style="font-size: 16px">1人</view>
+            </view>
+            <view style="float: left;width: 33%">
+                <view style="font-size: 12px;color: #999999">要客服务</view>
+                <view style="font-size: 16px">1人</view>
+            </view>
+            <view style="float: left;width: 33%">
+                <view style="font-size: 12px;color: #999999">携带人数</view>
+                <view style="font-size: 16px">1人</view>
+            </view>
+        </view>
+
+        <view class="img">
+            <image src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/1544170992.png"></image>
+        </view>
+    </view>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class yyorder extends wepy.page {
+    config = {
+      navigationBarTitleText: '',
+      navigationBarBackgroundColor: '#9d6348',
+      navigationBarTextStyle: '#FFFFFF'
+    }
+    data = {}
+  }
+</script>

@@ -1,0 +1,524 @@
+<style type="less">
+    page {
+        height: 100%;
+        background: #f8f8f8;
+    }
+
+    .add_position {
+        width: 100%;
+        float: left;
+        position: fixed;
+        top: 0;
+    }
+
+    .add {
+        width: 94%;
+        padding: 3%;
+        float: left;
+        background: #FFFFFF;
+        height: 60px;
+        view {
+            float: left;
+        }
+        .jiantou {
+            width: 10%;
+            text-align: right;
+            margin-top: 40rpx;
+            image {
+                width: 30rpx;
+                height: 30rpx;
+            }
+        }
+        .add_info {
+            width: 90%;
+            .name {
+                font-weight: 500;
+                width: 100%;
+                font-size: 15px;
+            }
+        }
+    }
+
+    .goods {
+        width: 100%;
+        padding: 2% 0;
+        float: left;
+        background: #FFFFFF;
+        margin-bottom: 10px;
+        image {
+            width: 30%;
+            height: 130rpx;
+            float: left;
+        }
+
+        .msg {
+            height: 130rpx;
+            width: 67%;
+            margin-left: 3%;
+            float: left;
+            view {
+                height: 33%;
+                line-height: 50rpx;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .item {
+            clear: both;
+            width: 100%;
+            .item_fl {
+                float: left;
+                font-size: 14px;
+            }
+            .item_fr {
+                float: right;
+                font-size: 15px;
+                color: rgb(253, 170, 51);
+            }
+        }
+
+    }
+
+    .goods_price {
+        margin-bottom: 10px;
+        width: 94%;
+        padding: 2% 3%;
+        float: left;
+        background: #FFFFFF;
+
+        .item {
+            clear: both;
+            width: 100%;
+            .item_fl {
+                float: left;
+                font-size: 15px;
+                font-weight: 500;
+            }
+            .item_fr {
+                float: right;
+                font-size: 15px;
+                color: rgb(253, 170, 51);
+            }
+        }
+    }
+
+    .by {
+        clear: both;
+        float: left;
+        width: 94%;
+        padding: 1% 3%;
+        background: rgb(252, 239, 222);
+        view {
+            font-size: 14px;
+            float: left;
+            color: rgb(253, 170, 51);
+        }
+    }
+
+    .pay_style {
+        clear: both;
+        float: left;
+        width: 100%;
+        background: #FFFFFF;
+        .zf_title {
+            font-size: 15px;
+            color: rgb(85, 182, 179);
+            text-indent: 3%;
+            padding: 2% 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .wechat {
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #eeeeee;
+            image {
+                width: 30px;
+                height: 30px;
+                margin-top: 10px;
+                margin-left: 11px;
+                float: left;
+            }
+
+            view {
+                float: left;
+                line-height: 50px;
+                font-size: 15px;
+                margin-left: 10px;
+            }
+
+            .check {
+                float: right;
+                width: 15px;
+                height: 15px;
+                margin-top: 20px;
+                margin-right: 10px;
+            }
+        }
+        padding-bottom: 150px;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background: #FFFFFF;
+        .zprice {
+            width: 55%;
+            padding-right: 5%;
+            background: rgb(247, 251, 243);
+            line-height: 50px;
+            font-size: 16px;
+            text-align: right;
+            float: left;
+            text {
+                font-size: 16px;
+                color: rgb(253, 170, 51);
+            }
+        }
+        .pay_btn {
+            float: left;
+            width: 40%;
+            background: rgb(155,99,75);
+            color: #FFFFFF;
+            line-height: 50px;
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+
+    .fix-iphonex {
+        padding-bottom: 68rpx;
+    }
+    .zz {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        float: left;
+        background: #999999;
+        opacity: 0.3;
+    }
+    .yhqlist {
+        position: fixed;
+        bottom: 0;
+        float: left;
+        width: 100%;
+        min-height: 400px;
+        background: #FFFFFF;
+        z-index: 99999;
+        view {
+            width: 100%;
+            float: left;
+            text-align: center;
+            font-size: 15px;
+        }
+        .item {
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #eeeeee;
+            float: left;
+            width: 96%;
+            padding: 0 2%;
+            view {
+                float: left;
+                text-align: left;
+                width: 60%;
+            }
+            image {
+                float: right;
+                width: 15px;
+                height: 15px;
+                margin-top: 15px;
+            }
+        }
+    }
+</style>
+<template>
+    <view class="add_position">
+        <view class="add" wx:if="{{ useradd }}">
+            <view class="add_info">
+                <view class="name">姓名: {{ useradd.name }}</view>
+                <view class="name">电话: {{ useradd.mobile }}</view>
+                <view>{{ useradd.address }}{{ useradd.adds_detail }}</view>
+            </view>
+            <view class="jiantou" @tap="addaddress">
+                <image src="/shop/image/jiantou.png"></image>
+            </view>
+        </view>
+        <view class="add" wx:else>
+            <view class="add_info">
+                <view style="margin-top:20px;width:100%;"></view>
+                <view class="name" style="font-size: 18px">请先添加默认地址</view>
+            </view>
+            <view class="jiantou" @tap="addaddress" style="margin-top: 60rpx">
+                <image src="/shop/image/jiantou.png"></image>
+            </view>
+        </view>
+        <image style="width: 100%;height: 4px;float: left"
+               src="/shop/image/94FB2348-2778-4E87-B44D-A92D0EFB86B1.png"></image>
+    </view>
+    <view style="clear: right;width: 100%; margin-top: 100px;"></view>
+    <view class="goods">
+        <view style="padding: 0 3%;width: 94%;float: left">
+            <image src="{{ goods.thumb }}"></image>
+            <view class="msg">
+                <view style="font-size: 15px">{{ goods.title }}</view>
+                <view>{{get.sku==0?'默认':get.sku}}X{{ get.num }}</view>
+                <view style="color: rgb(253,170,51)">¥{{goods.sku_price }}</view>
+            </view>
+        </view>
+        <!--<view class="by" wx:if="{{ goods.Free_postal_amount > goods.price}}">-->
+            <!--<view>满{{ goods.Free_postal_amount }}元包邮，立即去凑单</view>-->
+            <!--<view style="float: right;"> ></view>-->
+        <!--</view>-->
+
+    </view>
+    <view class="goods_price">
+        <view class="item">
+            <view class="item_fl">
+                商品金额:
+            </view>
+            <view class="item_fr">
+                ¥{{ goods.sku_price *  get.num  }}
+            </view>
+        </view>
+
+        <!--<view class="item">-->
+            <!--<view class="item_fl">-->
+                <!--运费:-->
+            <!--</view>-->
+            <!--<view class="item_fr">-->
+                <!--¥{{ goods.postage }}-->
+            <!--</view>-->
+        <!--</view>-->
+    </view>
+    <!--<view class="goods_price">-->
+        <!--<view class="item">-->
+            <!--<view class="item_fl">-->
+                <!--商品总价:-->
+            <!--</view>-->
+            <!--<view class="item_fr">-->
+                <!--¥{{ goods.sku_price *  get.num + goods.postage }}-->
+            <!--</view>-->
+        <!--</view>-->
+
+
+        <!--<view class="item">-->
+            <!--<view class="item_fl">-->
+                <!--会员折扣:-->
+            <!--</view>-->
+            <!--<view class="item_fr">-->
+                <!-- -¥{{ goods.discount_price }}-->
+            <!--</view>-->
+        <!--</view>-->
+    <!--</view>-->
+    <view class="pay_style ">
+        <view class="zf_title">
+            支付方式
+        </view>
+
+        <view class="wechat" @tap="check_zf_type(1)">
+            <image src="/shop/image/zf_wx.png"></image>
+            <view>微信支付</view>
+            <image wx:if="{{ zf_type==1 }}" class="check" src="/images/dz_three.png"></image>
+            <image wx:else class="check" src="/images/dz_four.png"></image>
+        </view>
+
+        <!--<view class="wechat" @tap="check_zf_type(2)" wx:if="{{ goods.shop_point }}">-->
+            <!--<image src="/shop/image/zf_jf.png"></image>-->
+            <!--<view>积分支付<text style="font-size: 12px;color: #AAA">(您的当前积分：<text style="color: rgb(253,170,51);">{{ goods.shop_point }}</text>分)</text>-->
+            <!--</view>-->
+
+            <!--<image wx:if="{{ zf_type==2 }}" class="check" src="/images/dz_three.png"></image>-->
+            <!--<image wx:else class="check" src="/images/dz_four.png"></image>-->
+        <!--</view>-->
+        <!--<view class="wechat" wx:if="{{ point }}">-->
+            <!--<view>使用{{ (point*100)/(goods.point_bili*100)}}积分,减{{ point }}元</view>-->
+        <!--</view>-->
+
+        <!--<view class="wechat" @tap="yhqshow_check">-->
+            <!--<image src="/shop/image/yhq.png"></image>-->
+            <!--<view>使用优惠券-->
+            <!--</view>-->
+            <!--<view wx:if="{{ yhj }}" style="float: right;color: rgb(253, 170, 51);margin-right: 3%">-->
+                <!-- -¥{{ yhj }}-->
+            <!--</view>-->
+            <!--<image wx:else class="check" src="/shop/image/jiantou.png"></image>-->
+
+        <!--</view>-->
+    </view>
+    <view class="zz" wx:if="{{ yhqshow }}">
+
+    </view>
+    <view class="yhqlist"  wx:if="{{ yhqshow }}">
+        <view style="padding: 2% 0">
+            优惠券
+        </view>
+        <repeat for="{{ goods.yhqlist }}" item="v" index="index">
+            <view class="item" @tap="chooseYhq({{ index }})">
+                <view>{{ v.title }}</view>
+                <image wx:if="{{ yhq_active === index }}" src="/images/dz_three.png"></image>
+                <image wx:else src="/images/dz_four.png"></image>
+            </view>
+        </repeat>
+        <view class="item" @tap="chooseYhq('')">
+            <view>不使用优惠券</view>
+            <image wx:if="{{ yhq_active === '' }}" src="/images/dz_three.png"></image>
+            <image wx:else src="/images/dz_four.png"></image>
+        </view>
+    </view>
+
+
+    <view class="footer {{isIphoneX ?'fix-iphonex':''}}">
+        <view class="zprice">
+            实付款:
+            <text>¥{{ goods.sku_price *  get.num }}</text>
+        </view>
+        <view class="pay_btn" @tap="pay_submit">
+            立即支付
+        </view>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../../../utils/api'
+
+  export default class ms extends wepy.page {
+    config = {
+      navigationBarTitleText: '确认订单'
+    }
+    data = {
+      zf_type: 1,
+      isIphoneX: false,
+      goods: '',
+      get: '',
+      userinfo: '',
+      yhqshow: false,
+      zk: 0,
+      yhq_active: '',
+      yhq_id: 0,
+      yhj: 0,
+      point: 0
+    }
+    computed = {
+      useradd() {
+        return wepy.getStorageSync('useradd')
+      }
+    }
+    methods = {
+      yhqshow_check () {
+        this.yhqshow = true
+      },
+      chooseYhq (index) {
+        if (index === '') {
+          this.yhq_active = index
+          this.yhqshow = false
+          this.yhq_id = 0
+          this.yhj = 0
+        } else {
+          this.yhq_active = index
+          this.yhqshow = false
+          this.yhq_id = this.goods.yhqlist[index].id
+          this.yhj = this.goods.yhqlist[index].price
+        }
+        this.$apply()
+      },
+      check_zf_type(data) {
+        this.zf_type = data
+        if (data === '2') {
+          if (this.goods.sku_price * this.get.num + this.goods.postage - this.goods.discount_price - this.yhj > this.goods.point_bili * this.goods.shop_point) {
+            this.point = this.goods.point_bili * this.goods.shop_point
+          } else {
+            this.point = this.goods.sku_price * this.get.num + this.goods.postage - this.goods.discount_price - this.yhj
+          }
+        } else {
+          this.point = 0
+        }
+        this.$apply()
+      },
+      addaddress() {
+        wepy.navigateTo({
+          url: '/pages/address'
+        })
+      },
+      async pay_submit() {
+        if (!wepy.getStorageSync('useradd')) {
+          wepy.showToast({
+            title: '请先添加收货地址',
+            icon: 'none',
+            duration: 3000
+          })
+          return false
+        }
+        let rew = await api.request({
+          url: 'miaoshaorders/saveOrders',
+          method: 'post',
+          data: {
+            token: wepy.getStorageSync('token'),
+            goods_id: this.goods.id,
+            sku: this.get.sku == 0 ? '' : this.get.sku,
+            num: this.get.num,
+            adds_name: this.useradd.name,
+            adds_address: this.useradd.address + this.useradd.adds_detail,
+            adds_tel: this.useradd.mobile
+          }
+        })
+        if (rew.data.code === 444) {
+          wepy.showToast({
+            title: '已抢光',
+            icon: 'none'
+          })
+          setTimeout(function () {
+            wepy.switchTab({
+              url: '/pages/index'
+            })
+          }, 500)
+          return false
+        }
+        wx.requestPayment({
+          timeStamp: rew.data.timeStamp,
+          nonceStr: rew.data.nonceStr,
+          package: rew.data.package,
+          signType: 'MD5',
+          paySign: rew.data.paySign,
+          success (res) {
+            wepy.redirectTo({
+              url: '/shop/pages/mssuccess?id=' + rew.data.orderId
+            })
+          },
+          fail (res) {
+            wepy.redirectTo({
+              url: '/shop/pages/msorder/data?id=' + rew.data.orderId
+            })
+          }
+        })
+      }
+    }
+
+    async onLoad(options) {
+      let phone = await wepy.getSystemInfo()
+      if (phone.model.indexOf('iPhone X') !== -1) {
+        this.isIphoneX = true
+      }
+      let rew = await api.request({
+        url: 'miaoshaorders/confirm',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token'),
+          goods_id: options.id,
+          sku: options.sku,
+          num: options.num
+        }
+      })
+      this.get = options
+      this.goods = rew.data.data
+      this.goods.postage = this.goods.sku_price * this.get.num >= this.goods.Free_postal_amount ? 0 : this.goods.postage
+      this.$apply()
+    }
+
+  }
+</script>

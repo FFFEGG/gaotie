@@ -1,0 +1,184 @@
+<style type="less">
+    page {
+        background: #f8f8f8;
+    }
+    .heard {
+        width: 92%;
+        padding: 2% 4%;
+        background: #FFFFFF;
+        float: left;
+        height: 30px;
+        .title {
+            height: 30px;
+            line-height: 30px;
+            color: #a76618;
+            float: left;
+            margin-right: 10px;
+
+        }
+        .card {
+            height: 30px;
+            line-height: 30px;
+            float: left;
+            width: 40%;
+            padding-left: 10%;
+            background: #e5d1b6;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+    }
+
+    .item {
+        width: 92%;
+        padding: 4%;
+        background: #fff8ef;
+        height: 210rpx;
+        border-bottom: 1px dashed #eee;
+        float: left;
+        image {
+            width: 380rpx;
+            height: 210rpx;
+            float: left;
+        }
+        .info {
+            float: left;
+            margin-left: 10px;
+            margin-top: 10px;
+            width: 280rpx;
+            view  {
+                color: #a76618;
+                font-size: 13px;
+                float: left;
+            }
+
+            .yh {
+                text {
+                    float: left;
+                    margin-right: 3px;
+                }
+                .price_1 {
+                    margin-top: 5px;
+                }
+                .price_2 {
+                    float: left;
+                    font-size: 22px;
+                    margin-right: 5px;
+                }
+
+                .price_3 {
+                    margin-top: 8px;
+                }
+            }
+
+            .btn {
+                background: #EF4F4F;
+                color: #FFFFFF;
+                border-radius: 10px;
+                padding: 0 3%;
+                font-size: 11px;
+            }
+        }
+    }
+</style>
+<template>
+    <view class="heard">
+        <view class="title">已购买服务</view>
+        <navigator url="/pages/mycard" hover-class="navigator-hover">
+            <view class="card">刷卡进入</view>
+        </navigator>
+    </view>
+
+    <view class="item">
+        <navigator url="/pages/buycar?id=1" hover-class="navigator-hover">
+            <image src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kp.png"></image>
+            <view class="info">
+                <view class="title">注册会员单次卡</view>
+                <view class="yh"> <text class="price_1">享</text><tetx class="price_2">9.8</tetx><text class="price_3">折优惠</text></view>
+                <view class="btn">点击购买</view>
+            </view>
+        </navigator>
+    </view>
+
+    <view class="item">
+        <image src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kp.png"></image>
+        <view class="info">
+            <view class="title">注册会员单次卡</view>
+            <view class="yh"> <text class="price_1">¥</text><tetx class="price_2">15800</tetx><text class="price_3">元/年</text></view>
+            <view class="btn">点击购买</view>
+        </view>
+    </view>
+
+
+    <view class="item">
+        <image src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kp.png"></image>
+        <view class="info">
+            <view class="title">注册会员单次卡</view>
+            <view class="yh"> <text class="price_1">¥</text><tetx class="price_2">15800</tetx><text class="price_3">元/年</text></view>
+            <view class="btn">点击购买</view>
+        </view>
+    </view>
+
+
+    <view class="item">
+        <image src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kp.png"></image>
+        <view class="info">
+            <view class="title">注册会员单次卡</view>
+            <view class="yh"> <text class="price_1">¥</text><tetx class="price_2">15800</tetx><text class="price_3">元/年</text></view>
+            <view class="btn">点击购买</view>
+        </view>
+    </view>
+
+
+    <view class="item">
+        <image src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kp.png"></image>
+        <view class="info">
+            <view class="title">注册会员单次卡</view>
+            <view class="yh"> <text class="price_1">¥</text><tetx class="price_2">15800</tetx><text class="price_3">元/年</text></view>
+            <view class="btn">点击购买</view>
+        </view>
+    </view>
+
+
+    <view class="item">
+        <image src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kp.png"></image>
+        <view class="info">
+            <view class="title">注册会员单次卡</view>
+            <view class="yh"> <text class="price_1">¥</text><tetx class="price_2">15800</tetx><text class="price_3">元/年</text></view>
+            <view class="btn">点击购买</view>
+        </view>
+    </view>
+
+
+    <view class="item">
+        <image src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kp.png"></image>
+        <view class="info">
+            <view class="title">注册会员单次卡</view>
+            <view class="yh"> <text class="price_1">¥</text><tetx class="price_2">15800</tetx><text class="price_3">元/年</text></view>
+            <view class="btn">点击购买</view>
+        </view>
+    </view>
+    <gohoem></gohoem>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  import GoHome from '../components/gohome'
+  export default class SwhList extends wepy.page {
+    components = {
+      gohoem: GoHome
+    }
+    config = {
+      navigationBarTitleText: '会员卡列表'
+    }
+    data = {
+    }
+
+    methods = {
+    }
+
+    async onLoad () {
+    }
+  }
+</script>

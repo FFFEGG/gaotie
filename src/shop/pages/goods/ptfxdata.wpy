@@ -1,0 +1,1125 @@
+<style type="less">
+    .swiper-box {
+        height: 250px;
+    }
+
+    .cont_title {
+        width: 90%;
+        padding: 5%;
+        float: left;
+        .price {
+            text {
+                font-size: 20px;
+                font-family: Bitstream Vera Serif Bold;
+            }
+            color: rgb(148, 81, 49);
+        }
+        .goods_title {
+            width: 100%;
+            font-size: 15px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .by_xl {
+            float: left;
+            margin-top: 10rpx;
+            width: 100%;
+
+            view {
+                font-size: 14px;
+            }
+            color: #999;
+            .by {
+                float: left;
+            }
+            .xl {
+                float: right;
+                margin-right: 10rpx;
+            }
+        }
+
+        .yh {
+            float: left;
+            width: 100%;
+            margin-top: 10rpx;
+            view {
+                float: left;
+                text-align: center;
+            }
+
+            .title {
+                color: red;
+                font-size: 14px;
+            }
+
+            .content {
+                width: 61%;
+                margin-left: 20px;
+                view {
+                    color: #999;
+                    font-size: 14px;
+                }
+            }
+
+            .lq {
+                float: right;
+                border: 1px solid #ccc;
+                padding: 0 5%;
+                border-radius: 10px;
+                height: 18px;
+                text-align: center;
+                line-height: 18px;
+            }
+        }
+
+        .spec {
+            margin-top: 10px;
+
+            width: 100%;
+            float: left;
+            view {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .nav {
+        float: left;
+        width: 100%;
+        view {
+            float: left;
+            width: 10%;
+            text-align: left;
+        }
+
+        .xq {
+            font-size: 14px;
+            width: 10%;
+            padding: 0 5%;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 3px solid #EEE;
+        }
+
+        .pl {
+            font-size: 14px;
+            width: 10%;
+            padding: 0 5%;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 3px solid #EEE;
+        }
+
+        .air {
+            width: 60%;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 3px solid #EEE;
+        }
+
+        .active {
+            border-bottom: 3px solid rgb(148, 81, 49);
+            color: rgb(148, 81, 49);
+        }
+    }
+
+    .data_xq {
+        min-height: 200px;
+        padding-bottom: 80px;
+    }
+
+    .data_pl {
+        min-height: 200px;
+        padding-bottom: 80px;
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 0;
+        height: 60px;
+        border-top: 3px solid rgb(217, 193, 156);
+        width: 100%;
+        background: #ffffff;
+        view {
+            float: left;
+        }
+
+        .home {
+            width: 10%;
+            height: 100%;
+            color: #c39b6b;
+            padding-left: 5%;
+            text-align: center;
+            image {
+                width: 50rpx;
+                height: 50rpx;
+                padding: 10rpx;
+                padding-top: 20rpx;
+
+            }
+        }
+
+        .home_c {
+            width: 12%;
+            height: 100%;
+            color: #c39b6b;
+            text-align: center;
+            padding-left: 3%;
+            image {
+                width: 50rpx;
+                height: 50rpx;
+                padding: 10rpx;
+                padding-top: 20rpx;
+
+            }
+        }
+
+        .car {
+            float: left;
+            margin-left: 5%;
+            height: 40px;
+            line-height: 40px;
+            margin-top: 8px;
+            width: 30%;
+            background: #c49c6b;
+            color: #FFFFFF;
+            text-align: center;
+            border-radius: 20px 0 0 20px;
+        }
+        .buy {
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            margin-top: 8px;
+            width: 30%;
+            background: #a76517;
+            color: #FFFFFF;
+            text-align: center;
+            border-radius: 0 20px 20px 0;
+        }
+    }
+
+    .fix-iphonex-button {
+        padding-bottom: 68rpx;
+    }
+
+    .canshu {
+        position: fixed;
+        width: 100%;
+        background: #FFF;
+        bottom: 0;
+        float: left;
+        min-height: 200px;
+        z-index: 9999;
+        .title {
+            width: 100%;
+            font-size: 14px;
+            text-align: center;
+            padding: 3% 0;
+        }
+
+        .content {
+            width: 100%;
+            float: left;
+            .item {
+                width: 100%;
+                float: left;
+                font-size: 14px;
+                border-bottom: 1px solid #eee;
+                .key {
+                    float: left;
+                    width: 15%;
+                    padding-left: 5%;
+                    text-align: left;
+                }
+
+                .value {
+                    padding-left: 5%;
+                    float: left;
+                    width: 75%;
+                    text-align: left;
+                }
+            }
+        }
+
+        .yhq-title {
+            text-align: left;
+            width: 96%;
+            padding: 0 2%;
+            height: 30px;
+            background: #EEE;
+            line-height: 30px;
+            font-size: 14px;
+        }
+
+        .yhq_item {
+            width: 90%;
+            padding: 2% 5%;
+            float: left;
+            height: 50px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+    }
+
+    .zz {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #888;
+        opacity: 0.3;
+        z-index: 99;
+
+    }
+
+    .speclist {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #888;
+        opacity: 0.3;
+        z-index: 99;
+
+    }
+
+    .slide-in-bottom {
+        -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    @-webkit-keyframes slide-in-bottom {
+        0% {
+            -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slide-in-bottom {
+        0% {
+            -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .rotate-in-ver {
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    @-webkit-keyframes rotate-in-ver {
+        0% {
+            -webkit-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            opacity: 1;
+        }
+    }
+
+    @keyframes rotate-in-ver {
+        0% {
+            -webkit-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            opacity: 1;
+        }
+    }
+
+    .spec_content {
+        width: 100%;
+        height: 60%;
+        position: fixed;
+        z-index: 99999;
+        bottom: 0;
+        background: #FFFFFF;
+        #goods_img {
+            left: 4%;
+            position: fixed;
+            z-index: 99999;
+            top: -40rpx;
+            width: 150rpx;
+            height: 150rpx;
+            background: #EF4F4F;
+            border-radius: 5px;
+            border: 3px solid #fff;
+            box-shadow: 0 0 1px #AAA;
+
+        }
+
+        .price {
+            margin-left: 220rpx;
+            margin-top: 20rpx;
+            font-size: 32rpx;
+            color: #a76517;
+        }
+
+        .tag {
+            margin-left: 220rpx;
+        }
+
+        .item {
+            width: 100%;
+            float: left;
+            margin-top: 10px;
+            .title {
+                font-size: 13px;
+            }
+
+            text {
+                font-size: 12px;
+                background: #EEE;
+                margin-right: 5%;
+                min-width: 15%;
+                text-align: center;
+                height: 25px;
+                line-height: 25px;
+                display: inline-block;
+                margin-top: 10px;
+                border-radius: 3px;
+            }
+
+            .sku_index {
+                background: #c49c6b;
+                color: #FFFFFF;
+            }
+
+        }
+        .num {
+            width: 100%;
+            float: left;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            view {
+                float: left;
+                font-size: 13px;
+            }
+
+            .jsq {
+                float: right;
+                .jian {
+                    height: 20px;
+                    width: 12px;
+                    line-height: 21px;
+                    padding: 0 4px;
+                    padding-right: 10px;
+                    margin-right: 3px;
+                    float: left;
+                    background: #EEE;
+
+                }
+
+                .nums {
+                    min-height: 20px;
+                    width: 40px;
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    margin-right: 3px;
+                    float: left;
+                    background: #EEE;
+                }
+
+                .jia {
+                    height: 20px;
+                    width: 12px;
+                    line-height: 21px;
+                    padding: 0 4px;
+                    padding-right: 10px;
+                    float: left;
+                    background: #EEE;
+                }
+
+            }
+
+        }
+
+        .que_btn {
+            color: #FFFFFF;
+            background: #a76517;
+            border-radius: 0;
+            border: none;
+            position: fixed;
+            bottom: 5px;
+            width: 100%;
+        }
+
+        .fix-iphonex {
+            bottom: 68rpx;
+        }
+    }
+
+    .slide-out-top {
+        -webkit-animation: slide-out-top 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: slide-out-top 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+    @-webkit-keyframes slide-out-top {
+        0% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes slide-out-top {
+        0% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+    }
+
+    .orderlist {
+        width: 96%;
+        padding: 2%;
+    }
+
+    .item-name {
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        margin-top: 15px;
+        float: left;
+    }
+
+    .pi-items {
+        width: 96%;
+        padding: 1% 2%;
+        float: left;
+        border-bottom: 6px solid #eee;
+        padding-bottom: 10px;
+
+    }
+
+    .pi-items .goods_img {
+        width: 45%;
+        float: left;
+        margin-right: 10px;
+        height: 145px;
+    }
+
+    .pi-items-heard {
+        width: 100%;
+        height: 30px;
+    }
+
+    .pi-items-heard image {
+        float: left;
+        margin-left: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+    }
+
+    .pi-items-nick {
+        float: left;
+        margin-left: 10px;
+        font-size: 13px;
+        line-height: 30px;
+        color: #777;
+    }
+
+    .pi-items-time {
+        float: right;
+        margin-right: 10px;
+        font-size: 13px;
+        line-height: 30px;
+        color: #777;
+    }
+
+    .pi-items-txt {
+        font-size: 15px;
+        text-indent: 5px;
+        color: #333;
+        padding: 5px;
+    }
+
+    .pi-items-img {
+        padding: 0 10px;
+    }
+
+</style>
+<template>
+    <swiper class="swiper-box" circular indicator-dots indicator-active-color="rgb(148,81,49)">
+        <swiper-item wx:if="{{ goods.video }}">
+            <video direction="0" custom-cache=”{{false}}” show-fullscreen-btn="false"
+                   bindfullscreenchange="fullscreenchange" id="myVideo" poster="{{ goods.video.pic }}"
+                   style="height: 100%;width: 100%;" src="{{ goods.video }}" enable-danmu controls="true"></video>
+        </swiper-item>
+        <repeat for="{{goods.pics}}" item="v">
+            <swiper-item>
+                <image src="{{ v }}" class="slide-image" style="width: 100%;height: 100%"/>
+            </swiper-item>
+        </repeat>
+    </swiper>
+    <view class="cont_title">
+        <view class="price">
+            <text style="font-size:12px;margin-right:5px;line-height:27px;float:left;">¥</text>
+            <text>{{ goods.price }}</text>
+        </view>
+        <view class="goods_title">
+            {{ goods.title }}
+        </view>
+        <view class="by_xl">
+            <view class="by" wx:if="{{ goods.Free_postal_amount==0 }}">
+                免邮
+            </view>
+            <view class="by" wx:else>
+                满{{ goods.Free_postal_amount }}包邮
+            </view>
+
+            <view class="xl">
+                月销{{ goods.sales }}
+            </view>
+        </view>
+        <view class="yh">
+            <!--<view class="title">-->
+            <!--优惠-->
+            <!--</view>-->
+            <!--<view class="content">-->
+            <!--<repeat for="{{ goods.YHQ }}" item="v">-->
+            <!--<view>·{{ v.title }}<text style="font-family: Bitstream Vera Serif Bold;color: red">  ¥{{ v.price }}</text></view>-->
+            <!--</repeat>-->
+
+            <!--</view>-->
+            <!--<view class="lq" @tap="lq">-->
+            <!--领券-->
+            <!--</view>-->
+        </view>
+
+        <view class="spec" @tap="open_canshu">
+            <view style="float: left">
+                产品参数
+            </view>
+
+            <view style="float: right">
+                ···
+            </view>
+        </view>
+    </view>
+    <!--<view class="orderlist" wx:if="{{ ptlist.length > 0 }}">-->
+        <!--<view style="font-size: 14px;border-bottom: 1px solid #eee;padding-bottom:2px;padding-left:5px;">{{ ptlist.length }}人在拼单，可直接参与-->
+        <!--</view>-->
+        <!--<swiper autoplay="false" interval="5000" duration="500" vertical="true" display-multiple-items="1" circular-->
+                <!--style="width: 100%;height: 70px;">-->
+            <!--<repeat for="{{ ptlist }}" item="v">-->
+
+                <!--<swiper-item>-->
+                    <!--<view style="width: 96%;height: 70px;padding: 0 2%">-->
+                        <!--<view style="width: 50%;float: left;line-height: 70px;height: 70px;">-->
+
+                            <!--<image class="item-name" src="{{ v.avatar }}" style="background: #999999"></image>-->
+                            <!--<view style="height: 98%;font-size: 14px;margin-left: 3px;text-indent:4px;">{{ v.name }}</view>-->
+                        <!--</view>-->
+                        <!--<view style="width: 50%;float: left;height: 70px;font-size: 12px;">-->
+                            <!--<view style="width: 60%;float: left;height: 96%;">-->
+                                <!--<view style="margin-top: 18%">还差-->
+                                    <!--<text style="color: #EF4F4F">1人</text>-->
+                                    <!--拼成-->
+                                <!--</view>-->
+                                <!--<view>剩余{{ v.h }}:{{ v.i }}:{{ v.s }}</view>-->
+                            <!--</view>-->
+                            <!--<view style="width: 40%;float: left;height: 96%;">-->
+                                <!--<view @tap="qpt({{v.id}})"-->
+                                      <!--style="width: 90%;height: 24px;background: #a76517;color: #FFFFFF;text-align: center;line-height: 24px;;margin-top: 18px;border-radius: 3px">-->
+                                    <!--去拼单-->
+                                <!--</view>-->
+                            <!--</view>-->
+                        <!--</view>-->
+                    <!--</view>-->
+                <!--</swiper-item>-->
+            <!--</repeat>-->
+
+
+        <!--</swiper>-->
+
+    <!--</view>-->
+    <view class="nav">
+        <view class="xq {{ active==1?'active':''}}" @tap="active_xq_pl(1)">详情</view>
+        <view class="pl {{ active==2?'active':''}}" @tap="active_xq_pl(2)">评论</view>
+        <view class="air"></view>
+    </view>
+
+    <view style="clear: both"></view>
+
+    <view class="data_xq" wx:if="{{ active == 1}}">
+        <view class="page">
+
+            <view class="page__bd">
+                <view class="weui-article">
+
+                    <rich-text nodes="{{  goods.content  }}" bindtap="tap"></rich-text>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="data_pl" wx:else>
+        评论
+    </view>
+
+    <view class="footer {{isIphoneX ?'fix-iphonex-button':''}}" wx:if="{{ show }}">
+        <view class="home" @tap="gohome">
+            <image src="/images/xq_sy.png"></image>
+            <view style="width:100%;line-height:0;">
+                首页
+            </view>
+        </view>
+
+        <view class="home_c">
+
+            <button bindtap="handleTapShareButton" open-type="contact" class="button-share" id="share-button">
+            </button>
+            <label for="share-button"><image src="/shop/image/kf.png"></image></label>
+            <view style="width:100%;line-height:0;">
+                客服
+            </view>
+        </view>
+
+
+        <view class="car" @tap="addcar">
+            单独购买 ¥{{ goods.oldprice }}
+        </view>
+        <view class="buy" @tap="buy_now">
+            立即开团 ¥{{ goods.price }}
+        </view>
+    </view>
+
+    <view class="zz" wx:if="{{ canshu_show }}" @tap="close_canshu">
+
+    </view>
+
+
+    <view class="zz" wx:if="{{ yhq }}" @tap="close_yhq">
+
+    </view>
+
+    <view class="canshu slide-in-bottom {{isIphoneX ?'fix-iphonex-button':''}}" wx:if="{{ yhq }}">
+        <view class="yhq-title">
+            <text style="float: left">优惠券</text>
+            <text style="float: right" @tap="close_yhq">X</text>
+        </view>
+        <view class="content">
+            <repeat for="{{ goods.YHQ}}" item="v" index="index">
+                <view class="yhq_item">
+                    <view style="height: 100%;line-height: 50px;font-size: 20px;color: rgb(148,81,49);float: left ">¥{{
+                        v.price }}
+                    </view>
+                    <view style="float: left;margin-left: 10px;line-height: 25px">
+                        <view>{{ v.title }}</view>
+                        <view>{{ v.start_time }} - {{v.end_time }}</view>
+                    </view>
+                    <view wx:if="{{ !v.get }}" @tap="lq_yhq({{ index }})"
+                          style="float: right;margin-right: 10px;width: 50px;height: 20px;text-align: center;line-height: 20px;background:rgb(148,81,49);color: #FFFFFF;margin-top: 10px;border-radius: 3px ">
+                        领取
+                    </view>
+                    <view wx:else
+                          style="float: right;margin-right: 10px;width: 50px;height: 20px;text-align: center;line-height: 20px;background:rgb(148,81,49);color: #FFFFFF;margin-top: 10px;border-radius: 3px ">
+                        已领券
+                    </view>
+                </view>
+            </repeat>
+
+        </view>
+    </view>
+
+
+    <view class="canshu slide-in-bottom {{isIphoneX ?'fix-iphonex-button':''}}" wx:if="{{ canshu_show }}">
+        <view class="title">
+            产品参数
+        </view>
+        <view class="content">
+            <repeat for="{{ goods.parameter}}" item="v" index="index">
+                <view class="item">
+                    <text class="key">
+                        {{index }}
+                    </text>
+                    <text class="value">
+                        {{ v }}
+                    </text>
+                </view>
+            </repeat>
+
+
+            <button @tap="close_canshu" style="background: rgb(148,81,49);color: #FFFFFF;border: none;border-radius: 0"
+                    plain>完成
+            </button>
+        </view>
+    </view>
+
+    <view class="speclist" wx:if="{{ spec_show }}" @tap="close_spec">
+    </view>
+
+    <view class="spec_content slide-in-bottom" wx:if="{{ spec_show }}">
+
+        <image id="goods_img" src="{{ goods.thumb }}"></image>
+
+        <view class="price">¥{{ goods_price }}</view>
+        <view class="tag">请选择商品规格</view>
+        <view style="clear: both;margin-top: 35rpx;border-bottom: 1px solid #eee"></view>
+
+        <scroll-view scroll-y style="height: 58%;width: 92%;padding: 0 4%" bindscrolltoupper="upper"
+                     bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}"
+                     scroll-top="{{scrollTop}}">
+            <view class="item">
+                <repeat for="{{ goods.sku }}" index="index" item="v">
+                    <text class="{{ sku_index == index?'sku_index':'' }}" @tap="ckeck_sku({{index}})">{{ index }}</text>
+                </repeat>
+            </view>
+
+            <view class="num">
+                <view style="height: 30px;line-height: 30px">数量</view>
+                <view class="jsq">
+                    <view class="jian" @tap="jian">➖</view>
+                    <input class="nums" bindinput="keyForNum" maxlength="3" cursor-spacing="10" type="number"
+                           value="{{ num }}">
+                    <view class="jia" @tap="jia">➕</view>
+                </view>
+            </view>
+        </scroll-view>
+        <button class="que_btn  {{isIphoneX ?'fix-iphonex':''}}" plain @tap="sumbit">确认</button>
+
+    </view>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../../../utils/api'
+
+  export default class data extends wepy.page {
+    config = {
+      navigationBarTitleText: '产品详情'
+    }
+    data = {
+      imgUrls: [1, 2, 3],
+      active: 1,
+      isIphoneX: false,
+      show: true,
+      yhq: false,
+      canshu_show: false,
+      collect: false,
+      btn_type: 'buy_pd',
+      spec_show: true,
+      num: 1,
+      addcar_show: false,
+      goods: '',
+      goods_price: '',
+      sku_index: '',
+      ptlist: [],
+      times: 0,
+      order_id: 0
+    }
+    methods = {
+      qpt (id) {
+        this.order_id = id
+        this.sku_index = ''
+        this.btn_type = 'buy_pd'
+        this.spec_show = true
+        this.goods_price = this.goods.price
+        this.$apply()
+      },
+      async lq_yhq(index) {
+        let rew = await api.request({
+          url: 'shopcategory/getyhq',
+          method: 'post',
+          data: {
+            yhqid: this.goods.YHQ[index].id,
+            token: wepy.getStorageSync('token')
+          }
+        })
+        if (rew.data.code === 200) {
+          wepy.showToast({
+            title: '领取成功',
+            icon: 'success',
+            duration: 3000
+          })
+          this.yhq = false
+          this.goods.YHQ[index].get = 1
+          this.$apply()
+        } else {
+          wepy.showToast({
+            title: rew.data.msg,
+            icon: 'none',
+            duration: 3000
+          })
+        }
+      },
+      close_yhq() {
+        this.yhq = false
+      },
+      goToCar() {
+        wepy.switchTab({
+          url: '/pages/car'
+        })
+      },
+      active_xq_pl(data) {
+        this.active = data
+        this.$apply()
+      },
+      fullscreenchange(e) {
+        this.show = !e.detail.fullScreen
+        this.$apply()
+      },
+      gohome() {
+        this.$navigate('/shop/pages/index')
+      },
+      close_canshu() {
+        this.canshu_show = false
+        this.$apply()
+      },
+      open_canshu() {
+        this.canshu_show = true
+        this.$apply()
+      },
+      async collect_goods() {
+        this.collect = !this.collect
+        this.$apply()
+        if (!wepy.getStorageSync('token')) {
+          return false
+        }
+        if (this.collect === false) {
+          await api.request({
+            url: 'shopcategory/cancelcollect',
+            method: 'post',
+            data: {
+              token: wepy.getStorageSync('token'),
+              productid: this.goods.id
+            }
+          })
+        } else {
+          await api.request({
+            url: 'shopcategory/collect',
+            method: 'post',
+            data: {
+              token: wepy.getStorageSync('token'),
+              productid: this.goods.id
+            }
+          })
+        }
+      },
+      addcar() {
+        this.sku_index = ''
+        this.btn_type = 'addcar'
+        this.spec_show = true
+        this.goods_price = this.goods.oldprice
+        this.$apply()
+      },
+      buy_now() {
+        this.sku_index = ''
+        this.btn_type = 'buy_now'
+        this.spec_show = true
+        this.goods_price = this.goods.price
+        this.$apply()
+      },
+      jia() {
+        this.num++
+        this.$apply()
+      },
+      jian() {
+        if (this.num > 1) {
+          this.num--
+        }
+        this.$apply()
+      },
+      keyForNum(e) {
+        let data = e.detail.value
+
+        if (data >= 1) {
+          this.num = data
+        } else {
+          this.num = 1
+        }
+        this.$apply()
+      },
+      close_spec() {
+        this.spec_show = false
+        this.$apply()
+      },
+      ckeck_sku(index) {
+        this.sku_index = index
+        if (this.btn_type === 'addcar') {
+          this.goods_price = this.goods.sku[index]
+        } else {
+          this.goods_price = this.goods.sku[index] * this.goods.group_discount
+        }
+        this.$apply()
+      },
+      async sumbit() {
+        if (this.btn_type === 'buy_now') {
+          if (this.sku_index === '') {
+            wepy.showToast({
+              title: '请选择商品规格',
+              icon: 'none',
+              duration: 3000
+            })
+            return false
+          }
+          this.spec_show = false
+          wepy.navigateTo({
+            url: '/shop/pages/buy/pt?id=' + this.goods.id + '&num=' + this.num + '&sku=' + this.sku_index + '&type=' + 3 + '&order_id=' + this.order_id
+          })
+        }
+
+        if (this.btn_type === 'buy_pd') {
+          if (this.sku_index === '') {
+            wepy.showToast({
+              title: '请选择商品规格',
+              icon: 'none',
+              duration: 3000
+            })
+            return false
+          }
+          this.spec_show = false
+          wepy.navigateTo({
+            url: '/shop/pages/buy/pt?id=' + this.goods.id + '&num=' + this.num + '&sku=' + this.sku_index + '&type=' + 3 + '&order_id=' + this.order_id
+          })
+        }
+
+        if (this.btn_type === 'addcar') {
+          if (this.sku_index === '') {
+            wepy.showToast({
+              title: '请选择商品规格',
+              icon: 'none',
+              duration: 3000
+            })
+            return false
+          }
+          this.spec_show = false
+          wepy.navigateTo({
+            url: '/shop/pages/buy/pt?id=' + this.goods.id + '&num=' + this.num + '&sku=' + this.sku_index + '&type=' + 2 + '&order_id=' + this.order_id
+          })
+        }
+      },
+      async lq() {
+        let rew = await api.request({
+          url: 'shopcategory/yhqlist',
+          method: 'post',
+          data: {
+            token: wepy.getStorageSync('token'),
+            goods_id: this.goods.id
+          }
+        })
+        this.goods.YHQ = rew.data.data
+        this.yhq = true
+        this.$apply()
+      }
+    }
+
+    async onLoad(options) {
+      let phone = await wepy.getSystemInfo()
+      if (phone.model.indexOf('iPhone X') !== -1) {
+        this.isIphoneX = true
+      }
+      let rew = await api.request({
+        url: 'pintuan/detail',
+        method: 'post',
+        data: {
+          id: options.id
+        }
+      })
+      if (rew.data.code === 200) {
+        let content = rew.data.data.content
+        rew.data.data.content = content.replace(/<img/g, '<img style="max-width:98%;height:auto" ')
+        this.goods = rew.data.data
+        this.goods_price = this.goods.price
+      }
+      if (this.goods.sku === '') {
+        this.sku_index = 0
+      }
+      this.ptlist = rew.data.data.pindan
+      this.order_id = options.order_id
+      this.timer(this.ptlist)
+
+      this.$apply()
+    }
+
+    async timer (list) {
+      for (var i in list) {
+        if (list[i].pindan_overtime > 0) {
+          list[i].pindan_overtime = list[i].pindan_overtime - 1
+          list[i].h = parseInt(list[i].pindan_overtime / 3600)
+          list[i].i = parseInt((list[i].pindan_overtime - parseInt(list[i].pindan_overtime / 3600) * 3600) / 60)
+          list[i].s = list[i].pindan_overtime % 60
+
+          if (list[i].s < 10) {
+            list[i].s = '0' + list[i].s
+          }
+          if (list[i].i < 10) {
+            list[i].i = '0' + list[i].i
+          }
+          if (list[i].h < 10) {
+            list[i].h = '0' + list[i].h
+          }
+          this.$apply()
+        }
+      }
+      this.times = setInterval(() => {
+        for (var i in list) {
+          if (list[i].pindan_overtime > 0) {
+            list[i].pindan_overtime = list[i].pindan_overtime - 1
+            list[i].h = parseInt(list[i].pindan_overtime / 3600)
+            list[i].i = parseInt((list[i].pindan_overtime - parseInt(list[i].pindan_overtime / 3600) * 3600) / 60)
+            list[i].s = list[i].pindan_overtime % 60
+
+            if (list[i].s < 10) {
+              list[i].s = '0' + list[i].s
+            }
+            if (list[i].i < 10) {
+              list[i].i = '0' + list[i].i
+            }
+            if (list[i].h < 10) {
+              list[i].h = '0' + list[i].h
+            }
+            this.$apply()
+          }
+        }
+      }, 1000)
+    }
+
+    onShow() {
+      wepy.loadFontFace({
+        family: 'Bitstream Vera Serif Bold',
+        source: 'url("https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/Didot%20font.otf")'
+      })
+    }
+
+    onHide() {
+      clearInterval(this.times)
+    }
+  }
+</script>

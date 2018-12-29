@@ -1,0 +1,158 @@
+{
+	"description": "A WePY project",
+	"setting": {
+		"urlCheck": false,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"appid": "wxb1ea147e6d205f49",
+	"projectname": "%E5%95%86%E6%97%85%E9%9A%8F%E8%A1%8C",
+	"miniprogramRoot": "dist/",
+	"libVersion": "2.4.3",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 19,
+			"list": [
+				{
+					"id": -1,
+					"name": "shop/pages/index",
+					"pathName": "shop/pages/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/cate/list",
+					"pathName": "shop/pages/cate/list",
+					"query": "id=6&catname=本地特产2"
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/ms/index",
+					"pathName": "shop/pages/ms/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/goods/ms",
+					"pathName": "shop/pages/goods/ms",
+					"query": "id=2"
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/cate/pt",
+					"pathName": "shop/pages/cate/pt",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "shop/pages/goods/ptdata",
+					"pathName": "shop/pages/goods/ptdata",
+					"query": "id=1"
+				},
+				{
+					"id": 6,
+					"name": "shop/pages/goods/ptdata",
+					"pathName": "shop/pages/goods/ptdata",
+					"query": "id=1"
+				},
+				{
+					"id": 7,
+					"name": "shop/pages/msorder/data",
+					"pathName": "shop/pages/msorder/data",
+					"query": "id=8"
+				},
+				{
+					"id": 8,
+					"name": "shop/pages/lq",
+					"pathName": "shop/pages/lq",
+					"query": "id=4"
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/ptsuccess",
+					"pathName": "shop/pages/ptsuccess",
+					"query": "id=1"
+				},
+				{
+					"id": 10,
+					"name": "shop/pages/ptorder/data",
+					"pathName": "shop/pages/ptorder/data",
+					"query": "id=6"
+				},
+				{
+					"id": 11,
+					"name": "shop/pages/ptorder/fxdata",
+					"pathName": "shop/pages/ptorder/fxdata",
+					"query": "id=12"
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/order/list",
+					"pathName": "shop/pages/order/list",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/msorder/list",
+					"pathName": "shop/pages/msorder/list",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/cate/list",
+					"pathName": "shop/pages/cate/list",
+					"query": "id=5&catname=一周热销"
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/quicklogin",
+					"pathName": "shop/pages/quicklogin",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/cate/cjlb",
+					"pathName": "shop/pages/cate/cjlb",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pages/yh",
+					"pathName": "pages/yh",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/lq",
+					"pathName": "shop/pages/lq",
+					"query": "id=4"
+				},
+				{
+					"id": -1,
+					"name": "shop/pages/cate/search",
+					"pathName": "shop/pages/cate/search",
+					"query": "key=2"
+				}
+			]
+		}
+	}
+}

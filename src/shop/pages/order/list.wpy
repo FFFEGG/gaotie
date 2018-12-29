@@ -1,0 +1,361 @@
+<style type="less">
+    page {
+        background: #f8f8f8;
+        width: 100%;
+        height: 100%;
+    }
+    .nav {
+        background: #FFFFFF;
+        width: 100%;
+        height: 40px;
+        view {
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            width: 20%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .active {
+            color: rgb(148,81,49);
+            border-bottom: 2px solid rgb(148,81,49);
+        }
+    }
+
+    .content {
+        width: 94%;
+        padding: 3%;
+        float: left;
+        .item {
+            margin-bottom: 10px;
+            width: 94%;
+            padding: 1% 3%;
+            background: #FFFFFF;
+            float: left;
+            border-radius: 3px;
+            .title {
+                width: 100%;
+                height: 30px;
+                border-bottom: 1px solid #eee;
+                .title_fl {
+                    float: left;
+                    line-height: 30px;
+                    text-align: left;
+                }
+                .title_fr {
+                    float: right;
+                    line-height: 30px;
+                    text-align: right;
+                    color: rgb(148,81,49);
+                }
+            }
+            .cont {
+                float: left;
+                margin-top: 3px;
+                width: 100%;
+                border-bottom: 1px solid #eee;
+                .items {
+                    width: 100%;
+                    float: left;
+                    image {
+                        border-radius: 3px;
+                        float: left;
+                        width: 160rpx;
+                        height: 160rpx;
+                    }
+                    .goods {
+                        float: left;
+                        margin-top: 15px;
+                        height: 50px;
+                        width: 435rpx;
+                        margin-left: 10rpx;
+                        display: table-cell;
+                        vertical-align: middle;
+                        overflow: hidden;
+                    }
+                    .num {
+                        float: left;
+                        width: 55rpx;
+                        line-height: 80px;
+                        text-align: right;
+                    }
+                }
+                .price {
+                    width: 100%;
+                    float: left;
+                    text-align: right;
+                    text {
+                        color: #999999;
+                    }
+                }
+            }
+
+            .caozuo {
+                width: 100%;
+                float: left;
+                height: 40px;
+                view {
+                    margin-top: 8px;
+                    margin-left: 10px;
+                    height: 25px;
+                    width: 60px;
+                    border: 1px solid #aaa;
+                    line-height: 25px;
+                    border-radius: 4px;
+                    text-align: center;
+                    float: right;
+                }
+                .but-2 {
+                    background: rgb(148,81,49);
+                    border: 1px solid rgb(148,81,49);
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+
+    .candan {
+        width: 100%;
+        height: 40px;
+        background: #FFFFFF;
+        position: absolute;
+        top: 41px;
+        line-height: 40px;
+        text {
+
+            height: 20px;
+            margin: 20px;
+            border: 1px solid #EEE;
+            padding: 3px 10px;
+            border-radius: 15px;
+        }
+
+    }
+
+    .scale-in-ver-top {
+        -webkit-animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-in-ver-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    @-webkit-keyframes scale-in-ver-top {
+        0% {
+            -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+            opacity: 1;
+        }
+    }
+    @keyframes scale-in-ver-top {
+        0% {
+            -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+            opacity: 1;
+        }
+    }
+
+</style>
+<template>
+    <view class="nav">
+        <repeat for="{{ navlist }}" index="index" item="v">
+            <view @tap="choosenav({{index}})" class="{{ index==active?'active':''}}">{{ v }}</view>
+        </repeat>
+        <view @tap="ptms">拼团秒杀</view>
+    </view>
+    <view class="candan scale-in-ver-top" wx:if="{{ navshow }}">
+        <text @tap="pt" style="border: 1px solid salmon;color: #999999">我的拼团</text>
+        <text @tap="ms"  >我的秒杀</text>
+    </view>
+    <view class="content">
+        <repeat for="{{ list }}" item="v" index="index">
+            <view class="item">
+                <view class="title">
+                    <view class="title_fl">订单编号：{{ v.out_trade_no}}</view>
+                    <view class="title_fr" wx:if="{{ v.pay_status == 0}}">未付款</view>
+                    <view class="title_fr" wx:if="{{ v.pay_status == 1 && v.send_status == 0}}">已付款</view>
+                    <view class="title_fr" wx:if="{{ v.send_status == 1}}">待收货</view>
+                    <view class="title_fr" wx:if="{{ v.pay_status == 3}}">已完成</view>
+                </view>
+                <view class="cont">
+                    <navigator url="/shop/pages/order/data?id={{ v.id }}" hover-class="navigator-hover">
+                        <repeat for="{{ v.goods }}" item="vi">
+                            <view class="items">
+                                <image src="{{ vi.thumb}}"></image>
+                                <text class="goods">{{ vi.title}}</text>
+                                <view class="num">
+                                    X {{ vi.num }}
+                                </view>
+                            </view>
+                        </repeat>
+                        <view class="price"><text>实付金额:    </text>¥{{ v.total }}</view>
+                    </navigator>
+                </view>
+                <view class="caozuo"  wx:if="{{ v.pay_status == 0}}">
+                    <view class="but-2">
+                        确认付款
+                    </view>
+                    <view class="but-1" @tap="qxdd({{ index }})">
+                        取消订单
+                    </view>
+                </view>
+
+                <view class="caozuo"  wx:if="{{ v.pay_status == 1 && v.send_status == 0}}">
+                    <view class="but-2">
+                        退款
+                    </view>
+                </view>
+
+                <view class="caozuo"  wx:if="{{ v.send_status == 1}}">
+                    <view class="but-2">
+                        确认收货
+                    </view>
+                </view>
+
+
+                <view class="caozuo"  wx:if="{{ v.send_status == 2}}">
+                    <view class="but-2">
+                        评价
+                    </view>
+                </view>
+
+
+            </view>
+        </repeat>
+    </view>
+    <view style="clear: both;width: 100%;margin-top: 10px"></view>
+    <view wx:if="{{ show }}">
+        <view style="width: 100%;text-align: center">你暂时没有{{ navlist[active] }}订单</view>
+    </view>
+    <view wx:else>
+        <view class="weui-loadmore weui-loadmore_line" wx:if="{{ noMoreData }}">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多数据</view>
+        </view>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../../../utils/api'
+  export default class list extends wepy.page {
+    config = {
+      navigationBarTitleText: '订单列表',
+      enablePullDownRefresh: true
+    }
+    data = {
+      active: 0,
+      navlist: ['未付款', '已付款', '待收货', '已完成'],
+      page: 1,
+      list: [],
+      noMoreData: false,
+      show: false,
+      navshow: false
+    }
+    onLoad (options) {
+      this.active = options.id
+      this.getdatalist(this.page, true)
+      this.$apply()
+    }
+    pt () {
+      wepy.navigateTo({
+        url: '/shop/pages/ptorder/list?id=1'
+      })
+    }
+    ms () {
+      wepy.navigateTo({
+        url: '/shop/pages/msorder/list?id=1'
+      })
+    }
+    ptms () {
+      this.navshow = !this.navshow
+    }
+    async getdatalist (page, reset) {
+      let rew = await api.request({
+        url: 'orders/orderList',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token'),
+          page: page,
+          status: this.active
+        }
+      })
+      // 如果传入参数 reset 为true，则覆盖 topics
+      this.list = reset ? rew.data.data : this.list.concat(rew.data.data)
+      let pages = rew.data.page
+      // 根据分页设置是否还有更多数据
+      if (pages === this.page) {
+        this.noMoreData = true
+      }
+      if (rew.data.data == '') {
+        this.show = true
+      }
+      this.$apply()
+    }
+    methods = {
+      async qxdd (index) {
+        let res = await wepy.showModal({
+          title: '取消订单',
+          content: '您正在进行取消订单操作',
+          confirmText: '确认',
+          cancelText: '取消'
+        })
+        if (res.confirm) {
+          let rew = await api.request({
+            url: 'orders/cannelOrder',
+            method: 'post',
+            data: {
+              token: wepy.getStorageSync('token'),
+              orderid: this.list[index].id
+            }
+          })
+          if (rew.data.code === 200) {
+            wepy.showToast({
+              title: '取消成功',
+              icon: 'success'
+            })
+            this.list.splice(index, 1)
+            this.$apply()
+          }
+        }
+      },
+      choosenav (index) {
+        this.navshow = false
+        this.active = index
+        this.page = 1
+        this.show = false
+        this.list = []
+        this.getdatalist(1, true)
+        this.$apply()
+      }
+    }
+
+    async onPullDownRefresh() {
+      this.page = 1
+      await this.getdatalist(1, true)
+      wepy.stopPullDownRefresh()
+    }
+    async onReachBottom () {
+      // 如果没有更多内容，直接返回
+      if (this.noMoreData) {
+        return
+      }
+      this.page = this.page + 1
+      this.getdatalist(this.page, false)
+    }
+  }
+</script>

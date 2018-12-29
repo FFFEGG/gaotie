@@ -1,0 +1,383 @@
+<style type="less">
+    #gohome_nav {
+        position: fixed;
+        bottom: 60px;
+        right: 5px;
+        width: 35px;
+        height: 35px;
+        border-radius: 18px;
+        z-index: 999;
+        background: #FFFFFF;
+    }
+
+    #gohome_nav2 {
+        position: fixed;
+        bottom: 100px;
+        right: 5px;
+        width: 35px;
+        height: 35px;
+        border-radius: 18px;
+        z-index: 999;
+        background: #FFFFFF;
+    }
+
+
+    #gohome_back {
+        position: fixed;
+        bottom: 140px;
+        right: 5px;
+        width: 35px;
+        height: 35px;
+        border-radius: 18px;
+        z-index: 999;
+        background: #FFFFFF;
+    }
+
+    #firstCanvas {
+        position: fixed;
+        top:0;
+    }
+
+    .zz {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(109,109,109);
+        opacity: 0.5;
+        z-index: 99;
+
+    }
+    .dianhua {
+        position:fixed;
+        width:300rpx;
+        height:230rpx;
+        background:url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kaung.png') no-repeat;
+        background-size:300rpx 230rpx;
+        bottom:180px;
+        right:4rpx;
+        z-index:999;
+    }
+    .scale-up-br {
+        -webkit-animation: scale-up-br 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-up-br 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    @-webkit-keyframes scale-up-br {
+        0% {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+    }
+    @keyframes scale-up-br {
+        0% {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+    }
+    .slide-in-right {
+        -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    @-webkit-keyframes slide-in-right {
+        0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    @keyframes slide-in-right {
+        0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    .search {
+        position: fixed;
+        top: 0;
+        width: 80%;
+        padding: 2% 10%;
+        height: 60rpx;
+        z-index: 999;
+        input {
+            width: 95%;
+            height: 100%;
+            padding-left: 5%;
+            border: 1px solid #eee;
+            background: #FFF;
+            opacity: 0.6;
+            border-radius: 20px;
+        }
+    }
+
+    .nav {
+        width: 100%;
+        float: left;
+        .item {
+            float: left;
+            height: 150rpx;
+            width: 22%;
+            margin-right: 4%;
+            margin-bottom: 2%;
+            text-align: center;
+            image {
+                width: 100rpx;
+                height: 100rpx;
+                border-radius: 50rpx;
+            }
+            view {
+                color: rgb(109,109,109);
+            }
+        }
+        .item:nth-child(4n){
+            margin-right: 0;
+        }
+    }
+
+    .video {
+        float: left;
+        height: 400rpx;
+        width: 100%;
+        border-radius: 3px;
+        background: #eee;
+        margin-top: 10px;
+    }
+    .prod_list {
+        float: left;
+        margin-top: 10px;
+        width: 100%;
+        .item {
+            width: 49%;
+            margin-right: 2%;
+            height: 400rpx;
+            background: rgb(246,246,246);
+            border-radius: 3rpx;
+            float: left;
+            margin-bottom: 2%;
+        }
+
+        .item:nth-child(2n){
+            margin-right: 0;
+        }
+    }
+
+    .ad {
+        float: left;
+        margin-top: 10px;
+        width: 100%;
+        height: 180rpx;
+        border-radius: 3px;
+        image{
+            width: 100%;
+            height: 100%;
+            border-radius: 3px;
+        }
+    }
+
+    .swiper-box {
+        height: 200px;
+    }
+</style>
+<template>
+    <view class="search">
+        <input type="text" placeholder="请输入关键词">
+    </view>
+    <swiper class="swiper-box"  indicator-dots circular indicator-color="rgb(255,255,255)" indicator-active-color="rgb(136,80,56)">
+        <repeat for="{{ datalist['topAd'] }}" item="v">
+            <swiper-item>
+                <image mode="aspectFill" src="{{ v.pic }}" class="slide-image" style="width: 100%;height: 100%"/>
+            </swiper-item>
+        </repeat>
+    </swiper>
+
+    <view style="width: 94%;padding: 3%;float: left">
+        <view class="nav">
+            <repeat for="{{ catelist}}" item="v">
+
+                <view class="item">
+                    <navigator url="/shop/pages/cate/list?id={{ v.id }}&catname={{ v.catname }}">
+                        <image src="{{ v.image }}"></image>
+                        <view>{{ v.catname }}</view>
+                    </navigator>
+                </view>
+            </repeat>
+
+
+        </view>
+        <view class="video">
+            <video id="myVideo" style="height: 100%;width: 100%;border-radius: 3px" src="{{ datalist['video']}}"  enable-danmu controls></video>
+        </view>
+        <view class="prod_list">
+            <repeat for="{{ datalist['list']}}" item="v">
+                <view class="item">
+                    <navigator url="/shop/pages/goods/data?id={{ v.id }}">
+                        <image mode="aspectFill"  style="width: 100%;height: 300rpx" src="{{ v.thumb }}"></image>
+                        <view style="font-size: 14px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;text-indent: 5px">{{ v.title }}</view>
+                        <view style="margin-top: 3px">
+                            <text style="float: left;color: #EF4F4F;text-indent: 5px">¥{{ v.price }}</text>
+                            <text style="float: right;text-decoration: line-through;margin-right: 5px">¥{{ v.oldprice }}</text>
+                        </view>
+                    </navigator>
+                </view>
+            </repeat>
+        </view>
+
+        <view class="ad">
+            <image mode="aspectFill" src="{{ datalist['bottomAd'][0]['pic']}}"></image>
+        </view>
+    </view>
+
+    <view  style="width: 100%;height: 100%" wx:if="{{ index_show }}">
+        <image id="gohome_back" class="slide-in-right" src="/images/kefu.png"  @tap="shows"></image>
+        <image id="gohome_nav2" class="slide-in-right" src="/images/top.png" @tap="goTop"></image>
+        <image id="gohome_nav" class="slide-in-right" src="/images/gohone.png" @tap="gohomeback"></image>
+        <view style="width: 100%">
+            <view class="zz" @tap="showss"  wx:if="{{ show }}">
+
+            </view>
+            <view class="dianhua scale-up-br" wx:if="{{ show }}">
+                <view style="width: 100%;height: 100rpx;line-height: 100rpx;border-bottom:1px solid #ccc;"  @tap="tel_kf">
+                    <image style="float:left;width:25px;height:25px;margin-top:22rpx;margin-left:50rpx;margin-right:2rpx;" src="/images/tel.png"></image>
+                    <view style="float: left;font-size: 35rpx;color: #666">
+                        电话客服
+                    </view>
+                </view>
+                <view style="width: 100%;height: 100rpx;line-height: 100rpx;">
+                    <image style="float:left;width:25px;height:25px;margin-top:22rpx;margin-left:50rpx;margin-right:2rpx;" src="/images/kf.png"></image>
+                    <button  open-type="contact" class="button-share" id="share-button">
+                    </button>
+                    <label for="share-button">
+                        <view style="float: left;font-size: 35rpx;color: #666">
+                            在线客服
+                        </view>
+                    </label>
+
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../../utils/api'
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '商城首页',
+      enablePullDownRefresh: true
+    }
+
+    computed = {
+      sys () {
+        return wepy.getStorageSync('sys')
+      }
+    }
+    data = {
+      imgUrls: [
+        'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+      ],
+      indicatorDots: false,
+      autoplay: false,
+      interval: 5000,
+      duration: 1000,
+      rote: false,
+      index_show: false,
+      show: false,
+      catelist: [],
+      datalist: ''
+    }
+    methods = {
+      shows () {
+        this.show = true
+        this.$apply()
+      },
+      showss () {
+        this.show = false
+        this.$apply()
+      },
+      gohomeback () {
+        wepy.switchTab({
+          url: '/pages/index'
+        })
+      },
+      goTop (e) {  // 一键回到顶部
+        if (wx.pageScrollTo) {
+          this.show = false
+          this.$apply()
+          wx.pageScrollTo({
+            scrollTop: 0
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+          })
+        }
+      },
+      tel_kf () {
+        wepy.makePhoneCall({
+          phoneNumber: '19968030253'
+        })
+      }
+    }
+    async onLoad() {
+      this.getindexInfo()
+    }
+    async onPullDownRefresh() {
+      this.getindexInfo()
+      wepy.stopPullDownRefresh()
+    }
+    async getindexInfo () {
+      let cate = await wepy.request({
+        url: api.host + '/shopcategory',
+        method: 'post'
+      })
+
+      this.catelist = cate.data.data
+      let rew = await api.request({
+        url: 'index/shopindex',
+        method: 'post'
+      })
+      this.datalist = rew.data.data
+      this.$apply()
+    }
+    onPageScroll (e) {
+      if (e.scrollTop > 100) {
+        this.index_show = true
+        this.$apply()
+      } else {
+        this.index_show = false
+        this.$apply()
+      }
+    }
+  }
+</script>

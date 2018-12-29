@@ -1,0 +1,69 @@
+<style type="less">
+    .header {
+        height: 250rpx;
+        width: 100%;
+        text-align: center;
+        margin-top: 100rpx;
+        image {
+            width: 150rpx;
+            height: 150rpx;
+            border-radius: 75rpx;
+        }
+    }
+    .item {
+        width: 100%;
+        height: 80rpx;
+        background: rgb(249,246,247);
+        margin-bottom: 10rpx;
+        font-size:33rpx;
+        line-height:80rpx;
+        image{
+            width:40rpx;
+            height:40rpx;
+            margin-top:20rpx;
+            float:left;
+            margin-left:18rpx;
+            margin-right:18rpx;
+        }
+    }
+</style>
+<template>
+    <view class="header">
+        <image src="{{ user.avatar }}"></image>
+
+    </view>
+    <view class="item">
+        <image src="/images/gr_one.png"></image>
+        姓名:{{ user.name }}
+    </view>
+    <view class="item">
+        <image src="/images/gr_two.png"></image>
+        电话:{{ user.mobile }}
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+  export default class Personal extends wepy.page {
+    config = {
+      navigationBarTitleText: '个人资料'
+    }
+    data = {
+      user: ''
+    }
+    async onLoad () {
+      let rew = await api.request({
+        url: 'user',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token')
+        }
+      })
+      if (rew.data.code === 200) {
+        this.user = rew.data.user
+        this.$apply()
+      }
+    }
+  }
+</script>

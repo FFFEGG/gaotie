@@ -1,0 +1,774 @@
+<style>
+    .content {
+        text-align: center;
+        padding-bottom: 100rpx;
+    }
+
+    .logo {
+        width: 426rpx;
+        height: 166rpx;
+        margin: 20rpx 0;
+    }
+
+    .form {
+        margin-top: 40rpx;
+        width: 84%;
+        padding: 2% 8%;
+        text-align: left;
+    }
+
+    .section {
+        width: 96%;
+        height: 70rpx;
+        padding: 3% 2%;
+        background: rgb(234,234,234);
+        line-height: 70rpx;
+        border-radius: 2rpx;
+        margin-bottom: 30rpx;
+    }
+
+    .section image{
+        height: 70rpx;
+        width: 66rpx;
+        float: left;
+    }
+    .section input {
+        height: 70rpx;
+        font-size: 30rpx;
+        padding-left: 80rpx;
+        color: rgb(177,177,177);
+    }
+
+    .btn-area {
+        margin-top: 100rpx;
+        text-align: center;
+    }
+
+    .btn-area button {
+        background: url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/zc_yzm.png ') no-repeat 100%/100%;
+        color: #FFFFFF;
+        border-radius: 60px;
+        clear:both;
+    }
+
+    .slide-in-right-1 {
+        -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+    }
+
+    .slide-in-right-2 {
+        -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+    }
+
+    .slide-in-right-3 {
+        -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+    }
+
+    @-webkit-keyframes slide-in-right {
+        0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    @keyframes slide-in-right {
+        0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .code {
+        width: 60%;
+        height: 70rpx;
+        padding: 3% 2%;
+        background: rgb(234,234,234);
+        line-height: 70rpx;
+        border-radius: 2rpx;
+        margin-bottom: 30rpx;
+        float: left;
+    }
+
+    .code-fl{
+        width: 30%;
+        height: 70rpx;
+        padding: 3% 2%;
+        background: #ccc;
+        line-height: 70rpx;
+        border-radius: 2rpx;
+        margin-bottom: 30rpx;
+        float: left;
+        margin-left: 2%;
+        text-align: center;
+        font-size: 32rpx;
+        color: #ffffff;
+    }
+
+    .code-fl-active{
+        width: 30%;
+        height: 70rpx;
+        padding: 3% 2%;
+        background: url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/zc_yzm.png ') no-repeat 100%/100%;
+        line-height: 70rpx;
+        border-radius: 2rpx;
+        margin-bottom: 30rpx;
+        float: left;
+        margin-left: 2%;
+        text-align: center;
+        font-size: 32rpx;
+        color: #ffffff;
+    }
+
+    .code image{
+        height: 70rpx;
+        width: 66rpx;
+        float: left;
+    }
+    .code input {
+        height: 70rpx;
+        width: 50%;
+        font-size: 30rpx;
+        padding-left: 80rpx;
+        color: rgb(177,177,177);
+    }
+    .check {
+        display: inline-block;
+        width: 30rpx;
+        height: 30rpx;
+        background: url("https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/zcq2.png ") no-repeat 100%/100%;
+        vertical-align:top;
+    }
+
+    .check-active {
+        display: inline-block;
+        width: 30rpx;
+        height: 30rpx;
+        background: url("https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/zcq1.png ") no-repeat 100%/100%;
+        vertical-align:top;
+    }
+
+    .label-1__text {
+        display: inline-block;
+        height: 30rpx;
+        line-height: 30rpx;
+        font-size: 30rpx;
+        vertical-align:top;
+        text-align: center;
+        margin-left: 5rpx;
+    }
+
+    .shake-horizontal {
+        -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    }
+
+    @-webkit-keyframes shake-horizontal {
+        0%,
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70% {
+            -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+        }
+        20%,
+        40%,
+        60% {
+            -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+        }
+        80% {
+            -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+        }
+        90% {
+            -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+        }
+    }
+    @keyframes shake-horizontal {
+        0%,
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70% {
+            -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+        }
+        20%,
+        40%,
+        60% {
+            -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+        }
+        80% {
+            -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+        }
+        90% {
+            -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
+        }
+    }
+    .quick {
+        position:fixed;
+        bottom:80px;
+        text-align:center;
+        width:100%;
+        font-size:26rpx;
+        color:#888;
+    }
+</style>
+
+<template>
+    <view  class="content" wx:if="{{ is_show }}">
+        <image class="logo" src="/images/logo.png"></image>
+
+        <view class="form">
+            <form bindsubmit="formSubmit" bindreset="formReset">
+
+            <view class="section slide-in-right-1">
+                    <image src="/images/zc1.png"></image>
+                    <input class="{{ telerror?'shake-horizontal':''}}"  name="tel" placeholder="请输入手机号" value="{{ tel }}" />
+                </view>
+
+                <view class="section slide-in-right-2">
+                    <image src="/images/zc3.png"></image>
+                    <input class="{{ passworderror?'shake-horizontal':''}}"  name="password" type="password" placeholder="请输入密码" value="{{ password }}" />
+                </view>
+
+                <view class="btn-area slide-in-right-3">
+                    <button formType="submit">立即登录</button>
+                    <view style="font-size: 15px;margin-top: 20rpx">没有账号<text @tap="zhuce" style="color: rgb(225,122,42)">立即注册</text></view>
+                </view>
+            </form>
+        </view>
+
+        <view class="quick" @tap="quick">——手机快速登录——</view>
+    </view>
+
+    <view  class="content" wx:else>
+        <image class="logo" src="/images/logo.png"></image>
+
+        <view class="form" wx:if="{{ person }}">
+            <form bindsubmit="formZhuCe">
+
+                <view class="section slide-in-right-1">
+                    <image src="/images/zc6.png"></image>
+                    <input class="{{ nameerror?'shake-horizontal':''}}" name="name" placeholder="请输入姓名" />
+                </view>
+
+                <view class="section slide-in-right-1">
+                    <image src="/images/zc1.png"></image>
+                    <input class="{{ telerror?'shake-horizontal':''}}" name="tel" type="number"  bindinput="bindKeyInput" placeholder="请输入手机号码" />
+                </view>
+                <view class="slide-in-right-2">
+                    <view class="code ">
+                        <image src="/images/zc2.png"></image>
+                        <input name="code" type="number"  class="{{ codeerror?'shake-horizontal':''}}"  placeholder="请输入验证码" />
+                    </view>
+                    <view wx:if="{{send_msg==1}}" class="code-fl-active" @tap="sendmsg">获取验证码</view>
+                    <view wx:if="{{send_msg==0}}"class="code-fl  ">获取验证码</view>
+                    <view wx:if="{{send_msg==2}}"class="code-fl  ">重新发送{{ tiem }}s</view>
+                    <view style="clear: both"></view>
+                </view>
+
+
+                <view class="section slide-in-right-2">
+                    <image src="/images/zc3.png"></image>
+                    <input name="password" type="password" class="{{ passworderror?'shake-horizontal':''}}"  placeholder="请输入密码" />
+
+                </view>
+
+                <view class="section slide-in-right-2">
+                    <image src="/images/zc4.png"></image>
+                    <input name="password2" type="password" class="{{ password2error?'shake-horizontal':''}}"  placeholder="请确认密码" />
+                </view>
+
+                <view class="btn-area slide-in-right-3">
+
+                    <view style="margin-bottom: 18rpx;text-align: center">
+                        <text  class="{{ is_check?'check-active':'check'}}" @tap="check">
+                        </text>
+                        <view class="label-1__text" style="color: #9B9B9B">我已阅读并遵守<text style="color: rgb(253,119,8);font-size: 29rpx;line-height: 30rpx">《个人权益说明》</text></view>
+                    </view>
+                    <button wx:if="{{ is_check }}" formType="submit">立即注册</button>
+                    <button wx:else style="background: #ccc;color: #fff">立即注册</button>
+                    <view style="font-size: 15px;margin-top: 20rpx"><text @tap="checkteam" style="text-decoration:underline;color: rgb(14,154,160);margin-right: 5rpx">团队注册</text>已有账号<text @tap="login" style="color: rgb(225,122,42)">立即登录</text></view>
+                </view>
+            </form>
+        </view>
+        <view class="form" wx:else>
+            <form bindsubmit="formZhuCeTeam">
+
+                <view class="section slide-in-right-1">
+                    <image src="/images/zc5.png"></image>
+                    <input class="{{ teamnameerror?'shake-horizontal':''}}" name="teamname" placeholder="请输入团体名称" />
+                </view>
+
+                <view class="section slide-in-right-1">
+                    <image src="/images/zc6.png"></image>
+                    <input class="{{ nameerror?'shake-horizontal':''}}" name="name" placeholder="请输入注册人姓名" />
+                </view>
+
+                <view class="section slide-in-right-1">
+                    <image src="/images/zc1.png"></image>
+                    <input class="{{ telerror?'shake-horizontal':''}}" name="tel" type="number"  bindinput="bindKeyInput" placeholder="请输入手机号码" />
+                </view>
+                <view class="slide-in-right-1">
+                    <view class="code ">
+                        <image src="/images/zc2.png"></image>
+                        <input name="code" type="number"  class="{{ codeerror?'shake-horizontal':''}}"  placeholder="请输入验证码" />
+                    </view>
+                    <view wx:if="{{send_msg==1}}" class="code-fl-active" @tap="sendmsg">获取验证码</view>
+                    <view wx:if="{{send_msg==0}}"class="code-fl  ">获取验证码</view>
+                    <view wx:if="{{send_msg==2}}"class="code-fl  ">重新发送{{ tiem }}s</view>
+                    <view style="clear: both"></view>
+                </view>
+
+                <view class="section slide-in-right-2">
+                    <image src="/images/zc1.png"></image>
+                    <input class="{{ tel2error?'shake-horizontal':''}}" name="tel2" type="number"  placeholder="请输入备用手机号码" />
+                </view>
+
+                <view class="section slide-in-right-2">
+                    <image src="/images/zc3.png"></image>
+                    <input name="password" type="password" class="{{ passworderror?'shake-horizontal':''}}"  placeholder="请输入密码" />
+
+                </view>
+
+                <view class="section slide-in-right-3">
+                    <image src="/images/zc4.png"></image>
+                    <input name="password2" type="password" class="{{ password2error?'shake-horizontal':''}}"  placeholder="请确认密码" />
+                </view>
+
+                <view class="btn-area slide-in-right-3">
+
+                    <label style="margin-bottom: 18rpx;float: left;width: 100%;">
+                        <text  class="{{ is_check?'check-active':'check'}}" @tap="check">
+                        </text>
+                        <view class="label-1__text" style="color: #9B9B9B">我已阅读并遵守<text style="color: rgb(253,119,8);font-size: 30rpx;font-size: 29rpx;line-height: 30rpx">《团队权益说明》</text></view>
+                    </label>
+                    <button wx:if="{{ is_check }}" formType="submit">立即注册</button>
+                    <button wx:else style="background: #ccc;color: #fff">立即注册</button>
+                    <view style="font-size: 15px;margin-top: 20rpx"><text  @tap="checkteam" style="text-decoration:underline;color: rgb(14,154,160);margin-right: 5rpx">个人注册</text>已有账号<text @tap="login" style="color: rgb(225,122,42)">立即登录</text></view>
+                </view>
+            </form>
+        </view>
+    </view>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+  export default class Login extends wepy.page {
+    config = {
+      navigationBarTitleText: '登录/注册'
+    }
+    data = {
+      is_show: true,
+      is_check: false,
+      error: false,
+      send_msg: 0,
+      tel: '',
+      timer: '',
+      tiem: 60,
+      telerror: false,
+      codeerror: false,
+      passworderror: false,
+      password2error: false,
+      nameerror: false,
+      teamnameerror: false,
+      tel2error: false,
+      password: '',
+      person: true,
+      usercode: ''
+    }
+    methods = {
+      zhuce () {
+        const that = this
+        that.is_show = false
+        that.error = false
+      },
+      login () {
+        const that = this
+        that.is_show = true
+        that.error = false
+      },
+      bindKeyInput(e) {
+        if ((e.detail.value.length === 11) && (this.tiem === 60)) {
+          this.send_msg = 1
+        } else {
+          if (this.tiem !== 60) {
+            this.send_msg = 2
+          } else {
+            this.send_msg = 0
+          }
+        }
+        this.tel = e.detail.value
+        this.$apply()
+      },
+      checkteam() {
+        this.person = !this.person
+        this.$apply()
+      },
+      async sendmsg() {
+        let rew = await api.request({
+          url: 'dxcode',
+          method: 'post',
+          data: {
+            mobile: this.tel,
+            type: 1
+          }
+        })
+        if (rew.data.code !== 200) {
+          wepy.showToast({
+            title: rew.data.msg,
+            icon: 'none',
+            duration: 3000
+          })
+          return false
+        }
+        wepy.showToast({
+          title: rew.data.msg,
+          icon: 'none',
+          duration: 3000
+        })
+        this.send_msg = 2
+        this.timer = setInterval(() => {
+          this.tiem --
+          if (this.tiem === 0) {
+            this.tiem = 60
+            if (this.tel.length === 11) {
+              this.send_msg = 1
+            } else {
+              this.send_msg = 0
+            }
+            clearInterval(this.timer)
+          }
+          this.$apply()
+        }, 1000)
+        this.$apply()
+      }
+    }
+    check () {
+      this.is_check = !this.is_check
+    }
+    quick () {
+      wepy.navigateTo({
+        url: '/shop/pages/quicklogin'
+      })
+    }
+    async formSubmit(e) {
+      let usercode = await wepy.login()
+      const data = e.detail.value
+      if (data.tel === '') {
+        this.telerror = true
+        setTimeout(() => {
+          this.telerror = false
+          this.$apply()
+        }, 500)
+        return false
+      }
+
+      if (data.password === '') {
+        this.passworderror = true
+        setTimeout(() => {
+          this.passworderror = false
+          this.$apply()
+        }, 500)
+
+        return false
+      }
+
+      let rew = await api.request({
+        url: 'login',
+        method: 'post',
+        data: {
+          mobile: data.tel,
+          password: data.password,
+          usercode: usercode.code
+        }
+      })
+
+      if (rew.data.code === 200) {
+        wepy.setStorageSync('token', rew.data.data.token)
+        wepy.showToast({
+          title: '登录成功',
+          icon: 'success',
+          duration: 3000
+        })
+        setTimeout(() => {
+          let page = wepy.getStorageSync('returnpage')
+          if (page) {
+            wepy.removeStorageSync('returnpage')
+            wepy.removeStorageSync('returnoptions')
+            if (page === '/shop/pages/buy/one' || page === '/shop/pages/buy/list' || page === '/shop/pages/buy/ms' || page === '/shop/pages/buy/pt') {
+              wepy.navigateBack({
+                delta: 2
+              })
+            } else {
+              wepy.navigateBack({
+                delta: 1
+              })
+            }
+          } else {
+            wepy.switchTab({
+              url: '/pages/user'
+            })
+          }
+        }, 500)
+      } else {
+        wepy.showToast({
+          title: rew.data.msg,
+          icon: 'none',
+          duration: 3000
+        })
+      }
+    }
+    async formZhuCe(e) {
+      const that = this
+      const data = e.detail.value
+      if (data.name === '') {
+        this.nameerror = true
+        setTimeout(() => {
+          this.nameerror = false
+          this.$apply()
+        }, 500)
+        return false
+      }
+      if (data.tel === '' || data.tel.length !== 11) {
+        that.telerror = true
+        setTimeout(() => {
+          that.telerror = false
+          that.$apply()
+        }, 500)
+        return false
+      }
+
+      if (data.code === '') {
+        that.codeerror = true
+        setTimeout(() => {
+          that.codeerror = false
+          that.$apply()
+        }, 500)
+
+        return false
+      }
+
+      if (data.password === '') {
+        that.passworderror = true
+        setTimeout(() => {
+          that.passworderror = false
+          that.$apply()
+        }, 500)
+
+        return false
+      }
+
+      if (data.password2 === '') {
+        that.password2error = true
+        setTimeout(() => {
+          that.password2error = false
+          that.$apply()
+        }, 500)
+
+        return false
+      }
+      if (data.password.length < 6) {
+        wepy.showToast({
+          title: '密码最短6位',
+          icon: 'none',
+          duration: 3000
+        })
+        return false
+      }
+      if (data.password !== data.password2) {
+        wepy.showToast({
+          title: '两次密码不一致',
+          icon: 'none',
+          duration: 3000
+        })
+        return false
+      }
+      let usercode = await wepy.login()
+      let rew = await api.request({
+        url: 'register/person',
+        method: 'post',
+        data: {
+          name: data.name,
+          mobile: data.tel,
+          code: data.code,
+          password: data.password,
+          userCode: usercode.code
+        }
+      })
+      if (rew.data.code === 200) {
+        wepy.showToast({
+          title: '注册成功',
+          icon: 'success',
+          duration: 3000
+        })
+        setTimeout(function () {
+          that.tel = data.tel
+          that.password = data.password
+          that.is_show = true
+          that.$apply()
+        }, 1000)
+      } else {
+        wepy.showToast({
+          title: rew.data.msg,
+          icon: 'none',
+          duration: 3000
+        })
+        return false
+      }
+    }
+    async formZhuCeTeam(e) {
+      const that = this
+      const data = e.detail.value
+      if (data.teamname === '') {
+        this.teamnameerror = true
+        setTimeout(() => {
+          this.teamnameerror = false
+          this.$apply()
+        }, 500)
+        return false
+      }
+      if (data.name === '') {
+        this.nameerror = true
+        setTimeout(() => {
+          this.nameerror = false
+          this.$apply()
+        }, 500)
+        return false
+      }
+      if (data.tel === '' || data.tel.length !== 11) {
+        that.telerror = true
+        setTimeout(() => {
+          that.telerror = false
+          that.$apply()
+        }, 500)
+        return false
+      }
+
+      if (data.tel2 === data.tel) {
+        wepy.showToast({
+          title: '备用手机不能和注册手机相同！',
+          icon: 'none',
+          duration: 3000
+        })
+        return false
+      }
+      if (data.tel2 === '' || data.tel2.length !== 11) {
+        that.tel2error = true
+        setTimeout(() => {
+          that.tel2error = false
+          that.$apply()
+        }, 500)
+        return false
+      }
+      if (data.code === '') {
+        that.codeerror = true
+        setTimeout(() => {
+          that.codeerror = false
+          that.$apply()
+        }, 500)
+
+        return false
+      }
+
+      if (data.password === '') {
+        that.passworderror = true
+        setTimeout(() => {
+          that.passworderror = false
+          that.$apply()
+        }, 500)
+
+        return false
+      }
+
+      if (data.password2 === '') {
+        that.password2error = true
+        setTimeout(() => {
+          that.password2error = false
+          that.$apply()
+        }, 500)
+
+        return false
+      }
+      if (data.password.length < 6) {
+        wepy.showToast({
+          title: '密码最短6位',
+          icon: 'none',
+          duration: 3000
+        })
+        return false
+      }
+      if (data.password !== data.password2) {
+        wepy.showToast({
+          title: '两次密码不一致',
+          icon: 'none',
+          duration: 3000
+        })
+        return false
+      }
+      let usercode = await wepy.login()
+      let rew = await api.request({
+        url: 'register/team',
+        method: 'post',
+        data: {
+          teamname: data.teamnamel,
+          name: data.name,
+          mobile: data.tel,
+          mobile2: data.tel2,
+          code: data.code,
+          password: data.password,
+          userCode: usercode.code
+        }
+      })
+      if (rew.data.code === 200) {
+        wepy.showToast({
+          title: '注册成功',
+          icon: 'success',
+          duration: 3000
+        })
+        setTimeout(function () {
+          that.tel = data.tel
+          that.password = data.password
+          that.is_show = true
+          that.$apply()
+        }, 1000)
+      } else {
+        wepy.showToast({
+          title: rew.data.msg,
+          icon: 'none',
+          duration: 3000
+        })
+      }
+      that.$apply()
+    }
+  }
+</script>

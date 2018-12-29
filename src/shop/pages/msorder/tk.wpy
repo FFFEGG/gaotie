@@ -1,0 +1,16 @@
+<style type="less">
+
+</style>
+<template>
+    <view>退款</view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Tk extends wepy.page {
+    config = {
+      navigationBarTitleText: '申请退款'
+    }
+    data = {}
+  }
+</script>

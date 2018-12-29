@@ -1,0 +1,121 @@
+<style type="less">
+    .search {
+        background: #eee;
+        width: 90%;
+        height: 70rpx;
+        padding: 5%;
+        input{
+            float: left;
+            width: 59%;
+            height: 100%;
+            border: 1px solid #333;
+            border-radius: 10rpx 0 0 10rpx;
+            font-size: 30rpx;
+            padding-left: 10%;
+        }
+        button{
+            width: 30%;
+            float: left;
+            line-height: 70rpx;
+            height: 106%;
+            background: #9d6348;
+            color: #FFFFFF;
+            border-radius: 0 10rpx 10rpx 0;
+        }
+    }
+    .current_position {
+        width: 94%;
+        padding: 1% 3%;
+        background: #eee;
+        font-size: 26rpx;
+    }
+    .site_active {
+        width: 94%;
+        padding: 4% 3%;
+        background: #FFF;
+        font-size: 32rpx;
+    }
+    .recommend_site {
+        width: 94%;
+        padding: 2% 3%;
+        background: #FFF;
+        float: left;
+        button{
+            width: 30%;
+            margin-right: 3%;
+            float: left;
+            font-size: 26rpx;
+            margin-bottom: 3%;
+        }
+    }
+</style>
+<template>
+    <view class="search">
+        <input type="text">
+        <button>搜索</button>
+    </view>
+    <view class="current_position">
+        当前位置
+    </view>
+    <view class="site_active">
+        {{ active.title }}
+    </view>
+    <repeat for="{{ list }}" item="v" index="index" key="key">
+        <view class="current_position">
+            {{ index }}
+        </view>
+        <view class="recommend_site">
+            <repeat for="{{ v }}" item="vi">
+                <button @tap="check({{ vi }})">
+                    {{ vi.title }}
+                </button>
+            </repeat>
+
+        </view>
+    </repeat>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+  export default class Site extends wepy.page {
+    config = {
+      navigationBarTitleText: '站点列表',
+      navigationBarBackgroundColor: '#9d6348',
+      navigationBarTextStyle: '#FFFFFF'
+    }
+    data = {
+      list: []
+    }
+    computed = {
+      active() {
+        return wepy.getStorageSync('site')
+      }
+    }
+    methods = {
+      check (data) {
+        this.active = data
+        wepy.setStorageSync('site', this.active)
+        wepy.navigateBack({
+          delta: 1
+        })
+      }
+    }
+    async onLoad () {
+      let rew = await api.request({
+        url: 'swh',
+        method: 'post'
+      })
+
+      if (rew.data.code === 200) {
+        this.list = rew.data.data
+        if (!wepy.getStorageSync('site')) {
+          this.active = rew.data.first
+          wepy.setStorageSync('site', this.active)
+        }
+        this.$apply()
+      }
+    }
+  }
+</script>

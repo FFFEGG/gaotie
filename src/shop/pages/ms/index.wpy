@@ -1,0 +1,236 @@
+<style type="less">
+    .heard {
+        width: 96%;
+        padding: 2%;
+        text-align: center;
+        font-size: 14px;
+        text {
+            color: #EF4F4F;
+        }
+        border-bottom: 1px solid #eee;
+    }
+
+    .item {
+        width: 96%;
+        padding: 3% 2%;
+        float: left;
+        border-bottom: 1px solid #eee;
+        height: 100px;
+        position: relative;
+        image {
+            float: left;
+            width: 38%;
+            margin-right: 2%;
+            height: 100%;
+        }
+        .goods_info {
+            float: left;
+            width: 39%;
+            margin-right: 2%;
+            height: 100%;
+            view {
+                width: 100%;
+                height: 33.3%;
+                float: left;
+            }
+            .title {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 14px;
+            }
+
+            .jianshu {
+                color: #EF4F4F;
+            }
+
+            .price {
+                font-size: 15px;
+                color: rgb(253,190,0);
+                text {
+                    font-size: 13px;
+                    text-decoration:line-through;
+                    color: #AAA;
+                }
+            }
+        }
+        .qiang {
+            color: #FFFFFF;
+            background: red;
+            float: left;
+            height: 20px;
+            line-height: 20px;
+            width: 18%;
+            font-size: 24rpx;
+            margin-top: 70px;
+        }
+
+    }
+
+    .url {
+        height: 100%;
+    }
+</style>
+<template>
+
+    <view class="heard" wx:if="{{ is_action == 0 }}">
+        离活动开始时间还有<text>{{ h }}：{{ i }}：{{ s }}</text>
+    </view>
+    <view class="heard" wx:if="{{ is_action == 1 }}">
+        活动正在进行中,距离结束还有<text>{{ h }}：{{ i }}：{{ s }}</text>
+    </view>
+    <view class="heard" wx:if="{{ is_action == 2 }}">
+        活动已结束
+    </view>
+    <repeat for="{{ list }}" item="v">
+        <view class="item" wx:if="{{ is_action == 1 && v.number != 0}}">
+            <navigator url="/shop/pages/goods/ms?id={{ v.id }}" class="url">
+                <image mode="aspectFit"   src="{{ v.thumb }}"></image>
+                <view class="goods_info">
+                    <view class="title">{{ v.title }}</view>
+                    <view class="jianshu">已抢{{ v.sales }}件</view>
+                    <view class="price">¥{{ v.price }}</view>
+
+                </view>
+                <button class="qiang" >马上抢</button>
+            </navigator>
+        </view>
+
+        <view class="item" wx:if="{{ is_action == 1 && v.number == 0}}">
+            <image mode="aspectFit"   src="{{ v.thumb }}"></image>
+            <view class="goods_info">
+                <view class="title">{{ v.title }}</view>
+                <view class="jianshu">已抢{{ v.sales }}件</view>
+                <view class="price">¥{{ v.price }}</view>
+
+            </view>
+            <button class="qiang">已售罄</button>
+            <view style="position: absolute;width: 100%;height: 100%;top: 0;left:0;background: #999999;opacity: 0.9;z-index: 999;line-height: 121px;color: #FFFFFF;font-size: 22px;text-align: center">已售罄</view>
+        </view>
+
+
+        <view class="item" wx:if="{{ is_action == 0}}">
+            <image mode="aspectFit"   src="{{ v.thumb }}"></image>
+            <view class="goods_info">
+                <view class="title">{{ v.title }}</view>
+                <view class="jianshu">已抢{{ v.sales }}件</view>
+                <view class="price">¥{{ v.price }}</view>
+            </view>
+            <button class="qiang">即将开始</button>
+            <view style="position: absolute;width: 100%;height: 100%;top: 0;left:0;background: #999999;opacity: 0.9;z-index: 999;line-height: 121px;color: #FFFFFF;font-size: 22px;text-align: center">即将开始</view>
+        </view>
+
+
+        <view class="item" wx:if="{{ is_action == 2}}">
+            <image mode="aspectFit"   src="{{ v.thumb }}"></image>
+            <view class="goods_info">
+                <view class="title">{{ v.title }}</view>
+                <view class="jianshu">已抢{{ v.sales }}件</view>
+                <view class="price">¥{{ v.price }}</view>
+            </view>
+            <button class="qiang">即将开始</button>
+            <view style="position: absolute;width: 100%;height: 100%;top: 0;left:0;background: #999999;opacity: 0.9;z-index: 999;line-height: 121px;color: #FFFFFF;font-size: 22px;text-align: center">已结束</view>
+        </view>
+    </repeat>
+    <view style="clear: both;margin-top: 20px"></view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{ full }}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多数据</view>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../../../utils/api'
+  export default class Lounge extends wepy.page {
+    config = {
+      navigationBarTitleText: '秒杀',
+      navigationBarBackgroundColor: '#9d6348',
+      navigationBarTextStyle: '#FFFFFF',
+      enablePullDownRefresh: true
+    }
+    data = {
+      page: 1,
+      list: [],
+      start_at: 0,
+      end_at: 0,
+      is_action: 0,
+      h: 0,
+      i: 0,
+      s: 0,
+      timer: 0,
+      full: false
+    }
+    async getgoodslist (page) {
+      let rew = await api.request({
+        url: 'MiaoSha',
+        method: 'post',
+        data: {
+          page: page
+        }
+      })
+
+      var now = parseInt(new Date().valueOf() / 1000)
+      this.start_at = rew.data.start_at
+      this.end_at = rew.data.end_at
+      // 活动未开始
+      if (now < this.start_at) {
+        this.is_action = 0
+        this.dTime(this.start_at - now)
+      }
+      // 活动正在进行
+      if (now >= this.start_at && now <= this.end_at) {
+        this.is_action = 1
+        this.dTime(this.end_at - now)
+      }
+      // 活动已结束
+      if (now > this.end_at) {
+        this.is_action = 2
+      }
+
+      this.list = this.list.concat(rew.data.data)
+      if (rew.data.page === this.page) {
+        this.full = true
+        this.$apply()
+      } else {
+        this.page++
+        this.$apply()
+      }
+    }
+    dTime (time) {
+      const that = this
+      that.timer = setTimeout(function () {
+        time--
+        that.h = parseInt(time / 3600) < 10 ? '0' + parseInt(time / 3600) : parseInt(time / 3600)
+        that.i = parseInt((time - that.h * 3600) / 60) < 10 ? '0' + parseInt((time - that.h * 3600) / 60) : parseInt((time - that.h * 3600) / 60)
+        that.s = time % 60 < 10 ? '0' + time % 60 : time % 60
+        that.$apply()
+        that.dTime(time)
+        if (time === 0) {
+          that.onPullDownRefresh()
+        }
+      }, 1000)
+    }
+    onLoad () {
+      this.getgoodslist(1)
+    }
+
+    onHide () {
+      clearTimeout(this.timer)
+    }
+
+    onPullDownRefresh() {
+      clearTimeout(this.timer)
+      this.list = []
+      this.page = 1
+      this.full = false
+      this.getgoodslist(1)
+      wepy.stopPullDownRefresh()
+    }
+
+    onReachBottom () {
+      if (!this.full) {
+        this.getgoodslist(this.page)
+      }
+    }
+  }
+</script>

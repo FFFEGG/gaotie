@@ -1,0 +1,270 @@
+<style type="less">
+    .item {
+        width: 94%;
+        padding: 1% 3%;
+        height: 50px;
+        border-bottom: 1px solid #9d6348;
+        float: left;
+        view {
+            font-size: 15px;
+            line-height: 50px;
+            input {
+                text-align: right;
+                margin-top: 12px;
+            }
+
+        }
+        .title {
+            float: left;
+        }
+        .con {
+            float: right;
+            image {
+                width: 20px;
+                height: 20px;
+                float: right;
+                margin-top: 15px;
+            }
+            .jian {
+                line-height: 19px;
+                float: left;
+                border: 1px solid #eee;
+                width: 20px;
+                height: 20px;
+                margin-top: 12px;
+                text-align: center;
+            }
+
+            .jia {
+                float: left;
+                border: 1px solid #eee;
+                width: 20px;
+                height: 20px;
+                margin-top: 12px;
+                line-height: 19px;
+                text-align: center;
+            }
+
+            .num {
+                float: left;
+                width: 30px;
+                height: 20px;
+                min-height: 20px;
+                border: 1px solid #eee;
+                text-align: center;
+            }
+        }
+    }
+
+    button {
+        width: 70%;
+        color: #FFFFFF;
+        background: #9d6348;
+    }
+</style>
+<template>
+    <view class="item">
+        <view class="title">
+            服务站点
+        </view>
+        <view class="con">
+            <picker @change="bindPickerChange"  range="{{array}}">
+                {{ site }}
+            <image src="/images/vip_x.png"></image>
+            </picker>
+        </view>
+    </view>
+
+    <view class="item">
+        <view class="title">
+            使用人
+        </view>
+        <view class="con">
+            <input type="text" placeholder="填写使用人">
+        </view>
+    </view>
+
+
+    <view class="item">
+        <view class="title">
+            联系方式
+        </view>
+        <view class="con">
+            <input type="text" placeholder="填写联系方式">
+        </view>
+    </view>
+
+
+    <view class="item">
+        <view class="title">
+            使用日期
+        </view>
+        <view class="con">
+            <picker mode="date" bindchange="bindDateChange">
+                <input type="text" placeholder="选择日期" disabled value="{{date}}">
+            </picker>
+        </view>
+    </view>
+
+
+
+    <view class="item">
+        <view class="title">
+            使用时间
+        </view>
+        <view class="con">
+            <picker mode="time" bindchange="bindTimeChange">
+                <input type="text" placeholder="选择时间" disabled value="{{time}}">
+            </picker>
+        </view>
+    </view>
+
+    <view class="item">
+        <view class="title">
+            车次信息
+        </view>
+        <view class="con">
+            <input type="text" placeholder="填写车次信息">
+        </view>
+    </view>
+
+
+    <view class="item">
+        <view class="title">
+            标准服务
+        </view>
+        <view class="con">
+            <view class="jian" @tap="jian1">-</view>
+            <input type="text" value="{{ bzfw }}" class="num" disabled>
+            <view class="jia" @tap="jia1">+</view>
+        </view>
+    </view>
+
+    <view class="item">
+        <view class="title">
+            要客服务
+        </view>
+        <view class="con">
+            <view class="jian" @tap="jian2">-</view>
+            <input type="text"  value="{{ ykfw }}" class="num" disabled>
+            <view class="jia" @tap="jia2">+</view>
+        </view>
+    </view>
+
+
+    <view class="item">
+        <view class="title">
+            携带人数
+        </view>
+        <view class="con">
+            <view class="jian" @tap="jian3">-</view>
+            <input type="text"  value="{{ xdrs }}" class="num" disabled>
+            <view class="jia" @tap="jia3">+</view>
+        </view>
+    </view>
+    <view style="clear: both;width: 100%;margin-top: 30px;float: left"></view>
+    <button @tap="yy">立即预约</button>
+    <view style="clear: both;width: 100%;margin-top: 30px;float: left;height: 10px"></view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Yyform extends wepy.page {
+    config = {
+      navigationBarTitleText: '在线预约',
+      navigationBarBackgroundColor: '#9d6348',
+      navigationBarTextStyle: '#FFFFFF'
+    }
+    data = {
+      date: '',
+      bzfw: 0,
+      ykfw: 0,
+      xdrs: 0,
+      array: ['桂林站', '南宁站', '博白站', '南宁东站'],
+      site: '',
+      time: '12:00'
+    }
+    methods = {
+      bindDateChange(e) {
+        this.date = e.detail.value
+        this.$apply()
+      },
+      bindTimeChange(e) {
+        this.time = e.detail.value
+        this.$apply()
+      },
+      jia1 () {
+        this.bzfw++
+        this.$apply()
+      },
+      jia2 () {
+        this.ykfw++
+        this.$apply()
+      },
+      jia3 () {
+        this.xdrs++
+        this.$apply()
+      },
+      jian1 () {
+        if (this.bzfw === 0) {
+          return false
+        }
+        this.bzfw--
+        this.$apply()
+      },
+      jian2 () {
+        if (this.ykfw === 0) {
+          return false
+        }
+        this.ykfw--
+        this.$apply()
+      },
+      jian3 () {
+        if (this.xdrs === 0) {
+          return false
+        }
+        this.xdrs--
+        this.$apply()
+      },
+      bindPickerChange (e) {
+        this.index = e.detail.value
+        this.$apply()
+      },
+      yy () {
+        wepy.showToast({
+          title: '预约成功',
+          icon: 'success',
+          duration: 1500
+        })
+        setTimeout(function () {
+          wepy.navigateTo({
+            url: '/shop/pages/order/yyorder?id=1'
+          })
+        }, 1000)
+      }
+    }
+
+    onLoad() {
+      this.date = this.getNowFormatDate()
+      this.site = wepy.getStorageSync('site')['title']
+      this.$apply()
+    }
+
+    getNowFormatDate() {
+      var date = new Date()
+      var seperator1 = '-'
+      var year = date.getFullYear()
+      var month = date.getMonth() + 1
+      var strDate = date.getDate()
+      if (month >= 1 && month <= 9) {
+        month = '0' + month
+      }
+      if (strDate >= 0 && strDate <= 9) {
+        strDate = '0' + strDate
+      }
+      var currentdate = year + seperator1 + month + seperator1 + strDate
+      return currentdate
+    }
+  }
+</script>

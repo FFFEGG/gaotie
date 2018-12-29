@@ -1,0 +1,137 @@
+<style type="less">
+    .page .page__bd view{
+        font-size: 16px;
+    }
+</style>
+<template>
+    <view class="page">
+
+        <view class="page__bd">
+
+            <view class="weui-cells__title">地址修改</view>
+            <form bindsubmit="formSubmit" bindreset="formReset">
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label">姓名</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <input class="weui-input"  value="{{ addlist.name }}" name="name" placeholder="请输入姓名" />
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input weui-cell_vcode">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label">电话</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <input class="weui-input"  value="{{ addlist.mobile }}" name="tel" placeholder="请输入手机号" />
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input weui-cell_vcode">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label">地址</view>
+                        </view>
+                        <view class="weui-cell__bd" @tap="checkcity">
+                            <picker mode="region" bindchange="bindRegionChange">
+                                <input class="weui-input"  name="add"  placeholder="请选择地址" value="{{ add}}" disabled/>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="weui-cell weui-cell_input weui-cell_vcode">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label">详细地址</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" value="{{ addlist.adds_detail }}"  name="add2"  placeholder="请输入详细地址" />
+                        </view>
+                    </view>
+                </view>
+
+                <view class="weui-btn-area">
+                    <button class="weui-btn" form-type="submit" type="primary">确定</button>
+                </view>
+            </form>
+        </view>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+  export default class SaveAddress extends wepy.page {
+    config = {
+      navigationBarTitleText: '编辑地址'
+    }
+    data = {
+      add: '',
+      addlist: ''
+    }
+    methods = {
+      checkcity () {
+        console.log(1)
+      },
+      bindRegionChange (e) {
+        const data = e.detail.value
+        this.add = data[0] + data[1] + data[2]
+        this.$apply()
+      },
+      async formSubmit (e) {
+        const data = e.detail.value
+        if (data.name === '' || data.tel === '' || data.add === '' || data.add2 ==='') {
+          wepy.showToast({
+            title: '请填写完整信息',
+            icon: 'none',
+            duration: 3000
+          })
+          return false
+        }
+        let rew = await api.request({
+          url: 'user/editAddress',
+          method: 'post',
+          data: {
+            token: wepy.getStorageSync('token'),
+            name: data.name,
+            mobile: data.tel,
+            address: data.add,
+            adds_detail: data.add2,
+            add_id: this.addlist.id
+          }
+        })
+        if (rew.data.code === 200) {
+          const that = this
+          wepy.showToast({
+            title: '修改成功',
+            icon: 'success',
+            duration: 3000
+          })
+          setTimeout(function () {
+            wepy.navigateBack({
+              delta: 1
+            })
+          }, 500)
+        } else {
+          wepy.showToast({
+            title: rew.data.msg,
+            icon: 'none',
+            duration: 3000
+          })
+        }
+      }
+    }
+    async onLoad (options) {
+      let rew = await api.request({
+        url: 'user/Addressdetail',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token'),
+          add_id: options.id
+        }
+      })
+      if (rew.data.code === 200) {
+        this.addlist = rew.data.data
+        this.add = rew.data.data.address
+        this.$apply()
+      }
+    }
+  }
+</script>

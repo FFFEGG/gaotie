@@ -1,0 +1,19 @@
+<style type="less">
+
+</style>
+<template>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Lounge extends wepy.page {
+    config = {
+      navigationBarTitleText: '购物车'
+    }
+    data = {}
+    methods = {
+
+    }
+  }
+</script>

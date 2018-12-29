@@ -1,0 +1,403 @@
+<style type="less">
+    .nav {
+        width: 100%;
+        height: 80rpx;
+        background: #eee;
+        .item {
+            float: left;
+            width: 33.3%;
+            height: 100%;
+            line-height: 80rpx;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-size: 30rpx;
+        }
+        .acitve {
+            color: rgb(148, 81, 49);
+            border-bottom: 1px solid rgb(148, 81, 49);
+        }
+    }
+
+    .slide-in-right {
+        -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    @-webkit-keyframes slide-in-right {
+        0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slide-in-right {
+        0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .filter {
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #eee;
+
+        .item {
+            width: 96%;
+            padding: 2%;
+            background: #FFFFFF;
+            margin-bottom: 30rpx;
+            float: left;
+            .spec_title {
+                font-size: 28rpx;
+                margin-bottom: 20rpx;
+            }
+            .price {
+                width: 100%;
+                float: left;
+                input {
+                    float: left;
+                    width: 45%;
+                    background: #eee;
+                    border-radius: 4rpx;
+                    text-align: center;
+                }
+
+                button {
+                    width: 32%;
+                    margin-right: 2%;
+                    float: left;
+                    height: 60rpx;
+                    line-height: 60rpx;
+                    background: #eee;
+                    font-size: 12px;
+                    border: none;
+                    border-radius: 4rpx;
+                    margin-bottom: 2%;
+                }
+
+                button:nth-child(3n) {
+                    margin-right: 0;
+                }
+            }
+        }
+        .operating {
+            position: fixed;
+            bottom: 70rpx;
+            width: 100%;
+            view {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .con_list {
+        width: 96%;
+        padding: 2%;
+        .item {
+            width: 48.2%;
+            margin-right: 2%;
+            float: left;
+            margin-bottom: 2%;
+            border-radius: 1px;
+            background: #FFFFFF;
+            border: 1px solid #eee;
+            padding-bottom: 2%;
+            image {
+                width: 100%;
+                height: 300rpx;
+                background: url("https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/guodu.gif") no-repeat;
+                background-position-x:50%;
+                background-position-y:50%;
+                background-size:54%;
+            }
+            .title {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .price {
+                width: 50%;
+                font-size: 14px;
+                display: inline-block;
+                color: rgb(254,194,117);
+                text-align: left;
+                font-family: Bitstream Vera Serif Bold;
+            }
+            .old_price {
+                width: 50%;
+                display: inline-block;
+                color: #666;
+                text-align: right;
+                text-decoration: line-through;
+            }
+
+            .hyj {
+                text {
+                    background: rgb(212,168,88);
+                    color: #FFFFFF;
+                    padding: 1% 2%;
+                    border: 1px solid #eee;
+                    font-size:10px;
+                }
+            }
+
+            .tag {
+                margin-top: 3px;
+                text {
+                    border: 1px solid red;
+                    color: red;
+                    padding: 1% 2%;
+                    margin-right: 2%;
+                    font-size:9px;
+                }
+            }
+
+            .fkrs {
+                display: inline-block;
+                width: 50%;
+                font-size: 9px;
+                color: #999;
+                text-align: left;
+            }
+
+            .pls {
+                display: inline-block;
+                width: 50%;
+                font-size: 9px;
+                color: #999;
+                text-align: right;
+            }
+
+        }
+        .item:nth-child(2n) {
+            margin-right: 0;
+        }
+    }
+
+</style>
+<template>
+    <view class="nav">
+        <view class="item {{ active == 1? 'acitve' :''}}" @tap="navcheck(1)">
+            默认
+        </view>
+        <view class="item {{ active==2?'acitve':''}}" @tap="navcheck(2)">
+            销量
+        </view>
+        <view class="item" @tap="filter">
+            筛选
+        </view>
+
+    </view>
+
+    <view class="con_list">
+        <repeat for="{{ catelist }}" item="v">
+            <view class="item">
+                <navigator url="/shop/pages/goods/data?id={{ v.id }}">
+                    <image mode="aspectFill"  src="{{ v.thumb }}"></image>
+                    <view style="float: left;width: 94%;padding: 1% 3%" >
+                        <view class="title">{{ v.title}}</view>
+                        <view>
+                            <text class="price">¥ {{ v.price}}</text>
+                            <text class="old_price">原价: {{ v.oldprice}}</text>
+                        </view>
+                        <!--<view class="hyj">-->
+                            <!--<text>会员价：¥50</text>-->
+                        <!--</view>-->
+                        <view class="tag">
+                            <repeat for="{{ v.activity}}" item="v">
+                                <text>{{ v.title }}</text>
+                            </repeat>
+                        </view>
+
+                        <view>
+                            <text class="fkrs" wx:if="{{ v.sales }}">付款人数:{{ v.sales }}</text>
+                            <text class="pls" wx:if="{{ v.pl }}">评论数:{{ v.pl }}条</text>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+
+        </repeat>
+    </view>
+    <view style="clear: both;margin-top: 20px"></view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{ full }}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多数据</view>
+    </view>
+    <view class="filter slide-in-right" wx:if="{{ show }}">
+        <view class="item">
+            <view class="spec_title">价格区间</view>
+            <view class="price">
+                <input type="number" bindinput="min"  placeholder="最低价">
+                <view style="float: left;width: 10%;text-align: center;line-height: 55rpx">—</view>
+                <input type="number" bindinput="max" placeholder="最高价">
+            </view>
+        </view>
+
+        <!--<view class="item">-->
+            <!--<view class="spec_title">地理标志产品</view>-->
+            <!--<view class="price">-->
+                <!--<button plain @tap="check">南宁市</button>-->
+                <!--<button plain>南宁市</button>-->
+                <!--<button plain>南宁市</button>-->
+                <!--<button plain>南宁市</button>-->
+            <!--</view>-->
+        <!--</view>-->
+
+        <view class="operating">
+            <view @tap="gobakc"
+                  style="float: left;width: 50%;height: 50px;text-align: center;line-height: 50px;background: #FFFFFF">
+                返回
+            </view>
+            <view @tap="gobakcprice"
+                  style="float: left;width: 50%;height: 50px;text-align: center;line-height: 50px;background: rgb(148,81,49);color: #FFFFFF">
+                确认
+            </view>
+        </view>
+    </view>
+
+    <gohome></gohome>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import gohome from '@/components/goshop'
+  import api from '../../../utils/api'
+
+  export default class search extends wepy.page {
+    components = {
+      gohome: gohome
+    }
+    config = {
+      navigationBarTitleText: '',
+      enablePullDownRefresh: true
+    }
+    data = {
+      active: 1,
+      show: false,
+      page: 1,
+      is_check: [],
+      _Get: '',
+      order: 'createtime',
+      catelist: [],
+      full: false,
+      minprice: '',
+      maxprice: ''
+    }
+    methods = {
+      min (e) {
+        this.minprice = e.detail.value
+        this.$apply()
+      },
+      max (e) {
+        this.maxprice = e.detail.value
+        this.$apply()
+      },
+      navcheck(id) {
+        this.minprice = ''
+        this.maxprice = ''
+        this.active = id
+        if (id == 1) {
+          this.order = 'createtime'
+          this.$apply()
+        } else {
+          this.order = 'sales'
+          this.$apply()
+        }
+        this.page = 1
+        this.catelist = []
+        this.full = false
+        this.getdatalist(this.page)
+        this.$apply()
+      },
+      filter() {
+        this.show = true
+        this.$apply()
+      },
+      check(e) {
+        console.log(e)
+      },
+      gobakc() {
+        this.show = false
+        this.$apply()
+      },
+      gobakcprice() {
+        this.show = false
+        this.catelist = []
+        this.getdatalist(this.page)
+        this.$apply()
+      }
+    }
+
+    async onLoad(options) {
+      wepy.loadFontFace({
+        family: 'Bitstream Vera Serif Bold',
+        source: 'url("https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/Didot%20font.otf")'
+      })
+      this._Get = options
+      this.getdatalist(1)
+      this.$apply()
+    }
+    async getdatalist(page) {
+      let rew = await api.request({
+        url: 'search/product',
+        method: 'post',
+        data: {
+          page: page,
+          keyword: this._Get.key,
+          order: this.order,
+          sort: 'desc',
+          minprice: this.minprice,
+          maxprice: this.maxprice
+        }
+      })
+
+      if (rew.data.code === 200) {
+        this.catelist = this.catelist.concat(rew.data.data)
+        if (rew.data.page === this.page) {
+          this.full = true
+          this.$apply()
+        } else {
+          this.page++
+          this.$apply()
+        }
+      }
+    }
+
+    onReady() {
+      wx.setNavigationBarTitle({
+        title: this._Get.key
+      })
+    }
+
+    onPullDownRefresh() {
+      this.full = false
+      this.catelist = []
+      this.page = 1
+      this.getdatalist(1)
+      wepy.stopPullDownRefresh()
+    }
+
+    onReachBottom () {
+      if (!this.full) {
+        this.getdatalist(this.page)
+      }
+    }
+  }
+</script>

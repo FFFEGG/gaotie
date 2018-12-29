@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6baf0a1a-673e-4bce-b398-3d51e72eb6d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../bxjy/app/Admin/Extensions/Tools/ReleasePost.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/XsUserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/_common.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/code.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/kjdd.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/kjhx.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/mykh.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/myzl.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/ptdd.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/pthx.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/yydd.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/yyhx.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth-weapp/src/images/jbk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth-weapp/src/images/kf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth-weapp/src/images/syy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/url.wpy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/public/bootstrap-4.0.0-dist/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dth/resources/views/home/zmd.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/checkyhj.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/checkyhj.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/goods.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/goods.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/index.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/index.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/jgzx.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/jgzx.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/kjdata.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/kjdata.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/kjform.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/kjform.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/lq.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/lq.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/mykjorder.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/mykjorder.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/mypt.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/mypt.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/myptfxorder.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/myptfxorder.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/myyhj.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/myyhj.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/myyyorder.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/myyyorder.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/ptform.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/ptform.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/qiandao.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/qiandao.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/user.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/user.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy-weapp/src/pages/yyform.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy-weapp/src/pages/yyform.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/FxzqGoodsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/FxzqGoodsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/GoodsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/GoodsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/KjGoodsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/KjGoodsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/VideoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/XsUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/XsUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/YyOrderController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/ZpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Admin/Controllers/ZpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Admin/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/CateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/CateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/GoodsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/GoodsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/KjOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/KjOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/PagesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/ZpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Controllers/ZpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/KjOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/KjOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/Tx.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/Tx.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/XsUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/XsUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/app/ZpOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/app/ZpOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/resources/views/admin/adduser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/resources/views/admin/adduser.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/resources/views/admin/sys.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/resources/views/admin/sys.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/resources/views/home/abus.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/abus.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/resources/views/home/khjz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/khjz.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/resources/views/home/xy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/resources/views/home/xy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bxjy/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../bxjy/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/.idea/dth-weapp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/.idea/dth-weapp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/app.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/app.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/images/fw_one.png" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/images/fw_one.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/images/fw_three.png" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/images/fw_three.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/index.template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/buylist.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/buylist.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/car.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/car.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/cate.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/cate.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/catelist.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/catelist.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/code.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/code.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/data.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/data.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/datasearch.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/datasearch.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/index.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/index.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/order.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/order.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/orderdata.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/orderdata.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/orderlist.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/orderlist.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/pj.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/pj.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/post.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/post.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/users.wpy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/pages/ydjl.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/pages/ydjl.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth-weapp/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../dth-weapp/src/utils/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth/app/Admin/Controllers/GoodsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dth/app/Admin/Controllers/GoodsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dth/app/Admin/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth/app/Http/Controllers/CarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dth/app/Http/Controllers/CarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dth/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth/resources/views/home/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dth/resources/views/home/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth/resources/views/home/thd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dth/resources/views/home/thd.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dth/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../dth/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iview-admin/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../iview-admin/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../iview-admin/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../iview-admin/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../larabbs/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../larabbs/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../larabbs/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../larabbs/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../larabbs/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../larabbs/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laravel-shop/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel-shop/app/Models/Product.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1394728439">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="60" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="11" />
+          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.12" value="3" />
+          <entry key="project.open.time.13" value="6" />
+          <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.15" value="2" />
+          <entry key="project.open.time.16" value="5" />
+          <entry key="project.open.time.17" value="5" />
+          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.19" value="4" />
+          <entry key="project.open.time.2" value="13" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="60" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="editorconfig" value="2" />
+          <entry key="env" value="1" />
+          <entry key="eslintignore" value="1" />
+          <entry key="gif" value="2" />
+          <entry key="gitignore" value="1" />
+          <entry key="html" value="2" />
+          <entry key="js" value="46" />
+          <entry key="json" value="14" />
+          <entry key="less" value="2" />
+          <entry key="lock" value="1" />
+          <entry key="php" value="24" />
+          <entry key="png" value="46" />
+          <entry key="scss" value="2" />
+          <entry key="ts" value="3" />
+          <entry key="vue" value="13" />
+          <entry key="wepycache" value="1" />
+          <entry key="wepyignore" value="1" />
+          <entry key="wpy" value="394" />
+          <entry key="wxml" value="10" />
+          <entry key="wxss" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Blade" value="1" />
+          <entry key="HTML" value="2" />
+          <entry key="Image" value="48" />
+          <entry key="JSON" value="14" />
+          <entry key="JavaScript" value="46" />
+          <entry key="Less" value="2" />
+          <entry key="PHP" value="23" />
+          <entry key="PLAIN_TEXT" value="21" />
+          <entry key="SCSS" value="2" />
+          <entry key="TypeScript" value="3" />
+          <entry key="Vue.js" value="407" />
+          <entry key="yarn.lock" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="ESLintLanguageService" value="59" />
+          <entry key="TypeScriptServerServiceImpl" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="gitignore" value="1" />
+          <entry key="html" value="633" />
+          <entry key="js" value="312" />
+          <entry key="json" value="3" />
+          <entry key="php" value="41" />
+          <entry key="vue" value="224" />
+          <entry key="wpy" value="76899" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="633" />
+          <entry key="JSON" value="3" />
+          <entry key="JavaScript" value="315" />
+          <entry key="PHP" value="41" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Vue.js" value="77120" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.new.test" />
+      <usages-collector id="statistics.php.rename.constructor" />
+      <usages-collector id="statistics.php.composer.command.options" />
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.php.composer.actions" />
+      <usages-collector id="statistics.php.new.class" />
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="gtsl" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/index.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="1019" column="28" lean-forward="true" selection-start-line="1019" selection-start-column="28" selection-end-line="1019" selection-end-column="28" />
+              <folding>
+                <element signature="e#5645#6083#0" />
+                <element signature="e#6112#6186#0" />
+                <element signature="e#6213#6247#0" />
+                <element signature="e#6269#6464#0" />
+                <element signature="e#6486#6681#0" />
+                <element signature="e#6703#6898#0" />
+                <element signature="e#6920#7115#0" />
+                <element signature="e#7137#7332#0" />
+                <element signature="e#7354#7549#0" />
+                <element signature="e#7570#7765#0" />
+                <element signature="e#7787#7982#0" />
+                <element signature="e#7991#8040#0" />
+                <element signature="n#view#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#image#0;n#view#3;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#navigator#0;n#view#0;n#view#1;n#view#3;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#navigator#0;n#view#1;n#view#1;n#view#3;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#2;n#view#1;n#view#3;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#navigator#0;n#view#2;n#view#1;n#view#3;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#1;n#view#2;n#view#3;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#navigator#0;n#view#1;n#view#2;n#view#3;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#2;n#view#2;n#view#3;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#navigator#0;n#view#2;n#view#2;n#view#3;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#image#0;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#0;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#1;n#view#1;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#navigator#0;n#view#1;n#view#1;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#2;n#view#1;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#navigator#0;n#view#2;n#view#1;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#1;n#view#2;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#navigator#0;n#view#1;n#view#2;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#view#2;n#view#2;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#navigator#0;n#view#2;n#view#2;n#view#4;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#image#0;n#view#6;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#view#7;n#template#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shop/pages/ptorder/data.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="848">
+              <caret line="241" column="51" selection-start-line="241" selection-start-column="51" selection-end-line="241" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shop/pages/ms/index.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="451">
+              <caret line="124" column="37" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/yh.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="92" column="79" selection-start-line="92" selection-start-column="79" selection-end-line="92" selection-end-column="79" />
+              <folding>
+                <element signature="n#style#0;n#image#0;n#view#1;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#1;n#image#1;n#view#1;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#image#0;n#view#2;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#2726#2749#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shop/pages/order/data.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="237" column="26" lean-forward="true" selection-start-line="231" selection-start-column="8" selection-end-line="237" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shop/pages/cate/search.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-817">
+              <caret line="313" column="26" lean-forward="true" selection-start-line="313" selection-start-column="26" selection-end-line="313" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/login.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4267">
+              <caret line="251" column="27" selection-start-line="251" selection-start-column="27" selection-end-line="251" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../wepy-weui-demo/src/example/icons.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1394">
+              <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shop/pages/ptorder/list.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2312">
+              <caret line="136" column="50" selection-start-line="136" selection-start-column="50" selection-end-line="136" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>margin-left: 20px</find>
+      <find>addcar</find>
+      <find>buy_now</find>
+      <find>spec_show</find>
+      <find>qxdd</find>
+      <find>width</find>
+      <find>choosenav</find>
+      <find>password</find>
+      <find>handleLogin</find>
+      <find>:title</find>
+      <find>register</find>
+      <find>item</find>
+      <find>send_msg</find>
+      <find>sendmsg</find>
+      <find>site</find>
+      <find>bindKeyInput</find>
+      <find>codeerror</find>
+      <find>.activity</find>
+      <find>go_activety</find>
+      <find>lj_qg</find>
+      <find>image</find>
+      <find>&lt;image</find>
+      <find>jptj-l-two</find>
+      <find>close_act</find>
+      <find>activity</find>
+      <find>fade-in</find>
+      <find>time</find>
+      <find>pindan_overtime</find>
+      <find>5th</find>
+      <find>url</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>font-size: 24rpx;</replace>
+      <replace>font-size: 25rpx</replace>
+      <replace>font-size: 30rpx;</replace>
+      <replace>line-height: 60rpx</replace>
+      <replace>rpx</replace>
+      <replace>overtime</replace>
+      <replace>margin-left: 14px</replace>
+      <replace>pindan_overtime</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+      <dir>$PROJECT_DIR$/src/pages</dir>
+      <dir>$PROJECT_DIR$/src/shop</dir>
+      <dir>$PROJECT_DIR$/src/shop/pages</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../wepy-weui-demo" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../bxjy-weapp/src/pages/user.wpy" />
+        <option value="$PROJECT_DIR$/../bxjy-weapp/src/pages/index.wpy" />
+        <option value="$PROJECT_DIR$/../bxjy/.env" />
+        <option value="$PROJECT_DIR$/src/shop/pages/ptsuccess.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/buy/one.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/order/data.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/buy/pt.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/goods/ptdata.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/ptorder/fxdata.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/goods/ptfxdata.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/order/list.wpy" />
+        <option value="$PROJECT_DIR$/../iview-admin/src/api/user.js" />
+        <option value="$PROJECT_DIR$/../iview-admin/src/main.js" />
+        <option value="$PROJECT_DIR$/../iview-admin/src/view/login/login.vue" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/.gitignore" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/config/index.js" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/styles/main.scss" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/styles/extra.scss" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/directives/title.js" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/components/layouts/TheFooter.vue" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/router/index.js" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/App.vue" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/components/layouts/TheEntry.vue" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/components/layouts/TheHeader.vue" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/directives/validator.js" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/directives/index.js" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/main.js" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/utils/createCaptcha.js" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/utils/localStorage.js" />
+        <option value="$PROJECT_DIR$/../vuejs-essential/src/views/auth/Register.vue" />
+        <option value="$PROJECT_DIR$/src/shop/pages/index.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/cate/list.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/site.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/qiucklogin.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/address.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/save_address.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/add_address.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/login.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/train.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/quicklogin.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/cate/cjlb.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/cate/dfts.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/msorder/list.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/ptorder/list.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/ms/index.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/lq.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/ptorder/data.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/index.wpy" />
+        <option value="$PROJECT_DIR$/src/app.wpy" />
+        <option value="$PROJECT_DIR$/src/shop/pages/cate/search.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/yh.wpy" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+    <handled-path value="$PROJECT_DIR$/../miniprogram-demo-master/node_modules" />
+    <handled-path value="$PROJECT_DIR$/../wepy-weui-demo/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+      <path value="$PROJECT_DIR$/../miniprogram-demo-master/package.json" />
+      <path value="$PROJECT_DIR$/../wepy-weui-demo/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="19" />
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="988" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>Invalid elementsCSS</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>BadExpressionStatementJS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="gtsl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gtsl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gtsl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gtsl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gtsl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gtsl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gtsl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gtsl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gtsl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gtsl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="order" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gtsl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wepy-weui-demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gtsl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wepy-weui-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gtsl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wepy-weui-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="index.w&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/shop/pages/ms/index.wpy&#10;train.w&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/train.wpy&#10;quic&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/shop/pages/quicklogin.wpy&#10;add_address&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/add_address.wpy&#10;address.w&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/address.wpy&#10;site.w&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/site.wpy&#10;fxdata.w&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/shop/pages/ptorder/fxdata.wpy&#10;ptsuccess.&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/shop/pages/ptsuccess.wpy&#10;login&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/login.wpy&#10;ms&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/shop/pages/buy/ms.wpy&#10;user.&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/user.wpy&#10;success.w&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/shop/pages/success.wpy&#10;wec&#9;FILE&#9;file:///Users/mac12.12.6/Code/dth/config/wechat.php&#10;one&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/shop/pages/buy/one.wpy&#10;data&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/shop/pages/goods/data.wpy&#10;index&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/shop/pages/index.wpy&#10;index.wp&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/index.wpy&#10;swh_list&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/swh_list.wpy&#10;index.&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/index.wpy&#10;pass&#9;FILE&#9;file:///Users/mac12.12.6/Code/gtsl/src/pages/password.wpy&#10;getTeacherList&#9;null&#9;null&#10;UserController&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="/usr/local/bin/node" />
+    <property name="node.js.path.for.package.standard" value="/usr/local/bin/node" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/../wepy-weui-demo/node_modules/eslint" />
+    <property name="node.js.selected.package.standard" value="$PROJECT_DIR$/../wepy-weui-demo/node_modules/eslint" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images" />
+      <recent name="$PROJECT_DIR$/src/shop/pages/cate" />
+      <recent name="$PROJECT_DIR$/src/shop/image" />
+      <recent name="$PROJECT_DIR$/src/shop/pages" />
+      <recent name="$PROJECT_DIR$/src/shop/pages/goods" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6baf0a1a-673e-4bce-b398-3d51e72eb6d8" name="Default Changelist" comment="" />
+      <created>1540884217467</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1540884217467</updated>
+      <workItem from="1540884218848" duration="271000" />
+      <workItem from="1540884511426" duration="4458000" />
+      <workItem from="1541143885132" duration="5800000" />
+      <workItem from="1541382211509" duration="10664000" />
+      <workItem from="1541466042585" duration="19006000" />
+      <workItem from="1541573856506" duration="5221000" />
+      <workItem from="1541657861970" duration="7018000" />
+      <workItem from="1542328733524" duration="11404000" />
+      <workItem from="1542611528331" duration="348000" />
+      <workItem from="1542685147581" duration="10055000" />
+      <workItem from="1542763308854" duration="401000" />
+      <workItem from="1543283022981" duration="1441000" />
+      <workItem from="1543300971179" duration="5722000" />
+      <workItem from="1543392532998" duration="358000" />
+      <workItem from="1543397771539" duration="3855000" />
+      <workItem from="1543451695131" duration="3572000" />
+      <workItem from="1543461615323" duration="17989000" />
+      <workItem from="1543538504574" duration="11272000" />
+      <workItem from="1543564936863" duration="4874000" />
+      <workItem from="1543645545295" duration="42000" />
+      <workItem from="1543799751928" duration="21150000" />
+      <workItem from="1543882115078" duration="16507000" />
+      <workItem from="1543975075606" duration="16169000" />
+      <workItem from="1544056247060" duration="485000" />
+      <workItem from="1544056899870" duration="133000" />
+      <workItem from="1544058242806" duration="165000" />
+      <workItem from="1544066565340" duration="1851000" />
+      <workItem from="1544068658744" duration="13369000" />
+      <workItem from="1544142647746" duration="3505000" />
+      <workItem from="1544146498675" duration="15230000" />
+      <workItem from="1544229296953" duration="1233000" />
+      <workItem from="1544233947891" duration="5616000" />
+      <workItem from="1544254948763" duration="3884000" />
+      <workItem from="1544402600085" duration="5836000" />
+      <workItem from="1544410748094" duration="8965000" />
+      <workItem from="1544434010442" duration="251000" />
+      <workItem from="1544488824856" duration="10966000" />
+      <workItem from="1544576111153" duration="3277000" />
+      <workItem from="1544595883966" duration="6610000" />
+      <workItem from="1544663091636" duration="2567000" />
+      <workItem from="1544681167620" duration="691000" />
+      <workItem from="1544686848033" duration="1214000" />
+      <workItem from="1544688428118" duration="752000" />
+      <workItem from="1544694078618" duration="242000" />
+      <workItem from="1544749195425" duration="11368000" />
+      <workItem from="1545017630071" duration="1175000" />
+      <workItem from="1545181773510" duration="258000" />
+      <workItem from="1545358439994" duration="3571000" />
+      <workItem from="1545382154286" duration="3914000" />
+      <workItem from="1545439172036" duration="8088000" />
+      <workItem from="1545615535256" duration="1110000" />
+      <workItem from="1545721205478" duration="4202000" />
+      <workItem from="1545784389283" duration="3414000" />
+      <workItem from="1545797824373" duration="9930000" />
+      <workItem from="1545820958450" duration="275000" />
+      <workItem from="1545821249628" duration="1427000" />
+      <workItem from="1545871766235" duration="14081000" />
+      <workItem from="1545957454069" duration="19146000" />
+      <workItem from="1546043521896" duration="9280000" />
+      <workItem from="1546069067417" duration="5394000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="361072000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1920" height="988" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49942195" visible="true" weight="0.24227902" />
+      <window_info id="Structure" order="1" sideWeight="0.50057805" side_tool="true" weight="0.19275825" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" sideWeight="0.50057805" side_tool="true" weight="0.19275825" />
+      <window_info anchor="bottom" id="TypeScript" order="0" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3272727" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3284091" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32947975" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../iview-admin/src/api/routers.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../iview-admin/src/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="21" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../iview-admin/src/view/join-page.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../iview-admin/node_modules/vuex/types/helpers.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="35" column="39" lean-forward="true" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../iview-admin/src/view/login/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2015.promise.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../iview-admin/src/store/module/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/styles/extra.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="102" selection-start-line="41" selection-start-column="102" selection-end-line="41" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/styles/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="2633" column="7" lean-forward="true" selection-start-line="2633" selection-start-column="7" selection-end-line="2633" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/directives/title.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="781">
+          <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/components/layouts/TheFooter.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/components/layouts/TheEntry.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/components/layouts/TheHeader.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/directives/validator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="81" column="5" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/directives/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/utils/createCaptcha.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/utils/localStorage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../vuejs-essential/src/views/auth/Register.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="72" column="36" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/cate/list.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="191" column="5" lean-forward="true" selection-start-line="191" selection-start-column="5" selection-end-line="191" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/gohome.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-173">
+          <caret line="62" column="19" lean-forward="true" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/swh_list.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/swh.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <caret line="102" column="39" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/add_address.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="104" column="10" lean-forward="true" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/save_address.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="107" column="11" lean-forward="true" selection-start-line="107" selection-start-column="11" selection-end-line="109" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/address.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="114" column="41" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/site.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="99" column="7" lean-forward="true" selection-start-line="99" selection-start-column="7" selection-end-line="101" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/train.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/index.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3621">
+          <caret line="213" column="25" selection-start-line="213" selection-start-column="25" selection-end-line="213" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/quicklogin.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6681">
+          <caret line="394" column="10" selection-start-line="394" selection-start-column="10" selection-end-line="394" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/cate/pt.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="377" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/cate/cjlb.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3519">
+          <caret line="207" column="54" selection-start-line="207" selection-start-column="50" selection-end-line="207" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/cate/dfts.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3519">
+          <caret line="207" column="54" selection-start-line="207" selection-start-column="54" selection-end-line="207" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/msorder/list.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3621">
+          <caret line="214" column="37" selection-start-line="214" selection-start-column="14" selection-end-line="214" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/time.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/lq.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3213">
+          <caret line="190" column="12" selection-start-line="190" selection-start-column="12" selection-end-line="190" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/login.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4267">
+          <caret line="251" column="27" selection-start-line="251" selection-start-column="27" selection-end-line="251" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../wepy-weui-demo/src/example/icons.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/ptorder/list.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2312">
+          <caret line="136" column="50" selection-start-line="136" selection-start-column="50" selection-end-line="136" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/ptorder/data.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="848">
+          <caret line="241" column="51" selection-start-line="241" selection-start-column="51" selection-end-line="241" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/index.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="1019" column="28" lean-forward="true" selection-start-line="1019" selection-start-column="28" selection-end-line="1019" selection-end-column="28" />
+          <folding>
+            <element signature="e#5645#6083#0" />
+            <element signature="e#6112#6186#0" />
+            <element signature="e#6213#6247#0" />
+            <element signature="e#6269#6464#0" />
+            <element signature="e#6486#6681#0" />
+            <element signature="e#6703#6898#0" />
+            <element signature="e#6920#7115#0" />
+            <element signature="e#7137#7332#0" />
+            <element signature="e#7354#7549#0" />
+            <element signature="e#7570#7765#0" />
+            <element signature="e#7787#7982#0" />
+            <element signature="e#7991#8040#0" />
+            <element signature="n#view#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#image#0;n#view#3;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#navigator#0;n#view#0;n#view#1;n#view#3;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#navigator#0;n#view#1;n#view#1;n#view#3;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#2;n#view#1;n#view#3;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#navigator#0;n#view#2;n#view#1;n#view#3;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#1;n#view#2;n#view#3;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#navigator#0;n#view#1;n#view#2;n#view#3;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#2;n#view#2;n#view#3;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#navigator#0;n#view#2;n#view#2;n#view#3;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#0;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#1;n#view#1;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#navigator#0;n#view#1;n#view#1;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#2;n#view#1;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#navigator#0;n#view#2;n#view#1;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#1;n#view#2;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#navigator#0;n#view#1;n#view#2;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#2;n#view#2;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#navigator#0;n#view#2;n#view#2;n#view#4;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#view#6;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#view#7;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/ms/index.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="124" column="37" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/cate/search.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-817">
+          <caret line="313" column="26" lean-forward="true" selection-start-line="313" selection-start-column="26" selection-end-line="313" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/pages/order/data.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="237" column="26" lean-forward="true" selection-start-line="231" selection-start-column="8" selection-end-line="237" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/yh.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="92" column="79" selection-start-line="92" selection-start-column="79" selection-end-line="92" selection-end-column="79" />
+          <folding>
+            <element signature="n#style#0;n#image#0;n#view#1;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#image#1;n#view#1;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#view#2;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#2726#2749#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

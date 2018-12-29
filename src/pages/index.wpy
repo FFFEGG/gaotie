@@ -1,0 +1,1236 @@
+<style lang="less">
+    .swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
+        margin-bottom: 2rpx;
+    }
+    .swiper-box .wx-swiper-dot{
+        width:40rpx;
+        display: inline-flex;
+        height: 5rpx;
+        margin-left: 0rpx;
+        justify-content:space-between;
+    }
+    .swiper-box .wx-swiper-dot::before{
+        content: '';
+        flex-grow: 1;
+        background: rgba(255,255,255,0.8);
+        border-radius: 8rpx
+    }
+    .swiper-box .wx-swiper-dot-active::before{
+        background:#888;
+    }
+    .swiper-box{
+        height: 200px;
+    }
+    .top-fix{
+        position: fixed;
+        top: 10px;
+        width: 94%;
+        padding: 0 0 0 5%;
+        z-index: 999;
+        height: 30px;
+    }
+    .serach-input{
+        width: 80%;
+        height: 100%;
+        background: #FFFFFF;
+        border-radius: 15px;
+        color: #666;
+        padding-left: 12px;
+        font-size: 13px;
+        text-align: 30px;
+    }
+    .ss {
+        width:20px;
+        height:20px;
+        position:fixed;
+        top:11px;
+        right:20%;
+        padding:4px;
+    }
+    .msgs{
+        width: 14%;
+        height: 20px;
+        text-align: right;
+    }
+    .msg{
+        float: right;
+        width: 30px;
+        height: 31px;
+    }
+    .rotate-in-center {
+        -webkit-animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    @-webkit-keyframes rotate-in-center {
+        0% {
+            -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            opacity: 1;
+        }
+    }
+    @keyframes rotate-in-center {
+        0% {
+            -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+            opacity: 1;
+        }
+    }
+    .nav{
+        width:84%;
+        height:180px;
+        padding:3% 8% 0% 8%;
+        background:#FFF;
+    }
+    .nav-item{
+        width:20.5%;
+        height:85px;
+        margin-bottom:7px;
+        margin-right:6%;
+        text-align: center;
+    }
+    .nav-item:nth-child(4n){
+        margin-right: 0;
+    }
+    .nav-item-img{
+        width:57px;
+        height:57px;
+        border-radius:50%;
+    }
+    .nav-item-font{
+        font-size: 13px;
+        line-height: 16px;
+        color: rgb(71,71,73);
+        text-shadow:1px 1px 1px #ccc;
+    }
+    .rotate-in-ver {
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    @-webkit-keyframes rotate-in-ver {
+        0% {
+            -webkit-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            opacity: 1;
+        }
+    }
+    @keyframes rotate-in-ver {
+        0% {
+            -webkit-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            opacity: 1;
+        }
+    }
+    .ms{
+        width: 94%;
+        padding:3% 3% 4% 3%;
+        height: 255px;
+        //background: url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/tj_bg.png') no-repeat 100%/100%;
+        background: rgb(239,229,213);
+    }
+    .ms-item{
+        width: 47%;
+        margin: 0.5%;
+        float: left;
+        background: #FFFFFF;d
+        border-radius: 3px;
+        height: 120px;
+        padding: 1%;
+        image {
+            width: 100%;
+            height: 120px;
+        }
+    }
+    .ms-item-top-one{
+        width: 100%;
+        height: 22px;
+    }
+    .ms-item-top-one image {
+        width:60px;
+        height:20px;
+        float:left;
+        margin-top:2px;
+    }
+    .ms-item-top-two{
+        margin-left:2%;
+        width:54%;
+        border:1px solid #EF4F4F;
+        border-radius:6px;
+        float:left;
+        height:13px;
+        margin-top:5px;
+        line-height: 13px;
+    }
+    .ms-item-top-two-fl{
+        float: left;
+        width: 40%;
+        height: 100%;
+        background: #EF4F4F;
+        color: #FFFFFF;
+        font-size: 9px;
+        text-align: center;
+    }
+    .ms-item-top-two-fr{
+        float: left;
+        width: 60%;
+        height: 100%;
+        color: rgb(87,87,87);
+        font-size: 10px;
+        text-align: left;
+    }
+    .ms-item-two {
+        width: 90%;
+        padding: 1% 5%;
+        height: 75px;
+    }
+    .ms-item-two-item{
+        width: 48%;
+        height: 100%;
+        float: left;
+        margin-left: 1%;
+        text-align: center;
+    }
+    .scale-in-tl {
+        -webkit-animation: scale-in-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.9s both;
+        animation: scale-in-tl 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.9s both;
+    }
+    @-webkit-keyframes scale-in-tl {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+            opacity: 1;
+        }
+    }
+    @keyframes scale-in-tl {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+            opacity: 1;
+        }
+    }
+    .ms-item-two-item image {
+        width: 98%;
+        height: 56px;
+        margin-top:10px;
+    }
+    .ms-item-two-item view{
+        line-height: 13px;
+    }
+    .rotate-in-ver-1 {
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s both;
+    }
+    .rotate-in-ver-2 {
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+    }
+    .rotate-in-ver-3 {
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.3s both;
+    }
+    .rotate-in-ver-4 {
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s both;
+    }
+    .rotate-in-ver-5 {
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+    }
+    .rotate-in-ver-6 {
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s both;
+    }
+    .rotate-in-ver-7{
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s both;
+    }
+    .rotate-in-ver-8 {
+        -webkit-animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
+        animation: rotate-in-ver 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.8s both;
+    }
+    .phb{
+        height: 32%;
+        width: 100%;
+    }
+    .phb image{
+        width: 69px;
+        height: 23px;
+        margin-left: 10rpx;
+    }
+    .phb-content {
+        height: 68%;
+        width: 100%;
+    }
+    .phb-content image {
+        width: 45%;
+        height: 90%;
+        padding: 5% 2.5%;
+    }
+    .phb view {
+        text-indent: 10rpx;
+    }
+    .jptj {
+        text-align: center;
+        width: 96%;
+        padding: 2%;
+        float: left;
+    }
+    .jptj-l{
+        width: 49%;
+        padding: 0.5%;
+        float: left;
+    }
+    .jptj-l-one{
+        width: 100%;
+        height: 200rpx;
+        border-radius: 10rpx;
+        overflow: hidden;
+        position: relative;
+    }
+    .jptj-l-two{
+        width: 49%;
+        height: 200rpx;
+        border-radius: 10rpx;
+        float: left;
+        margin-top: 10rpx;
+
+    }
+    .jptj-l-one image {
+        width: 100%;
+        height: 100%;
+    }
+    .kenburns-top {
+        -webkit-animation: kenburns-top 10s linear infinite both;
+        animation: kenburns-top 10s linear infinite both;
+    }
+    @-webkit-keyframes kenburns-top {
+        0% {
+            -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+            -webkit-transform-origin: 50% 16%;
+            transform-origin: 50% 16%;
+        }
+        100% {
+            -webkit-transform: scale(1.25) translateY(-15px);
+            transform: scale(1.25) translateY(-15px);
+            -webkit-transform-origin: top;
+            transform-origin: top;
+        }
+    }
+    @keyframes kenburns-top {
+        0% {
+            -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+            -webkit-transform-origin: 50% 16%;
+            transform-origin: 50% 16%;
+        }
+        100% {
+            -webkit-transform: scale(1.25) translateY(-15px);
+            transform: scale(1.25) translateY(-15px);
+            -webkit-transform-origin: top;
+            transform-origin: top;
+        }
+    }
+    .jptj-l-one-tit {
+        position: absolute;
+        bottom: 10rpx;
+        left: 20rpx;
+        text-align: left;
+        color: #fffFFF;
+    }
+    .jptj-l-one-tits {
+        position: absolute;
+        top: 10rpx;
+        left: 20rpx;
+        text-align: left;
+        color: #fffFFF;
+    }
+    .jptj-l-two {
+        position: relative;
+    }
+    .jptj-l-two image {
+        width: 100%;
+        height: 100%;
+    }
+    .jptj-l-two-tag {
+        width: 100rpx;
+        height: 60rpx;
+        position: absolute;
+        top: 16rpx;
+        left: 0;
+        border-radius: 0 30rpx 30rpx 0;
+        background: url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/jb_l.png') no-repeat 100%/100%;
+        font-size: 24rpx;
+        color: #FFF;
+        text-align: left;
+        text-indent: 3px;
+    }
+    .jptj-l-two-tags {
+        width: 100rpx;
+        height: 60rpx;
+        position: absolute;
+        top: 16rpx;
+        left: 0;
+        border-radius: 0 30rpx 30rpx 0;
+        background: url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/jb_z.png') no-repeat 100%/100%;
+        font-size: 24rpx;
+        color: #FFF;
+        text-align: left;
+        text-indent: 3px;
+    }
+    .jptj-l-twos-tag {
+        width: 100rpx;
+        height: 60rpx;
+        position: absolute;
+        top: 16rpx;
+        left: 0;
+        border-radius: 0 30rpx 30rpx 0;
+        background: url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/jb_c.png') no-repeat 100%/100%;
+        font-size: 24rpx;
+        color: #FFF;
+        text-align: left;
+        text-indent: 3px;
+    }
+    .jptj-l-twos-tags {
+        width: 160rpx;
+        height: 60rpx;
+        position: absolute;
+        top: 16rpx;
+        left: 0;
+        border-radius: 0 30rpx 30rpx 0;
+        background: url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/jb_ls.png') no-repeat 100%/100%;
+        font-size: 24rpx;
+        color: #FFF;
+        text-align: left;
+        text-indent: 3px;
+    }
+    .kenburns-right {
+        -webkit-animation: kenburns-right 10s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+        animation: kenburns-right 10s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
+    }
+    @-webkit-keyframes kenburns-right {
+        0% {
+            -webkit-transform: scale(1) translate(0, 0);
+            transform: scale(1) translate(0, 0);
+            -webkit-transform-origin: 84% 50%;
+            transform-origin: 84% 50%;
+        }
+        100% {
+            -webkit-transform: scale(1.25) translateX(20px);
+            transform: scale(1.25) translateX(20px);
+            -webkit-transform-origin: right;
+            transform-origin: right;
+        }
+    }
+    @keyframes kenburns-right {
+        0% {
+            -webkit-transform: scale(1) translate(0, 0);
+            transform: scale(1) translate(0, 0);
+            -webkit-transform-origin: 84% 50%;
+            transform-origin: 84% 50%;
+        }
+        100% {
+            -webkit-transform: scale(1.25) translateX(20px);
+            transform: scale(1.25) translateX(20px);
+            -webkit-transform-origin: right;
+            transform-origin: right;
+        }
+    }
+    .footers{
+        width: 100%;
+        text-align: center;
+        padding-top: 60rpx;
+        padding-bottom: 40rpx;
+        background: rgb(242,240,241);
+        float: left;
+        color: rgb(147,147,147);
+        font-size: 28rpx;
+    }
+    .kfrx {
+        height: 54rpx;
+        width: 425rpx;
+        background: url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/call.png') no-repeat;
+        background-size: 423rpx 54rpx;
+        margin-left: 168rpx;
+        text-align: left;
+        text-indent: 24rpx;
+        line-height: 54rpx;
+        margin-top:10rpx;
+        margin-bottom:10rpx;
+    }
+    .kfrx text {
+        float: left;
+    }
+    .fade-in-fwd {
+        -webkit-animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    @-webkit-keyframes fade-in-fwd {
+        0% {
+            -webkit-transform: translateZ(-80px);
+            transform: translateZ(-80px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            opacity: 1;
+        }
+    }
+    @keyframes fade-in-fwd {
+        0% {
+            -webkit-transform: translateZ(-80px);
+            transform: translateZ(-80px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            opacity: 1;
+        }
+    }
+    #gohome_nav {
+        position: fixed;
+        bottom: 60px;
+        right: 5px;
+        width: 35px;
+        height: 35px;
+        border-radius: 18px;
+        z-index: 999;
+        background: #FFFFFF;
+    }
+    #gohome_nav2 {
+        position: fixed;
+        bottom: 100px;
+        right: 5px;
+        width: 35px;
+        height: 35px;
+        border-radius: 18px;
+        z-index: 999;
+        background: #FFFFFF;
+    }
+    #firstCanvas {
+        position: fixed;
+        top:0;
+    }
+    .zz {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(109,109,109);
+        opacity: 0.5;
+        z-index: 99;
+
+    }
+    .dianhua {
+        position:fixed;
+        width:300rpx;
+        height:230rpx;
+        background:url('https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kaung.png') no-repeat;
+        background-size:300rpx 230rpx;
+        bottom:140px;
+        right:4rpx;
+        z-index:999;
+    }
+    .scale-up-br {
+        -webkit-animation: scale-up-br 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-up-br 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    @-webkit-keyframes scale-up-br {
+        0% {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+    }
+    @keyframes scale-up-br {
+        0% {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+    }
+    .slide-in-right {
+        -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    @-webkit-keyframes slide-in-right {
+        0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    @keyframes slide-in-right {
+        0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    .zzs {
+          position: fixed;
+          top: 0;
+          z-index: 9999;
+          background: #999999;
+          opacity: 0.6;
+          width: 100%;
+          height: 100%;
+      }
+    .activity {
+        position:fixed;
+        top:0;
+        z-index:99999;
+        margin-top:36%;
+        margin-left:72rpx;
+        width:600rpx;
+        height:600rpx;
+        text-align:center;
+        .image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            image {
+                width: 100%;
+                height: 100%;
+            }
+            .xx {
+                position:absolute;
+                width:15px;
+                height:15px;
+                padding:3px;
+                border-radius:13px;
+                background:#333;
+                color:#FFFFFF;
+                top:-23px;
+                right:-25px;
+                opacity: 0.8;
+                line-height:17px;
+            }
+        }
+    }
+
+    .zzg {
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+        background: #999999;
+        opacity: 0.6;
+        width: 100%;
+        height: 100%;
+    }
+    .activityg {
+        position:fixed;
+        top:0;
+        z-index:99999;
+        margin-top:42%;
+        margin-left:72rpx;
+        width:600rpx;
+        height:600rpx;
+        text-align:center;
+        .image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            image {
+                width: 100%;
+                height: 100%;
+            }
+            .xx {
+                position:absolute;
+                width:15px;
+                height:15px;
+                padding:3px;
+                border-radius:13px;
+                background:#333;
+                color:#FFFFFF;
+                top:-23px;
+                right:-25px;
+                opacity: 0.8;
+                line-height:17px;
+            }
+        }
+    }
+
+
+    .jello-horizontal {
+        -webkit-animation: jello-horizontal 0.9s both;
+        animation: jello-horizontal 0.9s  both;
+    }
+
+    @-webkit-keyframes jello-horizontal {
+        0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+        30% {
+            -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+        }
+        40% {
+            -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+        }
+        50% {
+            -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+        }
+        65% {
+            -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+        }
+        75% {
+            -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+        }
+        100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+    }
+    @keyframes jello-horizontal {
+        0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+        30% {
+            -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+        }
+        40% {
+            -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+        }
+        50% {
+            -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+        }
+        65% {
+            -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+        }
+        75% {
+            -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+        }
+        100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+    }
+    .scale-in-center {
+        -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    @-webkit-keyframes scale-in-center {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @keyframes scale-in-center {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+
+
+</style>
+<template>
+    <view class="top-fix">
+        <input class="fl serach-input" placeholder="请输入搜索关键词">
+        <image src="/images/ss.png" class="ss rotate-in-center"></image>
+        <view class="fl msgs">
+            <image class="msg" src="/images/xx.png">
+            </image>
+        </view>
+    </view>
+    <swiper class="swiper-box" indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots circular>
+        <repeat for="{{datalist['topAd']}}" item="v">
+            <swiper-item>
+                <image mode="aspectFit"  src="{{ v.pic }}" class="slide-image" style="width: 100%;height: 100%"/>
+            </swiper-item>
+        </repeat>
+    </swiper>
+    <view class="nav">
+        <view class="nav-item fl" @tap="swh">
+            <image class="nav-item-img {{ rote?'rotate-in-ver-1':''}} {{ shw?'fade-in-fwd':''}}" src="/images/nav_one.png"></image>
+            <view class="nav-item-font">商务候</view>
+        </view>
+        <view class="nav-item fl">
+            <navigator url="/shop/pages/index">
+                <image class="nav-item-img {{ rote?'rotate-in-ver-2':''}}" src="/images/nav_two.png"></image>
+                <view class="nav-item-font">商城</view>
+            </navigator>
+        </view>
+        <view class="nav-item fl">
+            <navigator url="/bus/pages/index">
+                <image class="nav-item-img {{ rote?'rotate-in-ver-3':''}}" src="/images/nav_three.png"></image>
+                <view class="nav-item-font">接驳车</view>
+            </navigator>
+        </view>
+        <view class="nav-item fl">
+            <navigator url="/pages/train">
+                <image class="nav-item-img {{ rote?'rotate-in-ver-4':''}}" src="/images/nav_four.png"></image>
+                <view class="nav-item-font">火车票</view>
+            </navigator>
+        </view>
+        <view class="nav-item fl">
+            <image class="nav-item-img {{ rote?'rotate-in-ver-5':''}}" src="/images/nav_five.png"></image>
+            <view class="nav-item-font">酒店</view>
+        </view>
+        <view class="nav-item fl">
+            <image class="nav-item-img {{ rote?'rotate-in-ver-6':''}}" src="/images/nav_six.png"></image>
+            <view class="nav-item-font">美食</view>
+        </view>
+        <view class="nav-item fl">
+            <image class="nav-item-img {{ rote?'rotate-in-ver-7':''}}" src="/images/nav_seven.png"></image>
+            <view class="nav-item-font">旅游</view>
+        </view>
+        <view class="nav-item fl">
+            <image class="nav-item-img {{ rote?'rotate-in-ver-8':''}}" src="/images/nav_eight.png"></image>
+            <view class="nav-item-font">飞机票</view>
+        </view>
+
+
+    </view>
+    <view class="ms {{ rote?'scale-in-tl':''}}">
+        <view class="ms-item ">
+
+            <navigator url="/shop/pages/ms/index">
+
+                <image mode="aspectFit"  src="{{ datalist['1st'][0]['pic']}}"></image>
+            </navigator>
+        </view>
+        <view class="ms-item">
+
+            <navigator url="/shop/pages/cate/pt">
+                <image mode="aspectFit"  src="{{ datalist['1st'][1]['pic']}}"></image>
+            </navigator>
+        </view>
+        <view class="ms-item">
+
+            <navigator url="/shop/pages/cate/cjlb">
+                <image mode="aspectFit"  src="{{ datalist['1st'][2]['pic']}}"></image>
+            </navigator>
+        </view>
+        <view class="ms-item">
+
+            <navigator url="/shop/pages/cate/dfts">
+            <image mode="aspectFit"  src="{{ datalist['1st'][3]['pic']}}"></image>
+            </navigator>
+        </view>
+    </view>
+
+    <image @tap="bg2" class="{{ clicke2?'jello-horizontal':'' }}"  style="width: 100%;height: 320rpx;" mode="aspectFill" src="{{datalist['2nd'][0]['pic']}}"></image>
+
+    <view class="jptj">
+        <image mode="aspectFit"  style="width:46%;height:18px;" src="/images/title_one.png"></image>
+        <view style="clear: both"></view>
+        <view class="jptj-l">
+            <view class="jptj-l-one">
+                <navigator url="/pages/swh" style="width: 100%;height: 100%">
+                    <image mode="aspectFit"  class="{{ rote?'kenburns-top':'' }}" src="{{ datalist['3rd'][0]['pic']}}"></image>
+                    <view class="jptj-l-one-tit">
+                        <view>{{ datalist['3rd'][0]['title']}}</view>
+                        <!--<view  style="font-size: 9px">截止时间: 2018/12/01</view>-->
+                    </view>
+                </navigator>
+            </view>
+            <view style="margin-right: 1%" class="jptj-l-two">
+                <navigator url="/pages/swh" style="width: 100%;height: 100%">
+                <image mode="aspectFit"  src="{{ datalist['3rd'][2]['pic']}}"></image>
+                <view class="jptj-l-two-tag">
+                    <view style="line-height: 60rpx;">{{ datalist['3rd'][2]['title']}}</view>
+                    <!--<view  style="font-size: 9px;line-height: 8rpx;"><text style="font-size: 7px">¥</text>20元</view>-->
+                </view>
+                </navigator>
+            </view>
+            <view style="margin-left: 1%" class="jptj-l-two">
+                <navigator url="/pages/swh" style="width: 100%;height: 100%">
+                <image mode="aspectFit"  src="{{ datalist['3rd'][3]['pic']}}"></image>
+                <view class="jptj-l-two-tag">
+                    <view style="line-height: 60rpx;">{{ datalist['3rd'][3]['title']}}</view>
+                    <!--<view  style="font-size: 9px;line-height: 8rpx;"><text style="font-size: 7px">¥</text>20元</view>-->
+                </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="jptj-l">
+            <view class="jptj-l-one">
+                <image mode="aspectFit"  class="{{ rote?'kenburns-top':'' }}" src="{{ datalist['3rd'][1]['pic']}}"></image>
+                <view class="jptj-l-one-tit">
+                    <view>{{ datalist['3rd'][1]['title']}}</view>
+                    <view> </view>
+                    <!--<view  style="font-size: 9px">截止时间: 2018/12/01</view>-->
+                </view>
+            </view>
+            <view style="margin-right: 1%" class="jptj-l-two">
+                <navigator url="/pages/web?url={{ datalist['3rd'][4]['url'] }}" style="width: 100%;height: 100%">
+                <image mode="aspectFit"  src="{{ datalist['3rd'][4]['pic']}}"></image>
+                <view class="jptj-l-twos-tag">
+                    <view style="line-height: 60rpx;">{{ datalist['3rd'][4]['title']}}</view>
+                    <!--<view  style="font-size: 9px;line-height: 8rpx;"><text style="font-size: 7px">¥</text>180元</view>-->
+                </view>
+                </navigator>
+            </view>
+            <view style="margin-left: 1%" class="jptj-l-two">
+                <navigator url="/pages/web?url={{ datalist['3rd'][5]['url'] }}" style="width: 100%;height: 100%">
+                <image  mode="aspectFit" src="{{ datalist['3rd'][5]['pic']}}"></image>
+                <view class="jptj-l-twos-tag">
+                    <view style="line-height: 60rpx;">{{ datalist['3rd'][5]['title']}}</view>
+                    <!--<view  style="font-size: 9px;line-height: 8rpx;"><text style="font-size: 7px">¥</text>170元</view>-->
+                </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+
+    <view class="jptj">
+        <image mode="aspectFit"  style="width:46%;height:18px;" src="/images/title_two.png"></image>
+        <view style="clear: both"></view>
+        <view class="jptj-l">
+            <view class="jptj-l-one">
+                <image mode="aspectFit"  class="{{ rote?'kenburns-right':'' }}" src="{{ datalist['4th'][0]['pic']}}"></image>
+                <view class="jptj-l-one-tits">
+                    <view>{{ datalist['4th'][0]['title']}}</view>
+                    <!--<view  style="font-size: 9px">截止时间: 2018/12/01</view>-->
+                </view>
+            </view>
+            <view style="margin-right: 1%" class="jptj-l-two">
+                <navigator url="/pages/web?url={{ datalist['4th'][2]['url'] }}" style="width: 100%;height: 100%">
+                <image mode="aspectFit"  src="{{ datalist['4th'][2]['pic']}}"></image>
+                <view class="jptj-l-two-tag">
+                    <view style="line-height: 60rpx;">{{ datalist['4th'][2]['title']}}</view>
+                    <!--<view  style="font-size: 9px;line-height: 8rpx;"><text style="font-size: 7px">¥</text>80元</view>-->
+                </view>
+                </navigator>
+            </view>
+            <view style="margin-left: 1%" class="jptj-l-two">
+                <navigator url="/pages/web?url={{ datalist['4th'][3]['url'] }}" style="width: 100%;height: 100%">
+                <image mode="aspectFit"  src="{{ datalist['4th'][3]['pic']}}"></image>
+                <view class="jptj-l-two-tag">
+                    <view style="line-height: 60rpx;">{{ datalist['4th'][3]['title']}}</view>
+                    <!--<view  style="font-size: 9px;line-height: 8rpx;"><text style="font-size: 7px">¥</text>50元</view>-->
+                </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="jptj-l">
+            <view class="jptj-l-one">
+                <image mode="aspectFit"  class="{{ rote?'kenburns-right':'' }}" src="{{ datalist['4th'][1]['pic']}}"></image>
+                <view class="jptj-l-one-tits">
+                    <view>{{ datalist['4th'][1]['title']}}</view>
+                    <!--<view  style="font-size: 9px">截止时间: 2018/12/01</view>-->
+                </view>
+            </view>
+            <view style="margin-right: 1%" class="jptj-l-two">
+                <navigator url="/pages/web?url={{ datalist['4th'][4]['url'] }}" style="width: 100%;height: 100%">
+                <image mode="aspectFit"  src="{{ datalist['4th'][4]['pic']}}"></image>
+                <view class="jptj-l-twos-tags">
+                    <view style="line-height: 60rpx;">{{ datalist['4th'][4]['title']}}</view>
+                    <!--<view  style="font-size: 9px;line-height: 8rpx;"><text style="font-size: 7px">¥</text>180元</view>-->
+                </view>
+                </navigator>
+            </view>
+            <view style="margin-left: 1%" class="jptj-l-two">
+                <navigator url="/pages/web?url={{ datalist['4th'][5]['url'] }}" style="width: 100%;height: 100%">
+                <image mode="aspectFit"  src="{{ datalist['4th'][5]['pic']}}"></image>
+                <view class="jptj-l-twos-tags">
+                    <view style="line-height: 60rpx;">{{ datalist['4th'][5]['title']}}</view>
+                    <!--<view  style="font-size: 9px;line-height: 8rpx;"><text style="font-size: 7px">¥</text>170元</view>-->
+                </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view style="clear: both"></view>
+    <image style="width: 100%;height: 250rpx;float: left" mode="aspectFill" src="{{ datalist['5th'][0]['pic']}}"></image>
+    <view class="footers">
+        <image src="{{ datalist['6th'][0]['pic']}}" style="width: 160rpx;height: 160rpx"></image>
+        <view class="kfrx">
+            <text>客户热线</text>
+            <text style="float:right;text-align: right;margin-right: 24rpx;">0771-5570408</text>
+        </view>
+        <view style="margin-top:16rpx;letter-spacing:10rpx;">本商城由广西高铁服务有限公司运营</view>
+    </view>
+    <view  style="width: 100%;height: 100%" wx:if="{{ index_show }}">
+        <image id="gohome_nav2" class="slide-in-right" src="/images/right_kf.png"  @tap="shows"></image>
+        <image id="gohome_nav" class="slide-in-right" src="/images/right_top.png" @tap="goTop"></image>
+        <view style="width: 100%">
+            <view class="zz" @tap="showss"  wx:if="{{ show }}">
+
+            </view>
+            <view class="dianhua scale-up-br" wx:if="{{ show }}">
+                <view style="width: 100%;height: 100rpx;line-height: 100rpx;border-bottom:1px solid #ccc;"  @tap="tel_kf">
+                    <image style="float:left;width:25px;height:25px;margin-top:22rpx;margin-left:50rpx;margin-right:2rpx;" src="/images/tel.png"></image>
+                    <view style="float: left;font-size: 35rpx;color: #666">
+                        电话客服
+                    </view>
+                </view>
+                <view style="width: 100%;height: 100rpx;line-height: 100rpx;">
+                    <image style="float:left;width:25px;height:25px;margin-top:22rpx;margin-left:50rpx;margin-right:2rpx;" src="/images/kf.png"></image>
+                    <button  open-type="contact" class="button-share" id="share-button">
+                    </button>
+                    <label for="share-button">
+                        <view style="float: left;font-size: 35rpx;color: #666">
+                         在线客服
+                        </view>
+                    </label>
+
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--优惠券弹窗-->
+    <view class="zzs" wx:if="{{activity}}"  @tap="close_act"></view>
+    <view class="activity" wx:if="{{activity}}" >
+        <view class="image">
+            <image @tap="go_activety" class="scale-in-center" src="{{ activityimg }}" mode="aspectFit" alt=""></image>
+            <view class="xx" @tap="close_act">X</view>
+        </view>
+
+    </view>
+    <!--优惠券弹窗-->
+    <!--产品弹窗-->
+    <view class="zzg" wx:if="{{activityg}}"  @tap="close_act"></view>
+    <view class="activityg" wx:if="{{activityg}}" >
+        <view class="image">
+            <image @tap="go_activetyg" class="scale-in-center" src="{{ activityimgg }}" mode="aspectFit" alt=""></image>
+            <view class="xx" @tap="close_act">X</view>
+        </view>
+    </view>
+    <!--产品弹窗-->
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '商旅随行',
+      enablePullDownRefresh: true
+    }
+    computed = {
+      sys () {
+        return wepy.getStorageSync('sys')
+      }
+    }
+    data = {
+      clicke2: false,
+      indicatorDots: false,
+      autoplay: false,
+      interval: 5000,
+      duration: 1000,
+      rote: false,
+      shw: false,
+      index_show: false,
+      show: false,
+      datalist: '',
+      activity: false,
+      activityimg: '',
+      activityid: 0
+    }
+    async onPullDownRefresh() {
+      let rew = await api.request({
+        url: 'index/index',
+        method: 'post'
+      })
+      this.datalist = rew.data.data
+      this.$apply()
+      wepy.stopPullDownRefresh()
+    }
+    methods = {
+      bg2 () {
+        const that = this
+        that.clicke2 = true
+        setTimeout(function () {
+          that.clicke2 = false
+          that.$apply()
+        }, 1000)
+        that.$apply()
+      },
+      async close_act () {
+        this.activity = !this.activity
+        // let rew = await api.request({
+        //   url: ''
+        // })
+        this.$apply()
+      },
+      go_activety () {
+        this.activity = !this.activity
+        this.$apply()
+        wepy.navigateTo({
+          url: '/shop/pages/lq?id=' + this.activityid
+        })
+      },
+      swh() {
+        const that = this
+        that.shw = true
+        that.$apply()
+        setTimeout(function () {
+          that.$navigate('./swh')
+        }, 300)
+      },
+      gohome_nav() {
+        wepy.switchTab({
+          url: '/pages/index'
+        })
+      },
+      shows () {
+        this.show = true
+        this.$apply()
+      },
+      showss () {
+        this.show = false
+        this.$apply()
+      },
+      goTop (e) {  // 一键回到顶部
+        if (wx.pageScrollTo) {
+          this.show = false
+          this.$apply()
+          wx.pageScrollTo({
+            scrollTop: 0
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+          })
+        }
+      },
+      tel_kf () {
+        wepy.makePhoneCall({
+          phoneNumber: '19968030253'
+        })
+      }
+    }
+
+    async onLoad() {
+      let rew = await api.request({
+        url: 'index/index',
+        method: 'post'
+      })
+      if (wepy.getStorageSync('token')) {
+        let ress = await api.request({
+          url: 'index/yhq',
+          method: 'post',
+          data: {
+            token: wepy.getStorageSync('token')
+          }
+        })
+        if (ress.data.code === 200) {
+          this.activity = true
+          this.activityimg = ress.data.data.pic
+          this.activityid = ress.data.data.id
+        }
+      } else {
+        let ress = await api.request({
+          url: 'index/yhq',
+          method: 'post'
+        })
+        if (ress.data.code === 200) {
+          this.activity = true
+          this.activityimg = ress.data.data.pic
+          this.activityid = ress.data.data.id
+        }
+      }
+      this.datalist = rew.data.data
+      this.$apply()
+    }
+    onShow() {
+    }
+    onHide () {
+      this.shw = false
+      clearInterval(this.timer)
+      this.$apply()
+    }
+    onPageScroll (e) {
+      if (e.scrollTop > 100) {
+        this.index_show = true
+        this.$apply()
+      } else {
+        this.index_show = false
+        this.$apply()
+      }
+    }
+  }
+</script>

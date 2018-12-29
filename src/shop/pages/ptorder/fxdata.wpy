@@ -1,0 +1,334 @@
+<style type="less">
+    page {
+        background: #f8f8f8;
+    }
+
+    .heard {
+        position: fixed;
+        top: 0;
+        width: 90%;
+        padding: 2% 5%;
+        height: 80px;
+        background: #b0601b;
+        image  {
+            float: left;
+            width: 50rpx;
+            height: 50rpx;
+            margin-top: 6px;
+        }
+        .heard_left {
+            margin-left: 5px;
+            float: left;
+            color: #FFFFFF;
+            .title {
+                font-size: 20px;
+            }
+            text {
+                font-size: 13px;
+                color: rgb(251, 225, 51);
+            }
+        }
+    }
+
+    .box {
+        width: 94%;
+        padding: 70px 3% 100px 3%;
+        float: left;
+        position: relative;
+        z-index: 999;
+        .box-item {
+            width: 90%;
+            padding: 2% 5%;
+            background: #FFFFFF;
+            border-radius: 2px;
+            margin-bottom: 10px;
+            float: left;
+            image {
+                width: 35%;
+                height: 80px;
+                float: left;
+                margin-right: 10px;
+            }
+            .goods_info {
+                line-height: 20px;
+            }
+            .goods_title {
+                line-height: 20px;
+                font-size: 16px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                height: 40px;
+            }
+            .item {
+                width: 100%;
+                float: left;
+                .item_fl {
+                    float: left;
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+                .item_fr {
+                    float: right;
+                    margin-left: 14px;
+                    font-size: 15px;
+                    width: 70%;
+                    text-align: right;
+                }
+            }
+        }
+        .zprice {
+            float: right;
+            font-size: 15px;
+            margin-right: 15px;
+            text {
+                font-size: 20px;
+                color: rgb(252, 87, 0);
+            }
+        }
+    }
+
+    .footet {
+        width: 94%;
+        padding: 0 3%;
+        position: fixed;
+        background: #FFFFFF;
+        height: 40px;
+        padding-top: 10px;
+        bottom: 0;
+        view {
+            width: 40%;
+            float: left;
+            border: 1px #eeeeee solid;
+            background: #FFFFFF;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            font-size: 15px;
+            border-radius: 3px;
+        }
+
+
+        .yqhy {
+            width: 100%;
+            text-align: center;
+        }
+        z-index: 999999999;
+    }
+    .pulsate-bck {
+        -webkit-animation: pulsate-bck 1s ease-in-out infinite both;
+        animation: pulsate-bck 1s ease-in-out infinite both;
+    }
+
+    @-webkit-keyframes pulsate-bck {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        50% {
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    @keyframes pulsate-bck {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        50% {
+            -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+</style>
+<template>
+    <view class="heard">
+        <image src="/shop/image/ddxq.png"></image>
+
+
+        <view class="heard_left" wx:if="{{ order.status == 1 }}">
+            <view class="title">拼团成功</view>
+        </view>
+
+        <view class="heard_left" wx:if="{{ order.status == 0 }}">
+            <view class="title">开团中</view>
+            <view>订单在
+                <text> {{ pindan_overtime }}</text>
+                后将自动关闭
+            </view>
+        </view>
+
+    </view>
+    <view class="box">
+
+        <view class="box-item">
+            <image src="{{ order.goods.thumb }}"></image>
+            <view class="goods_info">
+                <view class="goods_title">{{ order.goods.title }}</view>
+                <view>{{ order.goods.sku }}</view>
+
+                <view  style="color: rgb(253,146,0);font-size: 15px">¥{{ order.goods.price }}</view>
+            </view>
+        </view>
+
+        <view style="text-align: center;font-size: 20px;padding-bottom: 20px;border-bottom: 1px #EEEEEE solid">
+            还差 <text style="font-size: 25px;color: #EF4F4F">1</text> 人成团
+        </view>
+
+        <view style="margin-top: 10px">
+            <repeat for="{{ order.avatar }}" item="v">
+                <image style="width: 40px;height: 40px;border-radius: 25px;background: #a8a8a8;float: left;margin-right: 10px" src="{{ v }}"></image>
+            </repeat>
+        </view>
+    </view>
+
+
+    <view  class="footet" wx:if="{{ order.status == 0}}">
+        <view @tap="ljpt" class="yqhy" style="float: right;background: #b0601b;color: #FFFFFF">立即拼团</view>
+    </view>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../../../utils/api'
+
+  export default class Data extends wepy.page {
+    config = {
+      navigationBarTitleText: '拼团详情',
+      navigationBarBackgroundColor: '#9d6348',
+      navigationBarTextStyle: '#FFFFFF'
+    }
+    data = {
+      order: '',
+      yf: 0,
+      discount_price: '',
+      goodsprice: 0,
+      pindan_overtime: ''
+    }
+    methods = {
+      tk () {
+        wepy.navigateTo({
+          url: '/shop/pages/order/tk?id=' + this.order.id
+        })
+      },
+      async qxdd () {
+        let res = await wepy.showModal({
+          title: '取消订单',
+          content: '您正在进行取消订单操作',
+          confirmText: '确认',
+          cancelText: '取消'
+        })
+        if (res.confirm) {
+          let rew = await api.request({
+            url: 'pintuan/cannelOrder',
+            method: 'post',
+            data: {
+              token: wepy.getStorageSync('token'),
+              orderid: this.order.id
+            }
+          })
+          if (rew.data.code === 200) {
+            wepy.showToast({
+              title: '取消成功',
+              icon: 'success'
+            })
+            setTimeout(function () {
+              wepy.navigateTo({
+                url: '/shop/pages/ptorder/list?id=1'
+              })
+            }, 500)
+          }
+        }
+      },
+      async ljfk () {
+        const that = this
+        let rew = await api.request({
+          url: 'pintuan/paynow',
+          method: 'post',
+          data: {
+            token: wepy.getStorageSync('token'),
+            orderid: this.order.id
+          }
+        })
+        wx.requestPayment({
+          timeStamp: rew.data.timeStamp,
+          nonceStr: rew.data.nonceStr,
+          package: rew.data.package,
+          signType: 'MD5',
+          paySign: rew.data.paySign,
+          success (res) {
+            wepy.redirectTo({
+              url: '/shop/pages/mssuccess?id=' + that.order.id
+            })
+          }
+        })
+      }
+    }
+    ljpt () {
+      wepy.redirectTo({
+        url: '/shop/pages/goods/ptfxdata?id=' + this.order.goods.goods_id + '&order_id=' + this.order.id
+      })
+    }
+    async onLoad(options) {
+      let rew = await api.request({
+        url: 'pintuan/sharedetail',
+        method: 'post',
+        data: {
+          id: options.id
+        }
+      })
+      this.order = rew.data.data
+      this.order.id = options.id
+      this.$apply()
+      if (this.order.status === 1) {
+        setTimeout(function () {
+          wepy.switchTab({
+            url: '/pages/index'
+          })
+        }, 500)
+      } else {
+        this.CountDown(this.order.overtime)
+      }
+    }
+
+    CountDown (time) {
+      const that = this
+      var h = parseInt(time / 3600) >= 10 ? parseInt(time / 3600) : '0' + parseInt(time / 60)
+      var i = parseInt((time - h * 3600) / 60) >= 10 ? parseInt((time - h * 3600) / 60) : '0' + parseInt((time - h * 3600) / 60)
+      var s = time % 60 >= 10 ? time % 60 : '0' + time % 60
+      that.pindan_overtime = h + ':' + i + ':' + s
+      that.$apply()
+      if (time > 0) {
+        setTimeout(function () {
+          time--
+          var h = parseInt(time / 3600) >= 10 ? parseInt(time / 3600) : '0' + parseInt(time / 60)
+          var i = parseInt((time - h * 3600) / 60) >= 10 ? parseInt((time - h * 3600) / 60) : '0' + parseInt((time - h * 3600) / 60)
+          var s = time % 60 >= 10 ? time % 60 : '0' + time % 60
+          that.pindan_overtime = h + ':' + i + ':' + s
+          that.$apply()
+          that.CountDown(time)
+        }, 1000)
+      } else {
+        wepy.navigateTo({
+          url: '/shop/pages/ptorder/list?id=1'
+        })
+      }
+    }
+    onShareAppMessage () {
+      return {
+        title: '我发起的超值拼团马上结束,仅剩的名额快来参加',
+        path: '/pages/index'
+      }
+    }
+  }
+</script>

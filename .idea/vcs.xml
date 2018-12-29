@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../bxjy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../bxjy-weapp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../dth" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../dth-weapp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../iview-admin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../larabbs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../laravel-shop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../wepy-weui-demo" vcs="Git" />
+  </component>
+</project>

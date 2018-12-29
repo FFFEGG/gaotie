@@ -1,0 +1,163 @@
+<style type="less">
+    .city {
+        width: 100%;
+        height: 75rpx;
+        line-height: 75rpx;
+        background: rgb(232, 232, 232);
+        image {
+            width: 35rpx;
+            height: 35rpx;
+            float: left;
+            margin: 20rpx 10rpx;
+        }
+        text {
+            font-size: 30rpx;
+            color: rgb(58, 58, 58);
+            margin-left: 10rpx;
+        }
+        .switch-city {
+            float: right;
+            font-size: 30rpx;
+            color: rgb(10, 159, 156);
+            margin-right: 10rpx;
+        }
+    }
+
+    .swiper {
+        height: 550rpx;
+        width: 100%;
+        image {
+            height: 550rpx;
+            width: 100%;
+        }
+    }
+
+    .nav {
+        width: 100%;
+        padding: 2% 0;
+    }
+
+    .item {
+        width: 100%;
+        height: 160rpx;
+        margin-bottom: 23rpx;
+        .fl {
+            margin-top: 10rpx;
+            float: left;
+            width: 180rpx;
+            text-align: center;
+            view {
+                font-size: 32rpx;
+                color: #9d6348;
+            }
+            image {
+                width: 100rpx;
+                height: 100rpx;
+            }
+        }
+        .fr{
+            float: left;
+            margin-left: 10rpx;
+            height: 160rpx;
+            width: 70%;
+            border-radius: 10rpx;
+        }
+    }
+
+</style>
+<template>
+    <view class="container">
+        <view class="city">
+            <image src="/images/wz.png"></image>
+            <text>{{ active.title }}</text>
+            <text @tap="switch_city" class="switch-city">[切换]</text>
+        </view>
+        <swiper class="swiper" circular indicator-dots	indicator-color="rgba(254,254,254,.3)" indicator-active-color="rgb(139,80,54)">
+            <block wx:for="{{imgUrls}}">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image" width="355" height="150"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="nav">
+            <view class="item">
+                <navigator url="/pages/swh_list" hover-class="navigator-hover">
+                    <view class="fl">
+                        <image src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/WechatIMG53.jpeg"></image>
+                        <view>候车室</view>
+                    </view>
+                    <image class="fr" src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/WechatIMG54.jpeg"></image>
+                </navigator>
+            </view>
+
+        </view>
+
+        <gohome></gohome>
+
+    </view>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import GoHome from '../components/gohome'
+  export default class Swh extends wepy.page {
+    components = {
+      gohome: GoHome
+    }
+    config = {
+      navigationBarTitleText: '商务侯车',
+      navigationBarBackgroundColor: '#9d6348',
+      navigationBarTextStyle: '#FFFFFF'
+    }
+    data = {
+      city: '南宁站',
+      imgUrls: [
+        'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+        'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+      ]
+    }
+    computed = {
+      active() {
+        return wepy.getStorageSync('site')
+      }
+    }
+    methods = {
+      switch_city() {
+        this.$navigate('./site')
+      }
+    }
+
+    async onLoad() {
+      // let loacttion = await wepy.getLocation({
+      //   type: 'wgs84'
+      // })
+      // this.loadCity(loacttion.longitude, loacttion.latitude)
+      // console.log(loacttion)
+    }
+    onShow () {
+      if (!wepy.getStorageSync('site')) {
+        this.$navigate('./site')
+      }
+    }
+    loadCity(longitude, latitude) {
+      var page = this
+      wx.request({
+        url: 'https://api.map.baidu.com/geocoder/v2/?ak=uYbI5hIbGBBnOAY9hh50nLB3Ai4vWxzP&location=' + latitude + ',' + longitude + '&output=json',
+        data: {},
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          page.city = res.data.result.addressComponent.city
+          page.$apply()
+        },
+        fail: function () {
+          page.setData({currentCity: '获取定位失败'})
+        }
+
+      })
+    }
+  }
+</script>

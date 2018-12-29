@@ -1,0 +1,17 @@
+<style type="less">
+
+</style>
+<template>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Buyswh extends wepy.page {
+    config = {
+      navigationBarTitleText: '商务候'
+    }
+    data = {
+    }
+  }
+</script>

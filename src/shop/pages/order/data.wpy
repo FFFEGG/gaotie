@@ -1,0 +1,327 @@
+<style type="less">
+    page {
+        background: #f8f8f8;
+    }
+
+    .heard {
+        position: fixed;
+        top: 0;
+        width: 90%;
+        padding: 2% 5%;
+        height: 80px;
+        background: #b0601b;
+        image  {
+            float: left;
+            width: 50rpx;
+            height: 50rpx;
+            margin-top: 6px;
+        }
+        .heard_left {
+            margin-left: 5px;
+            float: left;
+            color: #FFFFFF;
+            .title {
+                font-size: 20px;
+            }
+            text {
+                font-size: 13px;
+                color: rgb(251, 225, 51);
+            }
+        }
+    }
+
+    .box {
+        width: 94%;
+        padding: 70px 3% 100px 3%;
+        float: left;
+        position: relative;
+        z-index: 999;
+        .box-item {
+            width: 90%;
+            padding: 2% 5%;
+            background: #FFFFFF;
+            border-radius: 2px;
+            margin-bottom: 10px;
+            float: left;
+            image {
+                width: 35%;
+                height: 80px;
+                float: left;
+                margin-right: 10px;
+            }
+            .goods_info {
+                line-height: 20px;
+            }
+            .goods_title {
+                line-height: 20px;
+                font-size: 16px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                height: 40px;
+            }
+            .item {
+                width: 100%;
+                float: left;
+                .item_fl {
+                    float: left;
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+                .item_fr {
+                    float: right;
+                    margin-left: 14px;
+                    font-size: 15px;
+                    width: 70%;
+                    text-align: right;
+                }
+            }
+        }
+        .zprice {
+            float: right;
+            font-size: 15px;
+            margin-right: 15px;
+            text {
+                font-size: 20px;
+                color: rgb(252, 87, 0);
+            }
+        }
+    }
+
+    .footet {
+        width: 94%;
+        padding: 0 3%;
+        position: fixed;
+        background: #FFFFFF;
+        height: 40px;
+        padding-top: 10px;
+        bottom: 0;
+        view {
+            width: 40%;
+            float: left;
+            border: 1px #eeeeee solid;
+            background: #FFFFFF;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            font-size: 15px;
+            border-radius: 3px;
+        }
+        z-index: 999999999;
+    }
+</style>
+<template>
+    <view class="heard">
+        <image src="/shop/image/ddxq.png"></image>
+        <view class="heard_left" wx:if="{{ order.pay_status == 0}}">
+            <view class="title">未支付</view>
+            <view>订单在
+                <text> {{ overduetime }}</text>
+                后未支付将自动关闭
+            </view>
+        </view>
+
+        <view class="heard_left" wx:if="{{ order.pay_status == 1 && order.send_status == 0}}">
+            <view class="title">已付款</view>
+        </view>
+    </view>
+    <view class="box">
+        <view class="box-item">
+            <view class="item">
+                <view class="item_fl">收货姓名:</view>
+                <view class="item_fr">{{ order.adds_name}}</view>
+            </view>
+            <view class="item">
+                <view class="item_fl">手机号码:</view>
+                <view class="item_fr">{{ order.adds_tel}}</view>
+            </view>
+            <view class="item">
+                <view class="item_fl">收货地址:</view>
+                <view class="item_fr">{{ order.adds_address}}</view>
+            </view>
+        </view>
+        <repeat for="{{ order.goods }}" item="v">
+            <view class="box-item">
+                <image src="{{ v.thumb }}"></image>
+                <view class="goods_info">
+                    <view class="goods_title">{{ v.title }}</view>
+                    <view>{{ v.sku==0?'默认':v.sku }}X{{ v.num }}</view>
+                    <view wx:if="{{ v.sku == 0  }}" style="color: rgb(253,146,0);font-size: 15px">¥{{ v.price }}</view>
+                    <view wx:else style="color: rgb(253,146,0);font-size: 15px">¥{{ v.skuprice }}</view>
+                </view>
+            </view>
+        </repeat>
+
+        <view class="box-item">
+            <view class="item">
+                <view class="item_fl">订单编号:</view>
+                <view class="item_fr">{{ order.out_trade_no }}</view>
+            </view>
+            <view class="item">
+                <view class="item_fl">下单时间:</view>
+                <view class="item_fr">{{ order.addtime}}</view>
+            </view>
+            <view class="item">
+                <view class="item_fl">支付方式:</view>
+                <view class="item_fr">在线支付</view>
+            </view>
+        </view>
+
+        <view class="box-item">
+            <view class="item">
+                <view class="item_fl">商品金额:</view>
+                <view class="item_fr">¥{{ goodsprice }}</view>
+            </view>
+            <view class="item">
+                <view class="item_fl">运费:</view>
+                <view class="item_fr">+¥{{ yf }}</view>
+            </view>
+            <!--<view class="item">-->
+            <!--<view class="item_fl">活动优惠:</view>-->
+            <!--<view class="item_fr">-¥10</view>-->
+            <!--</view>-->
+            <view class="item">
+                <view class="item_fl">会员折扣:</view>
+                <view class="item_fr">-¥{{ discount_price }}</view>
+            </view>
+            <view class="item">
+                <view class="item_fl">优惠券:</view>
+                <view class="item_fr">-¥{{ order.yhqprice }}</view>
+            </view>
+            <view class="item">
+                <view class="item_fl">积分:</view>
+                <view class="item_fr">-¥{{ order.point_price }}</view>
+            </view>
+        </view>
+        <view class="zprice">实付款:
+            <text>¥{{ order.total}}</text>
+        </view>
+    </view>
+    <view wx:if="{{ order.pay_status == 0 }}" class="footet">
+        <view @tap="qxdd">取消订单</view>
+        <view style="float: right;background: #b0601b;color: #FFFFFF" @tap="ljfk">立即付款</view>
+    </view>
+    <view wx:if="{{ order.pay_status == 1 && order.send_status == 0}}" class="footet">
+        <view style="float: right;background: #b0601b;color: #FFFFFF" @tap="tk">退款</view>
+    </view>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../../../utils/api'
+
+  export default class Data extends wepy.page {
+    config = {
+      navigationBarTitleText: '订单详情'
+    }
+    data = {
+      order: '',
+      yf: 0,
+      discount_price: '',
+      goodsprice: 0,
+      overduetime: ''
+    }
+    methods = {
+      tk () {
+        wepy.navigateTo({
+          url: '/shop/pages/order/tk?id=' + this.order.id
+        })
+      },
+      async qxdd () {
+        let res = await wepy.showModal({
+          title: '取消订单',
+          content: '您正在进行取消订单操作',
+          confirmText: '确认',
+          cancelText: '取消'
+        })
+        if (res.confirm) {
+          let rew = await api.request({
+            url: 'orders/cannelOrder',
+            method: 'post',
+            data: {
+              token: wepy.getStorageSync('token'),
+              orderid: this.order.id
+            }
+          })
+          if (rew.data.code === 200) {
+            wepy.showToast({
+              title: '取消成功',
+              icon: 'success'
+            })
+            setTimeout(function () {
+              wepy.navigateTo({
+                url: '/shop/pages/order/list?id=1'
+              })
+            }, 500)
+          }
+        }
+      },
+      async ljfk () {
+        const that = this
+        let rew = await api.request({
+          url: 'orders/paynow',
+          method: 'post',
+          data: {
+            token: wepy.getStorageSync('token'),
+            orderid: this.order.id
+          }
+        })
+        wx.requestPayment({
+          timeStamp: rew.data.timeStamp,
+          nonceStr: rew.data.nonceStr,
+          package: rew.data.package,
+          signType: 'MD5',
+          paySign: rew.data.paySign,
+          success (res) {
+            wepy.redirectTo({
+              url: '/shop/pages/success?id=' + that.order.id
+            })
+          }
+        })
+      }
+    }
+    async onLoad(options) {
+      let rew = await api.request({
+        url: 'orders/orderDetail',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token'),
+          id: options.id
+        }
+      })
+
+      this.order = rew.data.data
+      for (var i in this.order.goods) {
+        this.yf += parseInt(this.order.goods[i]['postage'])
+        this.discount_price = Number(this.discount_price) + Number(this.order.goods[i]['discount_price'])
+        if (this.order.goods[i]['sku'] == 0) {
+          this.goodsprice += this.order.goods[i]['price'] * this.order.goods[i]['num']
+        } else {
+          this.goodsprice += this.order.goods[i]['skuprice'] * this.order.goods[i]['num']
+        }
+      }
+      if (this.order.pay_status === 0) {
+        this.CountDown(this.order.overduetime)
+      }
+      this.$apply()
+    }
+    CountDown (time) {
+      const that = this
+      if (time > 0) {
+        setTimeout(function () {
+          time--
+          var s = time % 60 >= 10 ? time % 60 : '0' + time % 60
+          var i = parseInt(time / 60)
+          that.overduetime = '00:' + i + ':' + s
+          that.$apply()
+          that.CountDown(time)
+        }, 1000)
+      } else {
+        wepy.navigateTo({
+          url: '/shop/pages/order/list?id=1'
+        })
+      }
+    }
+  }
+</script>

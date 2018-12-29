@@ -1,0 +1,175 @@
+<style type="less">
+    .item {
+        width: 94%;
+        padding: 2% 3%;
+        border-bottom: 1px solid rgb(234,234,234);
+        border-top: 1px solid rgb(234,234,234);
+        .add {
+            border-bottom: 1px solid rgb(234,234,234);
+            padding-bottom: 20rpx;
+            view {
+                font-size: 28rpx;
+                color: rgb(130,130,130);
+            }
+            .name {
+                color: #333;
+                font-size: 30rpx;
+            }
+        }
+        margin-bottom: 10rpx;
+    }
+
+    .caozuo{
+        view {
+            float: left;
+            image {
+                width:160rpx;
+                height:57rpx;
+                margin-top:10rpx;
+            }
+            margin-right: 10rpx;
+            font-size: 30rpx;
+            color: #555;
+        }
+        .active {
+            image {
+                width: 40rpx;
+                height: 40rpx;
+                margin-top: 20rpx;
+
+            }
+        }
+        padding: 1% 0;
+        width:100%;
+        height:68rpx;
+        line-height:81rpx;
+    }
+
+
+    .add_btn {
+        width: 70%;
+        position: fixed;
+        bottom: 10%;
+        margin-left: 15%;
+        background: rgb(27,162,153);
+        color: #FFFFFF;
+    }
+
+
+</style>
+<template>
+    <view style="padding-bottom: 15%">
+
+        <repeat for="{{ list }}" item="v">
+            <view  class="item">
+                <view class="add">
+                    <view class="name">
+                        {{ v.name }} {{ v.mobile }}
+                    </view>
+                    <view>
+                        收货地址：{{ v.address}} {{ v.adds_detail}}
+                    </view>
+                </view>
+                <view class="caozuo">
+                    <view class="active" @tap="check({{v}})" index="index">
+                        <image wx:if="{{ v.id == active }}" src="/images/dz_three.png"></image>
+                        <image wx:else src="/images/dz_four.png"></image>
+                    </view>
+                    <view  @tap="check({{v}})">
+                        设为默认地址
+                    </view>
+                    <view style="float: right" @tap="save({{ v.id }})">
+                        <image src="/images/dz_one.png"></image>
+                    </view>
+                    <view style="float: right"  @tap="shanchu({{ index }})">
+                        <image src="/images/dz_two.png"></image>
+                    </view>
+                </view>
+            </view>
+        </repeat>
+
+    </view>
+
+
+
+    <button class="add_btn" @tap="add_address"> 添加收货地址 </button>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+  export default class Address extends wepy.page {
+    config = {
+      navigationBarTitleText: '地址管理'
+    }
+    data = {
+      list: [],
+      active: 0
+    }
+    methods = {
+      async check (e) {
+        let rew = await api.request({
+          url: 'user/defaultAddress',
+          method: 'post',
+          data: {
+            token: wepy.getStorageSync('token'),
+            add_id: e.id
+          }
+        })
+        if (rew.data.code === 200) {
+          this.active = e.id
+          wepy.setStorageSync('useradd', e)
+          this.$apply()
+        }
+        wepy.navigateBack({
+          delta: 1
+        })
+      },
+      add_address () {
+        this.$navigate('./add_address')
+      },
+      async shanchu (index) {
+        let res = await wepy.showModal({
+          title: '删除地址',
+          content: '确认删除地址？',
+          confirmText: '确认',
+          cancelText: '取消'
+        })
+        if (res.confirm) {
+          let rew = await api.request({
+            url: 'user/delAddress',
+            method: 'post',
+            data: {
+              token: wepy.getStorageSync('token'),
+              add_id: this.list[index]['id']
+            }
+          })
+
+          if (rew.data.code === 200) {
+            this.list.splice(index, 1)
+            this.$apply()
+          }
+        }
+      },
+      save (id) {
+        this.$navigate('./save_address?id=' + id)
+      }
+    }
+
+    async onShow () {
+      let rew = await api.request({
+        url: 'user/Addresslist',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token')
+        }
+      })
+
+      if (rew.data.code === 200) {
+        this.list = rew.data.data
+        this.active = rew.data.defaultId
+        this.$apply()
+      }
+    }
+  }
+</script>

@@ -1,0 +1,273 @@
+<style type="less">
+    page {
+        background: #eeeeee;
+    }
+    .swiper-block{
+        height: 480rpx;
+        width: 100%;
+    }
+    .swiper-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        overflow:unset;
+    }
+    .slide-image{
+        height:320rpx;
+        width: 520rpx;
+        border-radius: 9rpx;
+        box-shadow: 0px 0px 30rpx rgba(0, 0,0,.2);
+        margin: 0rpx 30rpx;
+        z-index: 1;
+    }
+    .active{
+        transform: scale(1.14);
+        transition:all .2s ease-in 0s;
+        z-index: 20;
+    }
+
+    .heard {
+        width: 100%;
+        float: left;
+        padding-bottom: 10px;
+        .quanyi {
+            width: 94%;
+            padding: 0 3%;
+        }
+    }
+
+    .form {
+        width: 92%;
+        padding: 4%;
+        background: #FFFFFF;
+        float: left;
+        clear: both;
+        .price {
+            color: #a76618;
+            font-size: 14px;
+            text {
+                font-size: 20px;
+            }
+        }
+
+        .item {
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #eee;
+            view {
+                float: left;
+                font-size: 15px;
+                width: 200rpx;
+            }
+
+            input {
+                float: left;
+                font-size: 15px;
+                margin-top: 7px;
+            }
+        }
+    }
+
+    .yh {
+        width: 92%;
+        padding: 4%;
+        background: #FFFFFF;
+        margin-top: 10px;
+        float: left;
+        view {
+            float: left;
+            font-size: 15px;
+        }
+
+        .price {
+            float: right;
+            color: #EF4F4F;
+        }
+    }
+
+    .pay_info {
+        width: 100%;
+        padding: 4% 0;
+        background: #FFFFFF;
+        margin-top: 10px;
+        float: left;
+        view {
+
+            font-size: 15px;
+        }
+        .title {
+            width: 92%;
+            padding: 2% 4%;
+            padding-top: 0%;
+            font-size: 17px;
+            color: #a76618;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item {
+            width: 92%;
+            padding: 2% 4%;
+            background: #FFFFFF;
+            border-bottom: 1px solid #eee;
+            float: left;
+            image {
+                float: left;
+                width: 50rpx;
+                height: 50rpx;
+            }
+
+            text {
+                float: left;
+                margin-left: 10px;
+                line-height: 50rpx;
+            }
+
+            .check {
+                float: right;
+                width: 25rpx;
+                height: 25rpx;
+                margin-top: 15rpx;
+            }
+        }
+    }
+
+    .footer {
+        width: 92%;
+        padding: 4%;
+        background: #FFFFFF;
+        margin-top: 10px;
+        float: left;
+        .fooer_price {
+            font-size: 17px;
+            width: 100%;
+            text-align: right;
+            float: left;
+            text {
+                color: #a76618;
+                .price {
+                    color: #a76618;
+                    font-size: 25px;
+                }
+            }
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #a76618;
+            color: #FFFFFF;
+            width: 60%;
+            border-radius: 30px;
+        }
+
+    }
+
+</style>
+<template>
+
+    <view class="heard">
+        <swiper  class="swiper-block"  previous-margin="90rpx" next-margin="90rpx" current="0" bindchange="swiperChange">
+            <block wx:for="{{list}}" wx:index="{{index}}">
+                <swiper-item class="swiper-item">
+                    <image mode="aspectFill" src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/kp.png" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <view class="quanyi">
+            <view style="text-align: center;font-size: 14px">银卡</view>
+            <text style="font-size: 13px">
+                1、采用实名制,仅限本人使用。
+                2、可全年无限次使用广西区内高铁商务候车厅标准服务。
+                3、可享全国(广西区外)高铁贵宾厅服务8.8折优惠。
+            </text>
+        </view>
+    </view>
+
+    <view class="form">
+        <form>
+            <view class="price">
+                ¥<text>498</text> 元/年
+            </view>
+            <view class="item">
+                <view>姓名:</view>
+                <input cursor-spacing="15px" type="text" placeholder="请输入姓名" value="{{ userinfo.name }}">
+            </view>
+
+            <view class="item">
+                <view>手机号码:</view>
+                <input cursor-spacing="15px" type="text" placeholder="请输入手机号码" value="{{ userinfo.mobile }}">
+            </view>
+
+            <view class="item">
+                <view>身份证号:</view>
+                <input cursor-spacing="15px" type="text" placeholder="请输入身份证号">
+            </view>
+        </form>
+    </view>
+
+    <view class="yh">
+        <view>优惠</view>
+        <view class="price">- ¥10.00</view>
+    </view>
+
+    <view class="pay_info">
+        <view class="title">支付方式</view>
+        <view class="item">
+            <image src="/images/zf_wx.png"></image>
+            <text>微信支付</text>
+            <image class="check" src="/images/dz_three.png"></image>
+        </view>
+
+        <view class="item"  @tap="usejifen" >
+            <text style="margin: 0">是否使用积分</text>
+            <image wx:if="{{ jifen }}" class="check" src="/images/dz_three.png"></image>
+            <image wx:else class="check" src="/images/dz_four.png"></image>
+        </view>
+    </view>
+
+    <view class="footer">
+        <view class="fooer_price">实付款:<text style="margin-left: 10px">¥<text class="price">488</text>元/年</text> </view>
+        <button>确认支付</button>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+  export default class Buycar extends wepy.page {
+    config = {
+      navigationBarTitleText: '会员购买'
+    }
+    data = {
+      swiperIndex: 0,
+      list: [1, 2, 3],
+      jifen: false,
+      userinfo: ''
+    }
+    methods = {
+      swiperChange(e) {
+        this.swiperIndex = e.detail.current
+        console.log(this.swiperIndex)
+        this.$apply()
+      },
+      usejifen () {
+        this.jifen = !this.jifen
+        this.$apply()
+      }
+    }
+    async onLoad () {
+      let rew = await api.request({
+        url: 'user',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token')
+        }
+      })
+      if (rew.data.code === 200) {
+        this.userinfo = rew.data.user
+        this.$apply()
+      }
+    }
+  }
+</script>

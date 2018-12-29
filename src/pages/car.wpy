@@ -1,0 +1,382 @@
+<style type="less">
+    page {
+        background: #f8f8f8;
+    }
+
+    .add {
+        width: 100%;
+        .item {
+            width: 100%;
+            height: 80px;
+            background: #FFFFFF;
+            float: left;
+            border-bottom: 1px solid #eee;
+            view {
+                float: left;
+                margin-right: 10px;
+            }
+            .item_btn {
+                margin-top: 30px;
+                margin-left: 10px;
+                image {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .good_img {
+                width: 150rpx;
+                height: 70px;
+                margin-top: 5px;
+                image {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .goods_info {
+                width: 300rpx;
+                height: 100%;
+                float: left;
+                .title {
+                    font-size: 14px;
+                    height: 30px;
+                    line-height: 26px;
+                    width: 100%;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            }
+
+            .num {
+                width: 100%;
+                margin-top: 4px;
+                view {
+                    float: left;
+                    line-height: 20px;
+                    font-size: 14px;
+                    border: 1px solid #eee;
+                    width: 30px;
+                    text-align: center;
+                    margin-right: 0;
+                }
+                input {
+                    float: left;
+                    line-height: 20px;
+                    border: 1px solid #eee;
+                    width: 30px;
+                    height: 20px;
+                    min-height: 20px;
+                    text-align: center;
+                }
+            }
+            .price {
+                margin-right: 5px;
+                margin-top: 3px;
+                float: right;
+                width: 50px;
+                text-align: right;
+                view {
+                    margin-right: 0;
+                    font-size: 15px;
+                    float: right;
+                    color: #EF4F4F;
+                    width: 100%;
+                }
+                .goods_price {
+                    height: 50px;
+                }
+                image {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background: #FFFFFF;
+            view {
+                float: left;
+                height: 100%;
+                line-height: 50px;
+                font-size: 15px;
+                margin-right: 20px;
+            }
+
+            .all {
+                margin-top: 5px;
+                margin-left: 10px;
+                margin-right: 10px;
+                image {
+                    width: 20px;
+                    height: 20px;
+
+                }
+            }
+
+            .js_btn {
+                float: right;
+                width: 30%;
+                background: #b0601b;
+                color: #FFFFFF;
+                margin-right: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    .page__hd {
+        margin: 10% 0;
+    }
+
+
+</style>
+<template>
+    <view class="container">
+
+
+        <view class="add" wx:if="{{ show }}">
+
+            <view class="page" style="text-align: center">
+                <image src="/images/gouwuche.png" style="margin-top: 30%;width: 80px;height: 80px;"/>
+                <view class="page__hd">
+                    <view class="page__desc" style="text-align: center">您的购物车中没有商品哦!</view>
+                </view>
+                <view class="page__bd page__bd_spacing">
+
+
+                    <view class="button-sp-area">
+
+                        <button class="weui-btn" @tap="gohome" type="primary" plain="true"
+                                style="width: 50%;border: #EF4F4F 1px solid;color: #EF4F4F">去首页逛逛吧
+                        </button>
+
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="add" wx:else>
+            <repeat for="{{ list }}" index="index" item="v">
+                <view class="item">
+                    <view class="item_btn">
+                        <image src="/images/dz_three.png" wx:if="{{ v.select }}" @tap="check_goods({{index}})"></image>
+                        <image src="/images/dz_four.png" wx:else @tap="check_goods({{index}})"></image>
+                    </view>
+                    <view class="good_img">
+                        <image src="{{ v.thumb }}"></image>
+                    </view>
+
+                    <view class="goods_info">
+                        <view class="title">{{ v.title }}</view>
+                        <view class="sku">{{ v.sku? v.sku:'默认' }}</view>
+                        <view class="num">
+                            <view @tap="jian({{ index }})">-</view>
+                            <input maxlength="3" cursor-spacing="20px" @tap="numactive({{ index }})"
+                                   bindinput="bindKeyInput" type="number" value="{{ v.num }}">
+                            <view @tap="jia({{ index }})">+</view>
+                        </view>
+                    </view>
+
+                    <view class="price">
+                        <view class="goods_price">¥{{ v.price }}</view>
+                        <image @tap="del({{ index }})" src="/images/shanchu.png"></image>
+                    </view>
+                </view>
+            </repeat>
+
+
+            <view class="footer">
+                <view class="all">
+                    <image wx:if="{{ all }}" src="/images/dz_three.png" @tap="check_all"></image>
+                    <image wx:else src="/images/dz_four.png" @tap="check_all"></image>
+                </view>
+                <view @tap="check_all">全选</view>
+                <view>合计:
+                    <text style="color: #EF4F4F">¥{{ zprice }}</text>
+                </view>
+                <view class="js_btn" @tap="jesuan">结算</view>
+            </view>
+
+        </view>
+
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../utils/api'
+
+  export default class Car extends wepy.page {
+    config = {
+      navigationBarTitleText: '购物车'
+    }
+    data = {
+      list: [
+      ],
+      indexlist: [],
+      all: false,
+      zprice: 0,
+      num_active: 0,
+      show: false
+    }
+    methods = {
+      jesuan () {
+        if (this.zprice === 0) {
+          wepy.showToast({
+            title: '请选择商品',
+            icon: 'none'
+          })
+          return false
+        }
+        var str = ''
+        for (var i in this.list) {
+          if (this.list[i]['select'] === true) {
+            str += this.list[i]['id'] + ','
+          }
+        }
+        wepy.navigateTo({
+          url: '/shop/pages/buy/list?id=' + str.substring(0, str.length - 1)
+        })
+      },
+      gohome() {
+        wepy.switchTab({
+          url: '/pages/index'
+        })
+      },
+      check_goods(index) {
+        if (this.list[index]['select'] === false) {
+          this.list[index]['select'] = true
+          this.indexlist.push(index)
+        } else {
+          this.list[index]['select'] = false
+          this.indexlist.splice(this.indexlist.indexOf(index), 1)
+        }
+        if (this.indexlist.length === this.list.length) {
+          this.all = true
+        } else {
+          this.all = false
+        }
+        this.zpriceSum()
+        this.$apply()
+      },
+      check_all() {
+        if (this.list.length === 0) {
+          return false
+        }
+        this.all = !this.all
+        this.indexlist = []
+        this.zprice = 0
+        if (this.all === true) {
+          for (var i in this.list) {
+            i = parseInt(i)
+            this.list[i]['select'] = true
+            this.indexlist.push(i)
+            if (this.list[i]['select'] === true) {
+              this.zprice = this.zprice + this.list[i]['num'] * this.list[i]['price']
+            }
+          }
+        } else {
+          for (var j in this.list) {
+            this.list[j]['select'] = false
+          }
+          this.indexlist = []
+        }
+        this.$apply()
+      },
+      bindKeyInput(e) {
+        if (e.detail.value <= 0) {
+          this.list[this.num_active]['num'] = 1
+          this.$apply()
+        } else {
+          this.list[this.num_active]['num'] = e.detail.value
+          this.$apply()
+        }
+        this.zpriceSum()
+        this.change(this.list[this.num_active]['id'], this.list[this.num_active]['num'])
+      },
+      numactive(index) {
+        this.num_active = index
+        this.$apply()
+      },
+      jia(index) {
+        this.list[index]['num']++
+        this.$apply()
+        this.zpriceSum()
+        this.change(this.list[index]['id'], this.list[index]['num'])
+      },
+      jian(index) {
+        if (this.list[index]['num'] <= 1) {
+          return false
+        }
+        this.list[index]['num']--
+        this.$apply()
+        this.zpriceSum()
+        this.change(this.list[index]['id'], this.list[index]['num'])
+      },
+      del (index) {
+        this.delcar(this.list[index]['id'])
+        this.list.splice(index, 1)
+        if (this.list.length === 0) {
+          this.all = false
+          this.show = true
+        }
+        this.$apply()
+        this.zpriceSum()
+      }
+    }
+    async onShow () {
+      let rew = await api.request({
+        url: 'cart/index',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token')
+        }
+      })
+      this.zprice = 0
+      this.all = false
+      this.list = rew.data.data
+      if (this.list.length > 0) {
+        this.show = false
+      } else {
+        this.show = true
+      }
+      this.$apply()
+    }
+    async zpriceSum() {
+      this.zprice = 0
+      for (var i in this.list) {
+        i = parseInt(i)
+        if (this.list[i]['select'] === true) {
+          this.zprice = this.zprice + this.list[i]['num'] * this.list[i]['price']
+        }
+      }
+      this.$apply()
+    }
+    async change (id, num) {
+      await api.request({
+        url: 'cart/changeNum',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token'),
+          id: id,
+          num: num
+        }
+      })
+    }
+    async delcar (id) {
+      await api.request({
+        url: 'cart/delcart',
+        method: 'post',
+        data: {
+          token: wepy.getStorageSync('token'),
+          id: id
+        }
+      })
+    }
+  }
+</script>

@@ -1,0 +1,240 @@
+<style type="less">
+    page {
+        height: 100%;
+        float: left;
+        background: url("https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/lj_bg.png") no-repeat 100%/100%;
+    }
+    .continor {
+        width: 100%;
+        padding-bottom: 30rpx;
+        float: left;
+        .top {
+            width: 100%;
+            height: 500rpx;
+            float: left;
+        }
+    }
+    .item {
+        width: 90%;
+        padding: 2% 5%;
+        height: 190rpx;
+
+        image {
+            width: 100%;
+            height: 100%;
+            float: left;
+            position: relative;
+            .q_f {
+                position: absolute;
+                top: 0;
+                left: 0;
+                float: left;
+                width: 74%;
+                height: 100%;
+                view {
+                    float: left;
+
+
+                }
+                .price {
+                    width: 40%;
+                    line-height: 190rpx;
+                    font-size: 55rpx;
+                    color: #ca0808;
+                    text-align: center;
+                }
+                .info {
+                    width: 60%;
+                    view {
+                        width: 100%;
+                        text-align: left;
+                        line-height: 60rpx;
+                        font-size: 40rpx;
+                    }
+                }
+            }
+            .q_n {
+                top: 0;
+                right: 0;
+                position: absolute;
+                float: left;
+                width: 26%;
+                height: 100%;
+                text-align: center;
+                image {
+                    width:69%;
+                    height:65%;
+                    float:none;
+                    margin-left:12%;
+                    margin-top:3%;
+                }
+                .ljlq {
+                    margin-left:19%;
+                    background: #FFFFFF;
+                    width: 75%;
+                    text-align: center;
+                    border-radius: 10px;
+                    font-size: 20rpx;
+                }
+                .yqg {
+                    margin-left:19%;
+                    background: #a8a8a8;
+                    color: #FFFFFF;
+                    width: 75%;
+                    text-align: center;
+                    border-radius: 10px;
+                    font-size: 20rpx;
+                }
+                .yq {
+                    color: #FFFFFF;
+                    font-size: 30rpx;
+                    margin-left:11%;
+                    line-height: 0;
+                    line-height: 40rpx;
+                }
+            }
+        }
+    }
+</style>
+<template>
+    <view class="continor">
+        <image class="top" src="https://fiveeggs.oss-cn-beijing.aliyuncs.com/gt/lj_top.png"></image>
+        <view style="clear: both"></view>
+        <repeat for="{{ list }}" item="v">
+
+                <view class="item" wx:if="{{ v.is_has ==1 }}">
+                    <image src="/shop/image/lj_list_bg.png">
+                        <view class="q_f">
+                            <view class="price">
+                                <text style="font-size: 40rpx">¥</text>{{v.price }}
+                            </view>
+                            <view class="info">
+                                <view style="margin-top: 12rpx;color: #fdb105">优惠券</view>
+                                <view style="font-size: 30rpx;color: #333">{{ v.title}}</view>
+                                <view style="font-size: 25rpx;color: #fdb105">有效期{{ v.start_time }}至{{ v.end_time }}</view>
+                            </view>
+                        </view>
+
+                        <view class="q_n" @tap="qsy">
+                            <image src="/shop/image/lj_lq.png"></image>
+                            <view class="ljlq">去使用</view>
+                        </view>
+                    </image>
+                </view>
+                <view class="item" wx:else>
+                    <image src="/shop/image/lj_list_bg1.png"  wx:if="{{ v.surplus == 0 }}">
+                        <view class="q_f">
+                            <view class="price">
+                                <text style="font-size: 40rpx">¥</text>{{v.price }}
+                            </view>
+                            <view class="info">
+                                <view style="margin-top: 12rpx;color: #fdb105">优惠券</view>
+                                <view style="font-size: 30rpx;color: #333">{{ v.title}}</view>
+                                <view style="font-size: 25rpx;color: #fdb105">有效期{{ v.start_time }}至{{ v.end_time }}</view>
+                            </view>
+                        </view>
+                        <view class="q_n">
+                            <image src="/shop/image/lj_qg.png"></image>
+                            <view class="ljlq">已抢光</view>
+                        </view>
+                    </image>
+
+                    <image src="/shop/image/lj_list_bg.png"  wx:else>
+                        <view class="q_f">
+                            <view class="price">
+                                <text style="font-size: 40rpx">¥</text>{{v.price }}
+                            </view>
+                            <view class="info">
+                                <view style="margin-top: 12rpx;color: #fdb105">优惠券</view>
+                                <view style="font-size: 30rpx;color: #333">{{ v.title}}</view>
+                                <view style="font-size: 25rpx;color: #fdb105">有效期{{ v.start_time }}至{{ v.end_time }}</view>
+                            </view>
+                        </view>
+
+                        <view class="q_n" @tap="lq({{ v.id }})">
+                            <view class="yq" style="margin-top: 30rpx">已抢</view>
+                            <view class="yq" style="font-size: 40rpx;margin-bottom: 20rpx">{{ v.percent }}</view>
+                            <view class="ljlq">立即领取</view>
+                        </view>
+                    </image>
+                </view>
+        </repeat>
+    </view>
+
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import api from '../../utils/api'
+  export default class lq extends wepy.page {
+    config = {
+      navigationBarTitleText: '活动中心'
+    }
+    data = {
+      list: []
+    }
+    methods = {
+      async lq (id) {
+        let rew = await api.request({
+          url: 'yhq/draw',
+          method: 'post',
+          data: {
+            token: wepy.getStorageSync('token'),
+            id: id
+          }
+        })
+        if (rew.data.code === 200) {
+          wepy.showToast({
+            title: rew.data.msg,
+            icon: 'none'
+          })
+          this.onShow()
+        } else {
+          wepy.showToast({
+            title: rew.data.msg,
+            icon: 'none'
+          })
+        }
+      },
+      qsy () {
+        wepy.redirectTo({
+          url: '/shop/pages/index'
+        })
+      }
+    }
+    async onLoad (options) {
+      this.id = options.id
+      this.$apply()
+    }
+    async onShow () {
+      if (wepy.getStorageSync('token')) {
+        let rew = await api.request({
+          url: 'yhq/index',
+          method: 'post',
+          data: {
+            token: wepy.getStorageSync('token')
+          }
+        })
+        this.list = rew.data.data
+        this.FzI(this.list)
+        this.$apply()
+      } else {
+        let rew = await api.request({
+          url: 'yhq/index',
+          method: 'post'
+        })
+        this.list = rew.data.data
+        this.$apply()
+        this.FzI(this.list)
+      }
+    }
+    FzI (list) {
+      for (var i in list) {
+        this.list[i]['price'] = parseInt(list[i]['price'])
+        this.list[i]['end_time'] = list[i]['end_time'].substring(5, 12)
+        this.$apply()
+      }
+    }
+  }
+</script>
